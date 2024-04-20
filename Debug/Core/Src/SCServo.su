@@ -1,0 +1,24 @@
+../Core/Src/SCServo.cpp:3:1:SCServo::SCServo(UART_HandleTypeDef*)	16	static
+../Core/Src/SCServo.cpp:7:6:void SCServo::Printf(uint8_t)	24	static
+../Core/Src/SCServo.cpp:14:6:void SCServo::fflushRevBuf()	24	static
+../Core/Src/SCServo.cpp:21:5:int SCServo::EnableTorque(uint8_t, uint8_t, uint8_t)	24	static
+../Core/Src/SCServo.cpp:39:5:int SCServo::WritePos(uint8_t, int, int, uint8_t)	32	static
+../Core/Src/SCServo.cpp:64:5:int SCServo::RegWritePos(uint8_t, int, int, uint8_t)	32	static
+../Core/Src/SCServo.cpp:89:6:void SCServo::RegWriteAction()	24	static
+../Core/Src/SCServo.cpp:101:5:int SCServo::ReadBuf(uint16_t, uint8_t*)	32	static
+../Core/Src/SCServo.cpp:111:5:int SCServo::ReadPos(uint8_t)	32	static
+../Core/Src/SCServo.cpp:135:6:void SCServo::SyncWritePos(uint8_t*, uint8_t, int, int)	40	static
+../Core/Src/SCServo.cpp:166:5:int SCServo::WriteID(uint8_t, uint8_t, uint8_t)	24	static
+../Core/Src/SCServo.cpp:184:5:int SCServo::WriteLimitAngle(uint8_t, int, int, uint8_t)	32	static
+../Core/Src/SCServo.cpp:209:5:int SCServo::WriteLimitTroque(uint8_t, int, uint8_t)	32	static
+../Core/Src/SCServo.cpp:231:5:int SCServo::WritePunch(uint8_t, int, uint8_t)	32	static
+../Core/Src/SCServo.cpp:253:5:int SCServo::WriteBaund(uint8_t, uint8_t, uint8_t)	24	static
+../Core/Src/SCServo.cpp:272:5:int SCServo::WriteDeadBand(uint8_t, uint8_t, uint8_t, uint8_t)	24	static
+../Core/Src/SCServo.cpp:292:5:int SCServo::WriteIMax(uint8_t, int, uint8_t)	32	static
+../Core/Src/SCServo.cpp:315:5:int SCServo::LockEprom(uint8_t, uint8_t, uint8_t)	24	static
+../Core/Src/SCServo.cpp:334:5:int SCServo::WritePID(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	24	static
+../Core/Src/SCServo.cpp:355:5:int SCServo::WriteSpe(uint8_t, int, uint8_t)	40	static
+../Core/Src/SCServo.cpp:384:5:int SCServo::ReadVoltage(uint8_t)	32	static
+../Core/Src/SCServo.cpp:406:5:int SCServo::ReadTemper(uint8_t)	32	static
+../Core/Src/SCServo.cpp:428:6:void SCServo::RotateClockwise()	24	static
+../Core/Src/SCServo.cpp:434:6:void SCServo::RotateCounterClockwise()	24	static
