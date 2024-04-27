@@ -440,7 +440,7 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/",
+				"fragment" : "/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/STM32G431KBTX_FLASH.ld",
 				"role" : "flags"
 			}
 		],
@@ -1095,7 +1095,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "/home/arusso/STM32CubeIDE/workspace_1.15.0",
+			"path" : "STM32G431KBTX_FLASH.ld",
 			"sourceGroupIndex" : 2
 		}
 	],

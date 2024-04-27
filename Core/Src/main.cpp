@@ -89,6 +89,10 @@ void list_servos_ids(uint8_t id_start, uint8_t id_stop, SCServo servos) {
 	}
 }
 
+int ids_servos[3] = {8, 17, 18};
+int lower_limit[3] = {353, 100, 0};
+int upper_limit[3] = {740, 900, 1023};
+
 void manual_control() {
 
     HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
@@ -97,9 +101,6 @@ void manual_control() {
 
     SCServo servos = SCServo(&huart1);
 
-    int ids_servos[3] = {7, 9, 8};
-    int lower_limit[3] = {520, 375, 0};
-    int upper_limit[3] = {930, 1023, 1023};
     int pos_servos[3];
 
     for (int i = 0; i < 3; i++) {
@@ -168,7 +169,7 @@ void manual_control() {
         // Move the servo to the pos from the adc
         int val = value_adc;
 //      printf("value_adc = %d\n", val);
-        servos.WritePos(ids_servos[i_mot], val, 50);
+        servos.WritePos(ids_servos[i_mot], val, 600);
         pos_servos[i_mot] = val;
 
         // Print the values of the 3 servos in 1 line
@@ -188,9 +189,6 @@ void go_to_waypoints() {
 
     SCServo servos = SCServo(&huart1);
 
-    int ids_servos[3] = {7, 9, 8};
-    int lower_limit[3] = {520, 375, 0};
-    int upper_limit[3] = {930, 1023, 1023};
     int pos_servos[3];
 
     for (int i = 0; i < 3; i++) {
@@ -201,20 +199,50 @@ void go_to_waypoints() {
 
     // Vector of waypoints. each waypoint is a vector of 4 integers: the 3 positions of the servos and the time to reach the waypoint
     std::vector<std::vector<int>> waypoints = {
-            std::vector<int>{825, 482, 178, 200},
-            std::vector<int>{916, 744, 178, 500},
-//            std::vector<int>{911, 745, 484, 1000},
-            std::vector<int>{747, 839, 484, 500},
-            std::vector<int>{904, 669, 492, 500},
-            std::vector<int>{919, 396, 0, 200},
-//            std::vector<int>{919, 396, 375, 1000},
-//            std::vector<int>{895, 394, 338, 1000},
-
-
-            std::vector<int>{748, 484, 176, 300},
-//            std::vector<int>{713, 476, 192, 1000}, // point préhension original
-
+            std::vector<int>{500, 215_ , 232, 500},
+//            std::vector<int>{184, 202, 27, 2000},
+            std::vector<int>{635, 202, 298, 500},
+            std::vector<int>{754, 453, 581, 500},
+            std::vector<int>{441, 719, 695, 500}, // POSE
+            std::vector<int>{441, 719, 780, 200}, // DEPOSE
+            std::vector<int>{649, 719, 762, 500}, // DRESSE
+            std::vector<int>{649, 202, 206, 500}, // PRE HOME
     };
+
+    // TTB
+//    std::vector<std::vector<int>> waypoints = {
+//            std::vector<int>{500, 195, 232, 2000},
+////            std::vector<int>{184, 202, 27, 2000},
+//            std::vector<int>{635, 202, 298, 2000},
+//            std::vector<int>{754, 453, 581, 1000},
+//            std::vector<int>{441, 719, 695, 1000}, // POSE
+//            std::vector<int>{441, 719, 780, 200}, // DEPOSE
+//            std::vector<int>{649, 719, 762, 1000}, // DRESSE
+//            std::vector<int>{649, 202, 206, 1000}, // PRE HOME
+//    };
+
+    // TB
+//    std::vector<std::vector<int>> waypoints = {
+//            std::vector<int>{515, 190, 232, 2000},
+////            std::vector<int>{184, 202, 27, 2000},
+//            std::vector<int>{635, 202, 298, 2000},
+//            std::vector<int>{754, 453, 581, 1000},
+//            std::vector<int>{441, 719, 695, 1000}, // POSE
+//            std::vector<int>{441, 719, 762, 200}, // DEPOSE
+//            std::vector<int>{649, 719, 762, 1000}, // DRESSE
+//            std::vector<int>{649, 202, 206, 1000}, // PRE HOME
+//    };
+
+
+    // BIEN:
+//    std::vector<int>{521, 204, 232, 2000},
+////            std::vector<int>{184, 202, 27, 2000},
+//            std::vector<int>{635, 202, 298, 2000},
+//            std::vector<int>{754, 453, 581, 2000},
+//            std::vector<int>{441, 719, 695, 2000}, // POSE
+//            std::vector<int>{441, 719, 762, 2000}, // DEPOSE
+//            std::vector<int>{649, 719, 762, 2000}, // DRESSE
+//            std::vector<int>{649, 202, 206, 2000}, // PRE HOME
 
     // Limit torque to 200
     for (int i = 0; i < 3; i++) {
@@ -223,12 +251,25 @@ void go_to_waypoints() {
 
     HAL_Delay(500);
 
-    for (int i = 0; i < waypoints.size(); i++) {
-        std::vector<int> waypoint = waypoints[i];
-        for (int j = 0; j < 3; j++) {
-            servos.WritePos(ids_servos[j], waypoint[j], waypoint[3]);
+
+    while(1) {
+
+        for (int i = 0; i < waypoints.size(); i++) {
+            std::vector<int> waypoint = waypoints[i];
+
+            // send goal repeatedly for the amount of time specified in the waypoint
+            int time = waypoint[3];
+            int start_time = HAL_GetTick();
+            while (HAL_GetTick() - start_time < time) {
+                for (int i = 0; i < 3; i++) {
+                    servos.WritePos(ids_servos[i], waypoint[i], time);
+                }
+                HAL_Delay(50);
+            }
+            HAL_Delay(1000);
+
+            printf("\n");
         }
-        HAL_Delay(waypoint[3]);
     }
 
 

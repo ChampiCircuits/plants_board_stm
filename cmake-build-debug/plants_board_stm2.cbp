@@ -96,9 +96,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0">
-			<Option target="plants_board_stm2.elf"/>
-		</Unit>
 		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Inc/SCServo.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
@@ -391,6 +388,9 @@
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/STM32G431KBTX_FLASH.ld">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/CMakeLists.txt">
