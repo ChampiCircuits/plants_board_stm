@@ -181,8 +181,8 @@
 			},
 			"sourceIndexes" : 
 			[
-				4,
-				5
+				5,
+				6
 			]
 		},
 		{
@@ -277,11 +277,13 @@
 			},
 			"sourceIndexes" : 
 			[
-				6,
 				7,
 				8,
 				9,
 				10,
+				11,
+				81,
+				82,
 				83,
 				84,
 				85,
@@ -299,12 +301,7 @@
 				97,
 				98,
 				99,
-				100,
-				101,
-				102,
-				103,
-				104,
-				105
+				100
 			]
 		},
 		{
@@ -399,7 +396,7 @@
 			"language" : "ASM",
 			"sourceIndexes" : 
 			[
-				11
+				12
 			]
 		}
 	],
@@ -466,10 +463,10 @@
 				1,
 				2,
 				3,
-				12,
+				4,
 				13,
 				14,
-				16,
+				15,
 				17,
 				18,
 				19,
@@ -493,7 +490,7 @@
 				37,
 				38,
 				39,
-				41,
+				40,
 				42,
 				43,
 				44,
@@ -531,22 +528,22 @@
 				76,
 				77,
 				78,
-				79,
-				80,
-				81
+				79
 			]
 		},
 		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				4,
 				5,
 				6,
 				7,
 				8,
 				9,
 				10,
+				11,
+				81,
+				82,
 				83,
 				84,
 				85,
@@ -564,23 +561,18 @@
 				97,
 				98,
 				99,
-				100,
-				101,
-				102,
-				103,
-				104,
-				105
+				100
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				11,
-				15,
-				40,
-				82,
-				106
+				12,
+				16,
+				41,
+				80,
+				101
 			]
 		}
 	],
@@ -589,6 +581,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "Core/Inc/SCServo.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Core/Inc/Stepper.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -811,16 +808,6 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
 			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h",
 			"sourceGroupIndex" : 0
 		},
@@ -926,11 +913,6 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
 			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h",
 			"sourceGroupIndex" : 0
 		},
@@ -1013,18 +995,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 1,
-			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 1,
-			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -1139,12 +1109,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 1,
-			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c",
 			"sourceGroupIndex" : 1
 		},
 		{

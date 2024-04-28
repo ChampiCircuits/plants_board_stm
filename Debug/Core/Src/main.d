@@ -18,9 +18,6 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fdcan.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h \
@@ -34,7 +31,8 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
- ../Core/Inc/SCServo.h ../Core/Inc/Stepper.hpp
+ ../Core/Inc/SCServo.h ../Core/Inc/Stepper.hpp ../Core/Inc/VL53L4CD_api.h \
+ ../Core/Inc/platform.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -55,9 +53,6 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fdcan.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h:
@@ -73,3 +68,5 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
 ../Core/Inc/SCServo.h:
 ../Core/Inc/Stepper.hpp:
+../Core/Inc/VL53L4CD_api.h:
+../Core/Inc/platform.h:

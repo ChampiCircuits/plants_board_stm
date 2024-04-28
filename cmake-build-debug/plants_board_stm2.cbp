@@ -102,6 +102,9 @@
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/SCServo.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/Stepper.hpp">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/main.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
@@ -228,12 +231,6 @@
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h">
-			<Option target="plants_board_stm2.elf"/>
-		</Unit>
-		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h">
-			<Option target="plants_board_stm2.elf"/>
-		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
@@ -297,9 +294,6 @@
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h">
-			<Option target="plants_board_stm2.elf"/>
-		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
@@ -349,12 +343,6 @@
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c">
-			<Option target="plants_board_stm2.elf"/>
-		</Unit>
-		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c">
-			<Option target="plants_board_stm2.elf"/>
-		</Unit>
-		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c">
@@ -412,9 +400,6 @@
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c">
-			<Option target="plants_board_stm2.elf"/>
-		</Unit>
-		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/CMakeLists.txt">

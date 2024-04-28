@@ -27,6 +27,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "stdio.h"
+#include "VL53L4CD_api.h"
 #include <vector>
 /* USER CODE END Includes */
 
@@ -46,9 +47,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc2;
-DMA_HandleTypeDef hdma_adc2;
-
 FDCAN_HandleTypeDef hfdcan1;
 
 I2C_HandleTypeDef hi2c1;
@@ -67,10 +65,8 @@ int i_mot=0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_USART1_UART_Init(void);
-static void MX_ADC2_Init(void);
 static void MX_FDCAN1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM2_Init(void);
@@ -115,149 +111,219 @@ void list_servos_ids(uint8_t id_start,  uint8_t id_stop, SCServo servos) {
 	}
 }
 
-int ids_servos[3] = {8, 17, 18};
-int lower_limit[3] = {353, 100, 0};
-int upper_limit[3] = {740, 900, 1023};
-
-void manual_control() {
-
-    HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
-    HAL_ADC_Start_DMA(&hadc2, (uint32_t *) &value_adc, 1);
-    HAL_ADC_Start(&hadc2);
-
-    SCServo servos = SCServo(&huart1);
-
-    int pos_servos[3];
-
-    for (int i = 0; i < 3; i++) {
-        servos.WriteLimitAngle(ids_servos[i], lower_limit[i], upper_limit[i]);
-    }
-
-    for (int i = 0; i < 3; i++) {
-        pos_servos[i] = servos.ReadPos(ids_servos[i]);
-        printf("init pos_servo[%d]=%d\n", ids_servos[i], pos_servos[i]);
-    }
-
-    // Read the current position of the servo
-    int pos = servos.ReadPos(ids_servos[i_mot]);
-    printf("Waiting for the user to move the potentiometer to the current position of the servo\n");
-    // tolerance 10 units for the potentiometer and the servo
-    while (abs(value_adc - pos) > 10) {
-        HAL_Delay(20);
-//        printf("value_adc = %d\n", value_adc);
-    }
-    printf("OK\n");
-    
-    while (1) {
 
 
-        if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8)) {
+#define SENSOR_LEFT_ADDRESS 0x01
+#define SENSOR_RIGHT_ADDRESS 0x05
+#define SENSOR_LEFT_OFFSET -10
+#define SENSOR_RIGHT_OFFSET -8
 
-            // Change ID Servo
-            i_mot = (i_mot + 1) % 3;
-            printf("button pushed, i_mot=%d\n", i_mot);
-
-            HAL_Delay(500);
-
-            // The user will move the servo to a position using a potentiometer. But because the
-            // potentiometer is absolute, we dont want the servo to move right away to the new position. Instead,
-            // we wait for the user to move the potentiometer to the current position of the servo, and then we
-            // let him move the servo to the new position. The value of the potentiometer is read by the ADC and
-            // stored automatically in the variable value_adc.
-
-            // Read the current position of the servo
-            int pos = servos.ReadPos(ids_servos[i_mot]);
-            printf("Waiting for the user to move the potentiometer to the current position of the servo\n");
-            // tolerance 10 units for the potentiometer and the servo
-            while (abs(value_adc - pos) > 10) {
-                if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == RESET) {
-                    printf("button pushed\n");
-                    HAL_Delay(500);
-
-                    // Change ID Servo
-                    i_mot = (i_mot + 1) % 3;
-                    printf("i_mot=%d\n", i_mot);
-                }
-                HAL_Delay(20);
-//                printf("value_adc = %d\n", value_adc);
-            }
-            printf("OK\n");
-
-        }
+struct LASER_SENSOR
+{
+  // gpio_pin, address, results
+  uint16_t pin;
+  GPIO_TypeDef *port;
+  Dev_t address;
+  VL53L4CD_ResultsData_t results = {};
+};
 
 
-        // Move the servo to the pos from the adc
-        int val = value_adc;
-//      printf("value_adc = %d\n", val);
-        servos.WritePos(ids_servos[i_mot], val, 600);
-        pos_servos[i_mot] = val;
+LASER_SENSOR sensor_left{};
+LASER_SENSOR sensor_right{};
 
-        // Print the values of the 3 servos in 1 line
-        for (int i = 0; i < 3; i++) {
-            printf("%d: %d ", i, pos_servos[i]);
-        }
-        printf("\n");
-        HAL_Delay(50);
 
-        //	  printf("value ADC = %d\n", value_adc);
-        //	  HAL_Delay(10);
+int setup_laser(LASER_SENSOR sensor)
+{
+  uint16_t sensor_id;
+  uint8_t status;
+  printf("SENSOR_PIN: %d\n", sensor.pin);
 
-    }
+  HAL_Delay(5);
+  // set the pin to high to enable the sensor
+  HAL_GPIO_WritePin(sensor.port, sensor.pin, GPIO_PIN_SET);
+  HAL_Delay(5);
+
+  // set I2C address (other unset addresses XSHUT have to be pull to low before)
+  status = VL53L4CD_SetI2CAddress(0x52, sensor.address); // 0x52 is the default address
+  if (status)
+  {
+    printf("VL53L4CD_SetI2CAddress failed with status %u\n", status);
+    return status;
+  }
+
+  /* (Optional) Check if there is a VL53L4CD sensor connected */
+  printf("Checking for laser sensor at address %x\n", sensor.address);
+  status = VL53L4CD_GetSensorId(sensor.address, &sensor_id);
+
+  if (status || (sensor_id != 0xEBAA))
+  {
+    printf("VL53L4CD not detected at requested address\n");
+    return status;
+  }
+  printf("VL53L4CD detected at address %x\n", sensor.address);
+
+  /* (Mandatory) Init VL53L4CD sensor */
+  printf("Initializing laser sensor\n");
+  status = VL53L4CD_SensorInit(sensor.address);
+  if (status)
+  {
+    printf("VL53L4CD ULD Loading failed\n");
+    return status;
+  }
+
+  // set the offsets
+  if (sensor.address == SENSOR_LEFT_ADDRESS)
+  {
+    status = VL53L4CD_SetOffset(sensor.address, SENSOR_LEFT_OFFSET);
+  }
+  else if (sensor.address == SENSOR_RIGHT_ADDRESS)
+  {
+    status = VL53L4CD_SetOffset(sensor.address, SENSOR_RIGHT_OFFSET);
+  }
+  if (status)
+  {
+    printf("VL53L4CD_SetOffset failed with status %u\n", status);
+    return status;
+  }
+
+  status = VL53L4CD_StartRanging(sensor.address);
+  if (status)
+  {
+    printf("VL53L4CD_StartRanging failed with status %u\n", status);
+    return status;
+  }
+  printf("VL53L4CD ULD ready at address %x ready\n", sensor.address);
+
+  return 0;
 }
 
-void go_to_waypoints() {
+void scan()
+{
+  HAL_Delay(5);
 
-    SCServo servos = SCServo(&huart1);
+  /*I2C Bus Scanning*/
+  uint16_t sensor_id;
+  uint8_t status;
 
-    int pos_servos[3];
-
-    for (int i = 0; i < 3; i++) {
-        servos.WriteLimitAngle(ids_servos[i], lower_limit[i], upper_limit[i]);
+  for (int i = 1; i < 128; i++)
+  {
+    status = VL53L4CD_GetSensorId(i, &sensor_id);
+    if (status || (sensor_id != 0xEBAA))
+    {
+      // printf("VL53L4CD not detected at address %x\n", i);
     }
-
-    HAL_Delay(200);
-
-    // Vector of waypoints. each waypoint is a vector of 4 integers: the 3 positions of the servos and the time to reach the waypoint
-    std::vector<std::vector<int>> waypoints = {
-            std::vector<int>{500, 215, 232, 500},
-//            std::vector<int>{184, 202, 27, 2000},
-            std::vector<int>{635, 202, 298, 500},
-            std::vector<int>{754, 453, 581, 500},
-            std::vector<int>{441, 719, 695, 500}, // POSE
-            std::vector<int>{441, 719, 780, 200}, // DEPOSE
-            std::vector<int>{649, 719, 762, 500}, // DRESSE
-            std::vector<int>{649, 202, 206, 500}, // PRE HOME
-    };
-
-
-    // Limit torque to 200
-    for (int i = 0; i < 3; i++) {
-        servos.WriteLimitTroque(ids_servos[i], 600);
+    else
+    {
+      printf("VL53L4CD detected at address %x\n", i);
     }
-
-    HAL_Delay(500);
-
-
-    while(1) {
-
-        for (int i = 0; i < waypoints.size(); i++) {
-            std::vector<int> waypoint = waypoints[i];
-
-            // send goal repeatedly for the amount of time specified in the waypoint
-            int time = waypoint[3];
-            int start_time = HAL_GetTick();
-            while (HAL_GetTick() - start_time < time) {
-                for (int i = 0; i < 3; i++) {
-                    servos.WritePos(ids_servos[i], waypoint[i], time);
-                }
-                HAL_Delay(50);
-            }
-            HAL_Delay(1000);
-
-            printf("\n");
-        }
-    }
+    HAL_Delay(5);
+  }
+  printf("end of scan\n\n");
 }
+
+int update_distance(LASER_SENSOR &sensor)
+{
+  // We don't want to read data at too high frequency, so we store previous time and check against HAL_GetTick(). (5ms min)
+  static uint32_t last_read_time = 0;
+  if (HAL_GetTick() - last_read_time < 5)
+  {
+    return 0;
+  }
+
+  /* Use polling function to know when a new measurement is ready.
+   * Another way can be to wait for HW interrupt raised on PIN 7
+   * (GPIO 1) when a new measurement is ready */
+
+  uint8_t isReady;
+
+  uint8_t status = VL53L4CD_CheckForDataReady(sensor.address, &isReady);
+
+  if (isReady)
+  {
+    /* (Mandatory) Clear HW interrupt to restart measurements */
+    VL53L4CD_ClearInterrupt(sensor.address);
+
+    /* Read measured distance. RangeStatus = 0 means valid data */
+    VL53L4CD_GetResult(sensor.address, &sensor.results);
+  }
+
+  return status;
+}
+
+
+int setup_lasers()
+{
+
+  sensor_left.port = XSHUT_LEFT_GPIO_Port;
+  sensor_left.pin = XSHUT_LEFT_Pin;
+  sensor_left.address = SENSOR_LEFT_ADDRESS;
+  sensor_right.port = XSHUT_RIGHT_GPIO_Port;
+  sensor_right.pin = XSHUT_RIGHT_Pin;
+  sensor_right.address = SENSOR_RIGHT_ADDRESS;
+
+  /* Toggle Xshut pin to reset the sensors so that their addresses can be set individually*/
+  HAL_GPIO_WritePin(XSHUT_LEFT_GPIO_Port, XSHUT_LEFT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(XSHUT_RIGHT_GPIO_Port, XSHUT_RIGHT_Pin, GPIO_PIN_RESET);
+
+  /* Setup the first laser sensor */
+  printf("SETUP LASER LEFT\n");
+  int status = setup_laser(sensor_left);
+  if (status)
+  {
+    printf("setup_laser at address %x failed with status %u\n", sensor_left.address, status);
+    return -1;
+  }
+
+  /* Setup the second laser sensor */
+  printf("\n\nSETUP LASER RIGHT\n");
+  status = setup_laser(sensor_right);
+  if (status)
+  {
+    printf("setup_laser at address %x failed with status %u\n", sensor_right.address, status);
+    return -1;
+  }
+
+  // AFTER ALL SETUPS WE PULL TO HIGH THE SHUTPINS to enable the sensors
+  HAL_GPIO_WritePin(XSHUT_LEFT_GPIO_Port, XSHUT_LEFT_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(XSHUT_RIGHT_GPIO_Port, XSHUT_RIGHT_Pin, GPIO_PIN_SET);
+
+  return 0;
+}
+
+void test_lasers()
+{
+  uint8_t loop, status;
+
+  /*********************************/
+  /*         Ranging loop          */
+  /*********************************/
+  loop = 0;
+  while (loop < 200)
+  {
+    status = update_distance(sensor_left);
+    if (status)
+    {
+      printf("get_distance at address %x failed with status %u\n", sensor_left.address, status);
+      return;
+    }
+    status = update_distance(sensor_right);
+    if (status)
+    {
+      printf("get_distance at address %x failed with status %u\n", sensor_right.address, status);
+      return;
+    }
+    printf("Left: %d mm, Right: %d mm\n", sensor_left.results.distance_mm, sensor_right.results.distance_mm);
+    loop++;
+  }
+
+  status = VL53L4CD_StopRanging(sensor_left.address);
+  status = VL53L4CD_StopRanging(sensor_right.address);
+
+  printf("End of ULD demo\n");
+}
+
+
+
 
 
 #define SERVO_HORIZ_ID 8
@@ -269,54 +335,16 @@ void go_to_waypoints() {
 #define LIFT_POS_MIDDLE 5000
 #define LIFT_POS_DOWN 14000
 
+#define HOPPER_LEFT_OPEN 1023
+#define HOPPER_LEFT_CLOSE 500
+#define HOPPER_RIGHT_OPEN 0
+#define HOPPER_RIGHT_CLOSE 500
+
 
 Stepper stepper_lift = Stepper(get_time_us, STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, DIR_LIFT_GPIO_Port, DIR_LIFT_Pin);
 Stepper stepper_res = Stepper(get_time_us, STEP_RES_GPIO_Port, STEP_RES_Pin, DIR_RES_GPIO_Port, DIR_RES_Pin);
 
 SCServo servos = SCServo(&huart1);
-
-
-void reservoir_go_to_init_pos()
-{
-  // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
-  stepper_res.set_goal(100000);
-
-  while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_SET)
-  {
-    stepper_res.spin_once();
-  }
-
-  stepper_res.set_pos(0);
-  stepper_res.set_goal(0);
-
-}
-
-void lift_go_to_init_pos()
-{
-  // Here we don't have a sensor. So we just turn the motor for a certain distance. (5 spins at 3200 steps per spin)
-
-  stepper_lift.set_goal(-5*3200);
-  while(!stepper_lift.is_stopped())
-  {
-    stepper_lift.spin_once();
-  }
-  stepper_lift.set_pos(0);
-}
-
-void servo_horiz_go_to_init_pos()
-{
-  servos.EnableTorque(SERVO_HORIZ_ID, 1);
-  servos.WriteLimitTroque(SERVO_HORIZ_ID, 1023);
-  servos.WritePos(SERVO_HORIZ_ID ,SERVO_HORIZ_POS_RETRACT, 200);
-  HAL_Delay(200);
-}
-
-void actuators_go_to_init_poses()
-{
-  servo_horiz_go_to_init_pos();
-  // reservoir_go_to_init_pos();
-  lift_go_to_init_pos();
-}
 
 void lift_go_down()
 {
@@ -351,11 +379,117 @@ void grabber_extend()
   HAL_Delay(500);
 }
 
+
 void grabber_retract(bool block=true)
 {
   servos.WritePos(SERVO_HORIZ_ID ,SERVO_HORIZ_POS_RETRACT, 500);
   if(block) HAL_Delay(500);
 }
+
+
+void reservoir_go_to_init_pos()
+{
+  // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
+  stepper_res.set_goal(100000);
+
+  while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_SET)
+  {
+    stepper_res.spin_once();
+  }
+
+  stepper_res.set_pos(0);
+  stepper_res.set_goal(0);
+
+}
+
+void lift_go_to_init_pos()
+{
+  // Here we don't have a sensor. So we just turn the motor for a certain distance. (5 spins at 3200 steps per spin)
+
+  stepper_lift.set_goal(-5*3200);
+  while(!stepper_lift.is_stopped())
+  {
+    stepper_lift.spin_once();
+  }
+  stepper_lift.set_pos(0);
+
+  grabber_extend();
+  grabber_retract();
+
+  lift_go_down();
+}
+
+void servo_horiz_go_to_init_pos()
+{
+  // servos.EnableTorque(SERVO_HORIZ_ID, 1);
+  servos.WriteLimitTroque(SERVO_HORIZ_ID, 1023);
+  servos.WritePos(SERVO_HORIZ_ID ,SERVO_HORIZ_POS_RETRACT, 200);
+  HAL_Delay(200);
+}
+
+void actuators_go_to_init_poses()
+{
+  servo_horiz_go_to_init_pos();
+  // reservoir_go_to_init_pos();
+  lift_go_to_init_pos();
+}
+
+
+
+
+void setup_hoppers()
+{
+  // Hoppers are servos 7 and 14
+
+  // Close then open
+  servos.WritePos(7, HOPPER_LEFT_CLOSE, 500);
+  servos.WritePos(14, HOPPER_RIGHT_CLOSE, 500);
+  HAL_Delay(1000);
+  servos.WritePos(7, HOPPER_LEFT_OPEN, 500);
+  servos.WritePos(14, HOPPER_RIGHT_OPEN, 500);
+  HAL_Delay(1000);
+
+
+}
+
+bool hopper_left_wait_and_close_spin_once()
+{
+  // Check if distance < 50mm for left plant
+  if(sensor_left.results.distance_mm < 50)
+  {
+    // Close the hopper
+    servos.WritePos(7, HOPPER_LEFT_CLOSE, 200);
+    return true;
+  }
+  return false;
+}
+
+bool hopper_right_wait_and_close_spin_once()
+{
+  // Check if distance < 50mm for left plant
+  if(sensor_right.results.distance_mm < 50)
+  {
+    // Close the hopper
+    servos.WritePos(14, HOPPER_RIGHT_CLOSE, 200);
+    return true;
+  }
+  return false;
+}
+
+
+
+
+// bool wait_and_lock_plant_spin_once()
+// {
+//   // Check if distance < 50mm for left plant
+//   if(sensor_left.results.distance_mm < 50)
+//   {
+//     // Lock the plant
+//     grabber_extend();
+//     return true;
+//   }
+// }
+
 
 
 
@@ -390,10 +524,8 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_USART2_UART_Init();
   MX_USART1_UART_Init();
-  MX_ADC2_Init();
   MX_FDCAN1_Init();
   MX_I2C1_Init();
   MX_TIM2_Init();
@@ -402,43 +534,50 @@ int main(void)
     // Start the timer
     HAL_TIM_Base_Start_IT(&htim2);
 
-    actuators_go_to_init_poses();
+  actuators_go_to_init_poses();
 
-    lift_go_down();
-    HAL_Delay(3000);
-
-    lift_go_up();
-    // HAL_Delay(3000);
-
-    grabber_extend();
-    // HAL_Delay(3000);
-
-    lift_go_middle();
-    // HAL_Delay(3000);
-
-    grabber_retract(false);
-    // HAL_Delay(3000);
-
-    lift_go_down();
+  setup_lasers();
+  setup_hoppers();
 
 
 
-  // servos.WritePos(8 ,1023, 2000);
-  // HAL_Delay(2000);
-  //   servos.WritePos(8 ,280, 1000);
-  //   HAL_Delay(2000);
-
- 
-    // go_to_waypoints();
-    // manual_control();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  bool left_closed = false;
+  bool right_closed = false;
+  bool stored = false;
+
     while (1)
     {
+      update_distance(sensor_left);
+      update_distance(sensor_right);
 
-    //  if (stepper_lift.is_stopped()) {
+      // Print the distances
+      // printf("Left: %d mm, Right: %d mm\n", sensor_left.results.distance_mm, sensor_right.results.distance_mm);
+
+      if(!left_closed)
+      {
+        left_closed = hopper_left_wait_and_close_spin_once();
+
+      }
+      if(!right_closed)
+      {
+        right_closed = hopper_right_wait_and_close_spin_once();
+      }
+      if(left_closed && right_closed && !stored)
+      {
+        HAL_Delay(500); // Bc hoppers functions are not blocking
+        stored = true;
+        lift_go_up();
+        grabber_extend();
+        lift_go_middle();
+        grabber_retract(false);
+      }
+
+      //  if (stepper_lift.is_stopped()) {
     //    HAL_Delay(1000);
     //     current_goal = current_goal == pos_up ? pos_down : pos_up;
     //     stepper_lift.set_goal(current_goal);
@@ -496,65 +635,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-}
-
-/**
-  * @brief ADC2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ADC2_Init(void)
-{
-
-  /* USER CODE BEGIN ADC2_Init 0 */
-
-  /* USER CODE END ADC2_Init 0 */
-
-  ADC_ChannelConfTypeDef sConfig = {0};
-
-  /* USER CODE BEGIN ADC2_Init 1 */
-
-  /* USER CODE END ADC2_Init 1 */
-
-  /** Common config
-  */
-  hadc2.Instance = ADC2;
-  hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
-  hadc2.Init.Resolution = ADC_RESOLUTION_10B;
-  hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc2.Init.GainCompensation = 0;
-  hadc2.Init.ScanConvMode = ADC_SCAN_DISABLE;
-  hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-  hadc2.Init.LowPowerAutoWait = DISABLE;
-  hadc2.Init.ContinuousConvMode = ENABLE;
-  hadc2.Init.NbrOfConversion = 1;
-  hadc2.Init.DiscontinuousConvMode = DISABLE;
-  hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc2.Init.DMAContinuousRequests = ENABLE;
-  hadc2.Init.Overrun = ADC_OVR_DATA_PRESERVED;
-  hadc2.Init.OversamplingMode = DISABLE;
-  if (HAL_ADC_Init(&hadc2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure Regular Channel
-  */
-  sConfig.Channel = ADC_CHANNEL_1;
-  sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_92CYCLES_5;
-  sConfig.SingleDiff = ADC_SINGLE_ENDED;
-  sConfig.OffsetNumber = ADC_OFFSET_NONE;
-  sConfig.Offset = 0;
-  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN ADC2_Init 2 */
-
-  /* USER CODE END ADC2_Init 2 */
-
 }
 
 /**
@@ -790,23 +870,6 @@ static void MX_USART2_UART_Init(void)
 }
 
 /**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMAMUX1_CLK_ENABLE();
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Channel1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -825,7 +888,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, STEP_RES_Pin|ENABLE_PIN_Pin|DIR_LIFT_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, DIR_RES_Pin|STEP_LIFT_Pin|LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, DIR_RES_Pin|XSHUT_LEFT_Pin|XSHUT_RIGHT_Pin|STEP_LIFT_Pin
+                          |LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : STEP_RES_Pin ENABLE_PIN_Pin DIR_LIFT_Pin */
   GPIO_InitStruct.Pin = STEP_RES_Pin|ENABLE_PIN_Pin|DIR_LIFT_Pin;
@@ -834,18 +898,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DIR_RES_Pin STEP_LIFT_Pin LD2_Pin */
-  GPIO_InitStruct.Pin = DIR_RES_Pin|STEP_LIFT_Pin|LD2_Pin;
+  /*Configure GPIO pins : DIR_RES_Pin XSHUT_LEFT_Pin XSHUT_RIGHT_Pin STEP_LIFT_Pin
+                           LD2_Pin */
+  GPIO_InitStruct.Pin = DIR_RES_Pin|XSHUT_LEFT_Pin|XSHUT_RIGHT_Pin|STEP_LIFT_Pin
+                          |LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : BUTTON_Pin */
-  GPIO_InitStruct.Pin = BUTTON_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(BUTTON_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : FIN_COURSE_RES_Pin */
   GPIO_InitStruct.Pin = FIN_COURSE_RES_Pin;

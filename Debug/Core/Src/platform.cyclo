@@ -1,0 +1,7 @@
+../Core/Src/platform.cpp:18:9:uint8_t VL53L4CD_RdDWord(uint16_t, uint16_t, uint32_t*)	1
+../Core/Src/platform.cpp:33:9:uint8_t VL53L4CD_RdWord(uint16_t, uint16_t, uint16_t*)	1
+../Core/Src/platform.cpp:47:9:uint8_t VL53L4CD_RdByte(uint16_t, uint16_t, uint8_t*)	1
+../Core/Src/platform.cpp:61:9:uint8_t VL53L4CD_WrByte(uint16_t, uint16_t, uint8_t)	1
+../Core/Src/platform.cpp:73:9:uint8_t VL53L4CD_WrWord(uint16_t, uint16_t, uint16_t)	1
+../Core/Src/platform.cpp:85:9:uint8_t VL53L4CD_WrDWord(uint16_t, uint16_t, uint32_t)	1
+../Core/Src/platform.cpp:100:9:uint8_t WaitMs(Dev_t, uint32_t)	1

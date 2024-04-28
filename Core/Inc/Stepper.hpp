@@ -35,7 +35,7 @@ public:
     state.direction = goal > state.pos ? 1 : -1;
     time_start_step = get_time_us();
     time_start_high = time_start_step;
-    HAL_GPIO_WritePin(gpio_port_dir, gpio_pin_dir, state.direction == 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(gpio_port_dir, gpio_pin_dir, state.direction == 1 ? GPIO_PIN_RESET : GPIO_PIN_SET);
   }
 
   int get_pos() {

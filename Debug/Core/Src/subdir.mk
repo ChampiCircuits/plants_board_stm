@@ -6,7 +6,10 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../Core/Src/SCServo.cpp \
-../Core/Src/main.cpp 
+../Core/Src/VL53L4CD_api.cpp \
+../Core/Src/VL53L4CD_calibration.cpp \
+../Core/Src/main.cpp \
+../Core/Src/platform.cpp 
 
 C_SRCS += \
 ../Core/Src/stm32g4xx_hal_msp.c \
@@ -24,7 +27,10 @@ C_DEPS += \
 
 OBJS += \
 ./Core/Src/SCServo.o \
+./Core/Src/VL53L4CD_api.o \
+./Core/Src/VL53L4CD_calibration.o \
 ./Core/Src/main.o \
+./Core/Src/platform.o \
 ./Core/Src/stm32g4xx_hal_msp.o \
 ./Core/Src/stm32g4xx_it.o \
 ./Core/Src/syscalls.o \
@@ -33,7 +39,10 @@ OBJS += \
 
 CPP_DEPS += \
 ./Core/Src/SCServo.d \
-./Core/Src/main.d 
+./Core/Src/VL53L4CD_api.d \
+./Core/Src/VL53L4CD_calibration.d \
+./Core/Src/main.d \
+./Core/Src/platform.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -45,7 +54,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/SCServo.cyclo ./Core/Src/SCServo.d ./Core/Src/SCServo.o ./Core/Src/SCServo.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32g4xx_hal_msp.cyclo ./Core/Src/stm32g4xx_hal_msp.d ./Core/Src/stm32g4xx_hal_msp.o ./Core/Src/stm32g4xx_hal_msp.su ./Core/Src/stm32g4xx_it.cyclo ./Core/Src/stm32g4xx_it.d ./Core/Src/stm32g4xx_it.o ./Core/Src/stm32g4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g4xx.cyclo ./Core/Src/system_stm32g4xx.d ./Core/Src/system_stm32g4xx.o ./Core/Src/system_stm32g4xx.su
+	-$(RM) ./Core/Src/SCServo.cyclo ./Core/Src/SCServo.d ./Core/Src/SCServo.o ./Core/Src/SCServo.su ./Core/Src/VL53L4CD_api.cyclo ./Core/Src/VL53L4CD_api.d ./Core/Src/VL53L4CD_api.o ./Core/Src/VL53L4CD_api.su ./Core/Src/VL53L4CD_calibration.cyclo ./Core/Src/VL53L4CD_calibration.d ./Core/Src/VL53L4CD_calibration.o ./Core/Src/VL53L4CD_calibration.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/platform.cyclo ./Core/Src/platform.d ./Core/Src/platform.o ./Core/Src/platform.su ./Core/Src/stm32g4xx_hal_msp.cyclo ./Core/Src/stm32g4xx_hal_msp.d ./Core/Src/stm32g4xx_hal_msp.o ./Core/Src/stm32g4xx_hal_msp.su ./Core/Src/stm32g4xx_it.cyclo ./Core/Src/stm32g4xx_it.d ./Core/Src/stm32g4xx_it.o ./Core/Src/stm32g4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g4xx.cyclo ./Core/Src/system_stm32g4xx.d ./Core/Src/system_stm32g4xx.o ./Core/Src/system_stm32g4xx.su
 
 .PHONY: clean-Core-2f-Src
 

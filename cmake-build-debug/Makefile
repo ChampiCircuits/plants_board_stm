@@ -329,54 +329,6 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.s
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.s
 
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.obj
-
-# target to build an object file
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.i: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.i
-
-# target to preprocess a source file
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i
-
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.s: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.s
-
-# target to generate assembly for a file
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s
-
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.obj
-
-# target to build an object file
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
-
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.i: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.i
-
-# target to preprocess a source file
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i
-
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.s: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.s
-
-# target to generate assembly for a file
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s
-
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.obj
 
@@ -833,30 +785,6 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s
 
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.obj
-
-# target to build an object file
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
-
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.i: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.i
-
-# target to preprocess a source file
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i
-
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.s: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.s
-
-# target to generate assembly for a file
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s
-.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -891,12 +819,6 @@ help:
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.obj"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.i"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.s"
-	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.obj"
-	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.i"
-	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.s"
-	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.obj"
-	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.i"
-	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.s"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.obj"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.i"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.s"
@@ -954,9 +876,6 @@ help:
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.obj"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.i"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.s"
-	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.obj"
-	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.i"
-	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.s"
 .PHONY : help
 
 

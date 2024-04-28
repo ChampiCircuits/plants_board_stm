@@ -1,0 +1,23 @@
+/home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/cmath:1756:3:constexpr float std::round(float)	16	static
+../Core/Src/VL53L4CD_api.cpp:180:16:VL53L4CD_Error VL53L4CD_GetSWVersion(VL53L4CD_Version_t*)	24	static
+../Core/Src/VL53L4CD_api.cpp:192:16:VL53L4CD_Error VL53L4CD_SetI2CAddress(Dev_t, uint8_t)	24	static
+../Core/Src/VL53L4CD_api.cpp:203:16:VL53L4CD_Error VL53L4CD_GetSensorId(Dev_t, uint16_t*)	24	static
+../Core/Src/VL53L4CD_api.cpp:213:16:VL53L4CD_Error VL53L4CD_SensorInit(Dev_t)	24	static
+../Core/Src/VL53L4CD_api.cpp:284:16:VL53L4CD_Error VL53L4CD_ClearInterrupt(Dev_t)	24	static
+../Core/Src/VL53L4CD_api.cpp:293:16:VL53L4CD_Error VL53L4CD_StartRanging(Dev_t)	24	static
+../Core/Src/VL53L4CD_api.cpp:315:16:VL53L4CD_Error VL53L4CD_StopRanging(Dev_t)	24	static
+../Core/Src/VL53L4CD_api.cpp:324:16:VL53L4CD_Error VL53L4CD_CheckForDataReady(Dev_t, uint8_t*)	24	static
+../Core/Src/VL53L4CD_api.cpp:359:16:VL53L4CD_Error VL53L4CD_SetRangeTiming(Dev_t, uint32_t, uint32_t)	56	static
+../Core/Src/VL53L4CD_api.cpp:448:16:VL53L4CD_Error VL53L4CD_GetRangeTiming(Dev_t, uint32_t*, uint32_t*)	56	static
+../Core/Src/VL53L4CD_api.cpp:505:16:VL53L4CD_Error VL53L4CD_GetResult(Dev_t, VL53L4CD_ResultsData_t*)	56	static
+../Core/Src/VL53L4CD_api.cpp:553:16:VL53L4CD_Error VL53L4CD_SetOffset(Dev_t, int16_t)	24	static
+../Core/Src/VL53L4CD_api.cpp:568:17:VL53L4CD_Error VL53L4CD_GetOffset(Dev_t, int16_t*)	24	static
+../Core/Src/VL53L4CD_api.cpp:589:16:VL53L4CD_Error VL53L4CD_SetXtalk(Dev_t, uint16_t)	24	static
+../Core/Src/VL53L4CD_api.cpp:606:16:VL53L4CD_Error VL53L4CD_GetXtalk(Dev_t, uint16_t*)	24	static
+../Core/Src/VL53L4CD_api.cpp:622:16:VL53L4CD_Error VL53L4CD_SetDetectionThresholds(Dev_t, uint16_t, uint16_t, uint8_t)	32	static
+../Core/Src/VL53L4CD_api.cpp:636:16:VL53L4CD_Error VL53L4CD_GetDetectionThresholds(Dev_t, uint16_t*, uint16_t*, uint8_t*)	32	static
+../Core/Src/VL53L4CD_api.cpp:651:16:VL53L4CD_Error VL53L4CD_SetSignalThreshold(Dev_t, uint16_t)	24	static
+../Core/Src/VL53L4CD_api.cpp:662:16:VL53L4CD_Error VL53L4CD_GetSignalThreshold(Dev_t, uint16_t*)	24	static
+../Core/Src/VL53L4CD_api.cpp:676:16:VL53L4CD_Error VL53L4CD_SetSigmaThreshold(Dev_t, uint16_t)	24	static
+../Core/Src/VL53L4CD_api.cpp:695:16:VL53L4CD_Error VL53L4CD_GetSigmaThreshold(Dev_t, uint16_t*)	24	static
+../Core/Src/VL53L4CD_api.cpp:708:16:VL53L4CD_Error VL53L4CD_StartTemperatureUpdate(Dev_t)	24	static
