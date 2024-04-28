@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "SCServo.h"
+// #include "STM32Step/src/STM32Step.hpp"
 #include <stdlib.h>
 #include <string.h>
 #include "stdio.h"
@@ -47,6 +48,12 @@
 ADC_HandleTypeDef hadc2;
 DMA_HandleTypeDef hdma_adc2;
 
+FDCAN_HandleTypeDef hfdcan1;
+
+I2C_HandleTypeDef hi2c1;
+
+TIM_HandleTypeDef htim2;
+
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
@@ -63,6 +70,9 @@ static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_ADC2_Init(void);
+static void MX_FDCAN1_Init(void);
+static void MX_I2C1_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -81,12 +91,30 @@ int _write(int file, char *ptr, int len)
 
 }
 
-void list_servos_ids(uint8_t id_start, uint8_t id_stop, SCServo servos) {
+void list_servos_ids(uint8_t id_start,  uint8_t id_stop, SCServo servos) {
 	for(uint8_t id=id_start; id<id_stop; id++) {
 		if(servos.ReadPos(id)!=-1) {
 			printf("Found ID %d\n", id);
 		}
 	}
+}
+
+
+unsigned long seconds_elapsed = 0;
+// TIM2 interrupt callback (reaches ARR every second
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  if (htim->Instance == TIM2) {
+    seconds_elapsed++;
+  }
+}
+
+unsigned long get_time_us() {
+  unsigned long time_us = htim2.Instance->CNT;
+
+  int s = sizeof(time_us);
+
+  return seconds_elapsed * 1000000 + time_us;
 }
 
 int ids_servos[3] = {8, 17, 18};
@@ -121,15 +149,9 @@ void manual_control() {
 //        printf("value_adc = %d\n", value_adc);
     }
     printf("OK\n");
-
-    /* USER CODE END 2 */
-
-    /* Infinite loop */
-    /* USER CODE BEGIN WHILE */
+    
     while (1) {
-        /* USER CODE END WHILE */
 
-        /* USER CODE BEGIN 3 */
 
         if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8)) {
 
@@ -199,7 +221,7 @@ void go_to_waypoints() {
 
     // Vector of waypoints. each waypoint is a vector of 4 integers: the 3 positions of the servos and the time to reach the waypoint
     std::vector<std::vector<int>> waypoints = {
-            std::vector<int>{500, 215_ , 232, 500},
+            std::vector<int>{500, 215, 232, 500},
 //            std::vector<int>{184, 202, 27, 2000},
             std::vector<int>{635, 202, 298, 500},
             std::vector<int>{754, 453, 581, 500},
@@ -271,59 +293,189 @@ void go_to_waypoints() {
             printf("\n");
         }
     }
-
-
-
 }
+
+void lift_up_no_lib()
+{
+  HAL_GPIO_WritePin(DIR_LIFT_GPIO_Port, DIR_LIFT_Pin, GPIO_PIN_SET);
+  for (int i = 0; i < 500; i++) {
+    HAL_GPIO_WritePin(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, GPIO_PIN_SET);
+    HAL_Delay(1);
+    HAL_GPIO_WritePin(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, GPIO_PIN_RESET);
+    HAL_Delay(1);
+  }
+}
+
+void lift_down_no_lib()
+{
+  HAL_GPIO_WritePin(DIR_LIFT_GPIO_Port, DIR_LIFT_Pin, GPIO_PIN_RESET);
+  for (int i = 0; i < 500; i++) {
+    HAL_GPIO_WritePin(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, GPIO_PIN_SET);
+    HAL_Delay(1);
+    HAL_GPIO_WritePin(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, GPIO_PIN_RESET);
+    HAL_Delay(1);
+  }
+}
+
+
+
+class Stepper {
+public:
+  Stepper(GPIO_TypeDef *gpio_port_step, uint16_t gpio_pin_step, GPIO_TypeDef *gpio_port_dir, uint16_t gpio_pin_dir) {
+    this->gpio_port_step = gpio_port_step;
+    this->gpio_pin_step = gpio_pin_step;
+    this->gpio_port_dir = gpio_port_dir;
+    this->gpio_pin_dir = gpio_pin_dir;
+
+    HAL_GPIO_WritePin(gpio_port_step, gpio_pin_step, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(gpio_port_dir, gpio_pin_dir, GPIO_PIN_RESET);
+
+  }
+
+  void set_goal(int goal) {
+    this->goal = goal;
+    state.state = State::HIGH;
+    state.direction = goal > state.pos ? 1 : -1;
+    time_start_step = get_time_us();
+    time_start_high = time_start_step;
+    HAL_GPIO_WritePin(gpio_port_dir, gpio_pin_dir, state.direction == 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
+  }
+
+  void spin_once() {
+
+    if (state.state == State::STOPPED) {
+      return;
+    }
+
+    if (state.state == State::HIGH) {
+      if (get_time_us() - time_start_high > time_high) {
+        // Set low
+        HAL_GPIO_WritePin(gpio_port_step, gpio_pin_step, GPIO_PIN_RESET);
+        state.state = State::LOW;
+      }
+    } else if (state.state == State::LOW) {
+      if (get_time_us() - time_start_step > time_step) {
+        // Set high
+        HAL_GPIO_WritePin(gpio_port_step, gpio_pin_step, GPIO_PIN_SET);
+        state.state = State::HIGH;
+        time_start_high = get_time_us();
+        time_start_step = get_time_us();
+        state.pos += state.direction;
+      }
+    }
+
+    if (state.pos == goal) {
+      state.state = State::STOPPED;
+    }
+  }
+
+  bool is_stopped() {
+    return state.state == State::STOPPED;
+  }
+
+  private:
+    GPIO_TypeDef *gpio_port_step;
+    uint16_t gpio_pin_step;
+    GPIO_TypeDef *gpio_port_dir;
+    uint16_t gpio_pin_dir;
+
+    struct State {
+      int pos;
+      int direction; // 1 or -1
+      enum {STOPPED, HIGH, LOW} state;
+    } state = {0, 1, State::STOPPED};
+
+    int goal = 0; // steps
+
+    unsigned long speed = 10000; // step/s
+    unsigned long time_step = 10000000 / speed; // us
+    unsigned long time_high = 10; // us
+
+
+    unsigned long time_start_step = 0;
+    unsigned long time_start_high = 0;
+
+
+
+
+
+
+ };
+
 /* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
   * @retval int
   */
-int main(void) {
+int main(void)
+{
 
-    /* USER CODE BEGIN 1 */
+  /* USER CODE BEGIN 1 */
 
-    /* USER CODE END 1 */
+  /* USER CODE END 1 */
 
-    /* MCU Configuration--------------------------------------------------------*/
+  /* MCU Configuration--------------------------------------------------------*/
 
-    /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-    HAL_Init();
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
-    /* USER CODE BEGIN Init */
+  /* USER CODE BEGIN Init */
 
-    /* USER CODE END Init */
+  /* USER CODE END Init */
 
-    /* Configure the system clock */
-    SystemClock_Config();
+  /* Configure the system clock */
+  SystemClock_Config();
 
-    /* USER CODE BEGIN SysInit */
+  /* USER CODE BEGIN SysInit */
 
-    /* USER CODE END SysInit */
+  /* USER CODE END SysInit */
 
-    /* Initialize all configured peripherals */
-    MX_GPIO_Init();
-    MX_DMA_Init();
-    MX_USART2_UART_Init();
-    MX_USART1_UART_Init();
-    MX_ADC2_Init();
-    /* USER CODE BEGIN 2 */
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_USART2_UART_Init();
+  MX_USART1_UART_Init();
+  MX_ADC2_Init();
+  MX_FDCAN1_Init();
+  MX_I2C1_Init();
+  MX_TIM2_Init();
+  /* USER CODE BEGIN 2 */
 
-    go_to_waypoints();
-//    manual_control();
-    /* USER CODE END 2 */
+    // Start the timer
+    HAL_TIM_Base_Start_IT(&htim2);
 
-    /* Infinite loop */
-    /* USER CODE BEGIN WHILE */
-    while (1) {
-        /* USER CODE END WHILE */
+    Stepper stepper_lift = Stepper(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, DIR_LIFT_GPIO_Port, DIR_LIFT_Pin);
 
-        /* USER CODE BEGIN 3 */
+    int pos_up = 100000;
+    int pos_down = 0;
+    int current_goal = pos_up;
 
-        /* USER CODE END 3 */
+    stepper_lift.set_goal(pos_up);
+
+
+ 
+    // go_to_waypoints();
+    // manual_control();
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+    while (1)
+    {
+
+     if (stepper_lift.is_stopped()) {
+       HAL_Delay(1000);
+        current_goal = current_goal == pos_up ? pos_down : pos_up;
+        stepper_lift.set_goal(current_goal);
+     }
+
+    stepper_lift.spin_once();
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
     }
+  /* USER CODE END 3 */
 }
 
 /**
@@ -428,6 +580,142 @@ static void MX_ADC2_Init(void)
   /* USER CODE BEGIN ADC2_Init 2 */
 
   /* USER CODE END ADC2_Init 2 */
+
+}
+
+/**
+  * @brief FDCAN1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_FDCAN1_Init(void)
+{
+
+  /* USER CODE BEGIN FDCAN1_Init 0 */
+
+  /* USER CODE END FDCAN1_Init 0 */
+
+  /* USER CODE BEGIN FDCAN1_Init 1 */
+
+  /* USER CODE END FDCAN1_Init 1 */
+  hfdcan1.Instance = FDCAN1;
+  hfdcan1.Init.ClockDivider = FDCAN_CLOCK_DIV1;
+  hfdcan1.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
+  hfdcan1.Init.Mode = FDCAN_MODE_NORMAL;
+  hfdcan1.Init.AutoRetransmission = DISABLE;
+  hfdcan1.Init.TransmitPause = DISABLE;
+  hfdcan1.Init.ProtocolException = DISABLE;
+  hfdcan1.Init.NominalPrescaler = 16;
+  hfdcan1.Init.NominalSyncJumpWidth = 1;
+  hfdcan1.Init.NominalTimeSeg1 = 2;
+  hfdcan1.Init.NominalTimeSeg2 = 2;
+  hfdcan1.Init.DataPrescaler = 1;
+  hfdcan1.Init.DataSyncJumpWidth = 1;
+  hfdcan1.Init.DataTimeSeg1 = 1;
+  hfdcan1.Init.DataTimeSeg2 = 1;
+  hfdcan1.Init.StdFiltersNbr = 0;
+  hfdcan1.Init.ExtFiltersNbr = 0;
+  hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
+  if (HAL_FDCAN_Init(&hfdcan1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN FDCAN1_Init 2 */
+
+  /* USER CODE END FDCAN1_Init 2 */
+
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.Timing = 0x30A0A7FB;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 16;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 1000000;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
 
 }
 
@@ -560,20 +848,30 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, STEP_RES_Pin|ENABLE_PIN_Pin|DIR_LIFT_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PA8 */
-  GPIO_InitStruct.Pin = GPIO_PIN_8;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, DIR_RES_Pin|STEP_LIFT_Pin|LD2_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
+  /*Configure GPIO pins : STEP_RES_Pin ENABLE_PIN_Pin DIR_LIFT_Pin */
+  GPIO_InitStruct.Pin = STEP_RES_Pin|ENABLE_PIN_Pin|DIR_LIFT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : DIR_RES_Pin STEP_LIFT_Pin LD2_Pin */
+  GPIO_InitStruct.Pin = DIR_RES_Pin|STEP_LIFT_Pin|LD2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : BUTTON_Pin */
+  GPIO_InitStruct.Pin = BUTTON_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(BUTTON_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

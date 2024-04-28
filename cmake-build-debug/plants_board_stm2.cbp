@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug"/>
+				<Option working_dir="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="plants_board_stm2.elf">
-				<Option output="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/plants_board_stm2.elf" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug"/>
+				<Option output="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/plants_board_stm2.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -27,28 +27,28 @@
 					<Add option="-DDEBUG"/>
 					<Add option="-DUSE_HAL_DRIVER"/>
 					<Add option="-DSTM32G431xx"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Inc"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/include"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/include/c++/10.3.1"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/include/c++/10.3.1/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 plants_board_stm2.elf"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 plants_board_stm2.elf"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="plants_board_stm2.elf/fast">
-				<Option output="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/plants_board_stm2.elf" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug"/>
+				<Option output="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/plants_board_stm2.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -56,344 +56,368 @@
 					<Add option="-DDEBUG"/>
 					<Add option="-DUSE_HAL_DRIVER"/>
 					<Add option="-DSTM32G431xx"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Inc"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include"/>
-					<Add directory="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/include"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed"/>
-					<Add directory="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include"/>
+					<Add directory="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/include/c++/10.3.1"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/include/c++/10.3.1/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 plants_board_stm2.elf/fast"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 plants_board_stm2.elf/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug"/>
+				<Option working_dir="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug"/>
+				<Option working_dir="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Inc/SCServo.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Inc/main.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/SCServo.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Inc/stm32g4xx_hal_conf.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/main.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Inc/stm32g4xx_it.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/stm32g4xx_hal_conf.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/SCServo.cpp">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/stm32g4xx_it.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/main.cpp">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/SCServo.cpp">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/main.pp">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_it.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/syscalls.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_it.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/sysmem.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/syscalls.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/system_stm32g4xx.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/sysmem.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/system_stm32g4xx.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/LICENSE.txt">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/cmsis_armcc.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Device/ST/STM32G4xx/LICENSE.txt">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/cmsis_armclang.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/cmsis_armcc.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/cmsis_armclang_ltm.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/cmsis_armclang.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/cmsis_compiler.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/cmsis_armclang_ltm.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/cmsis_gcc.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/cmsis_compiler.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/cmsis_iccarm.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/cmsis_gcc.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/cmsis_version.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/cmsis_iccarm.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_armv81mml.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/cmsis_version.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_armv8mbl.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_armv81mml.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_armv8mml.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_armv8mbl.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_cm0.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_armv8mml.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_cm0plus.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_cm0.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_cm1.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_cm0plus.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_cm23.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_cm1.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_cm3.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_cm23.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_cm33.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_cm3.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_cm35p.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_cm33.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_cm4.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_cm35p.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_cm7.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_cm4.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_sc000.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_cm7.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/core_sc300.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_sc000.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/mpu_armv7.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/core_sc300.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/mpu_armv8.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/mpu_armv7.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/Include/tz_context.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/mpu_armv8.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/CMSIS/LICENSE.txt">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/Include/tz_context.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/CMSIS/LICENSE.txt">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fdcan.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_i2c.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_i2c_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_crs.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_crs.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_lpuart.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_utils.h">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_lpuart.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/LICENSE.txt">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_utils.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/LICENSE.txt">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/STM32G431KBTX_FLASH.ld">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/CMakeLists.txt">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

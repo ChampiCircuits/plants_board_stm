@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/arusso/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/275/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /home/arusso/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/275/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2
+CMAKE_SOURCE_DIR = /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/plants_board_stm2.elf.dir/depend.make
@@ -70,400 +70,427 @@ include CMakeFiles/plants_board_stm2.elf.dir/progress.make
 include CMakeFiles/plants_board_stm2.elf.dir/flags.make
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/SCServo.cpp
+CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/SCServo.cpp
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/SCServo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj"
+	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/SCServo.cpp
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/SCServo.cpp > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.i
+	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/SCServo.cpp > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/SCServo.cpp -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.s
-
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/main.cpp
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/main.cpp
-
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/main.cpp > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.i
-
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/main.cpp -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.s
+	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/SCServo.cpp -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c
+CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_it.c
+CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_it.c
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_it.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_it.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_it.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_it.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/stm32g4xx_it.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_it.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/syscalls.c
+CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/syscalls.c
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/syscalls.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/syscalls.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/syscalls.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/syscalls.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/syscalls.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/syscalls.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/sysmem.c
+CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/sysmem.c
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/sysmem.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/sysmem.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/sysmem.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/sysmem.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/sysmem.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/sysmem.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/sysmem.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/system_stm32g4xx.c
+CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/system_stm32g4xx.c
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/system_stm32g4xx.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/system_stm32g4xx.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/system_stm32g4xx.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/system_stm32g4xx.c > CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Src/system_stm32g4xx.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/system_stm32g4xx.c -o CMakeFiles/plants_board_stm2.elf.dir/Core/Src/system_stm32g4xx.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building ASM object CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s
+CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building ASM object CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.obj"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s > CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.i
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s > CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s -o CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.s
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Startup/startup_stm32g431kbtx.s -o CMakeFiles/plants_board_stm2.elf.dir/Core/Startup/startup_stm32g431kbtx.s.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.s
+
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c
+
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.i
+
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.s
+
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c
+
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.i
+
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.s
+
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c
+
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.i
+
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj: CMakeFiles/plants_board_stm2.elf.dir/flags.make
-CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj: /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c
+CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj: CMakeFiles/plants_board_stm2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj -c /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj -MF CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj.d -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj -c /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c > CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i
 
 CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s"
-	/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c -o CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s
 
 # Object files for target plants_board_stm2.elf
 plants_board_stm2_elf_OBJECTS = \
 "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj" \
-"CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj" \
@@ -477,10 +504,13 @@ plants_board_stm2_elf_OBJECTS = \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj" \
+"CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj" \
+"CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj" \
+"CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj" \
 "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj" \
@@ -495,7 +525,6 @@ plants_board_stm2_elf_OBJECTS = \
 plants_board_stm2_elf_EXTERNAL_OBJECTS =
 
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj
-plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj
@@ -509,10 +538,13 @@ plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HA
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj
+plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj
+plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
@@ -524,12 +556,12 @@ plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HA
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/build.make
 plants_board_stm2.elf: CMakeFiles/plants_board_stm2.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Linking CXX executable plants_board_stm2.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking CXX executable plants_board_stm2.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/plants_board_stm2.elf.dir/link.txt --verbose=$(VERBOSE)
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/plants_board_stm2.hex"
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/plants_board_stm2.bin"
-	arm-none-eabi-objcopy -Oihex /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/plants_board_stm2.elf /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/plants_board_stm2.hex
-	arm-none-eabi-objcopy -Obinary /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/plants_board_stm2.elf /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/plants_board_stm2.bin
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/plants_board_stm2.hex"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/plants_board_stm2.bin"
+	arm-none-eabi-objcopy -Oihex /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/plants_board_stm2.elf /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/plants_board_stm2.hex
+	arm-none-eabi-objcopy -Obinary /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/plants_board_stm2.elf /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/plants_board_stm2.bin
 
 # Rule to build all files generated by this target.
 CMakeFiles/plants_board_stm2.elf.dir/build: plants_board_stm2.elf
@@ -540,6 +572,6 @@ CMakeFiles/plants_board_stm2.elf.dir/clean:
 .PHONY : CMakeFiles/plants_board_stm2.elf.dir/clean
 
 CMakeFiles/plants_board_stm2.elf.dir/depend:
-	cd /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2 /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2 /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles/plants_board_stm2.elf.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2 /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2 /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles/plants_board_stm2.elf.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/plants_board_stm2.elf.dir/depend
 

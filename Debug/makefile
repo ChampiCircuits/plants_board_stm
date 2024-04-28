@@ -84,8 +84,8 @@ all: main-build
 main-build: plants_board_stm2.elf secondary-outputs
 
 # Tool invocations
-plants_board_stm2.elf plants_board_stm2.map: $(OBJS) $(USER_OBJS) /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/STM32G431KBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "plants_board_stm2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/STM32G431KBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="plants_board_stm2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+plants_board_stm2.elf plants_board_stm2.map: $(OBJS) $(USER_OBJS) /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/STM32G431KBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "plants_board_stm2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/STM32G431KBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="plants_board_stm2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

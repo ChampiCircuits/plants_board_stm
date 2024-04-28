@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/arusso/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/275/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /home/arusso/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/275/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2
+CMAKE_SOURCE_DIR = /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/home/arusso/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/275/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/home/arusso/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/275/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arusso/STM32CubeIDE/workspace_1.15.0/plants_board_stm2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -152,30 +152,6 @@ Core/Src/SCServo.s: Core/Src/SCServo.cpp.s
 Core/Src/SCServo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.s
 .PHONY : Core/Src/SCServo.cpp.s
-
-Core/Src/main.obj: Core/Src/main.cpp.obj
-.PHONY : Core/Src/main.obj
-
-# target to build an object file
-Core/Src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj
-.PHONY : Core/Src/main.cpp.obj
-
-Core/Src/main.i: Core/Src/main.cpp.i
-.PHONY : Core/Src/main.i
-
-# target to preprocess a source file
-Core/Src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.i
-.PHONY : Core/Src/main.cpp.i
-
-Core/Src/main.s: Core/Src/main.cpp.s
-.PHONY : Core/Src/main.s
-
-# target to generate assembly for a file
-Core/Src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.s
-.PHONY : Core/Src/main.cpp.s
 
 Core/Src/stm32g4xx_hal_msp.obj: Core/Src/stm32g4xx_hal_msp.c.obj
 .PHONY : Core/Src/stm32g4xx_hal_msp.obj
@@ -473,6 +449,30 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.s
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.s
 
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.obj
+
+# target to build an object file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.i: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.i
+
+# target to preprocess a source file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.i
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.s: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.s
+
+# target to generate assembly for a file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.s
+
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.obj
 
@@ -568,6 +568,54 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.s: Drivers/STM32G4xx_HAL_Dri
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.s
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.s
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.obj
+
+# target to build an object file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.obj
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.i: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.i
+
+# target to preprocess a source file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.i
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.s: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.s
+
+# target to generate assembly for a file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.c.s
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.obj
+
+# target to build an object file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.obj
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.i: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.i
+
+# target to preprocess a source file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.i
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.s: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.s
+
+# target to generate assembly for a file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.c.s
 
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.obj
@@ -797,9 +845,6 @@ help:
 	@echo "... Core/Src/SCServo.obj"
 	@echo "... Core/Src/SCServo.i"
 	@echo "... Core/Src/SCServo.s"
-	@echo "... Core/Src/main.obj"
-	@echo "... Core/Src/main.i"
-	@echo "... Core/Src/main.s"
 	@echo "... Core/Src/stm32g4xx_hal_msp.obj"
 	@echo "... Core/Src/stm32g4xx_hal_msp.i"
 	@echo "... Core/Src/stm32g4xx_hal_msp.s"
@@ -837,6 +882,9 @@ help:
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.obj"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.i"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.s"
+	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.obj"
+	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.i"
+	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.s"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.obj"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.i"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.s"
@@ -849,6 +897,12 @@ help:
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.obj"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.i"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.s"
+	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.obj"
+	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.i"
+	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c.s"
+	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.obj"
+	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.i"
+	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_i2c_ex.s"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.obj"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.i"
 	@echo "... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.s"
