@@ -114,7 +114,7 @@
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/SCServo.cpp">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
-		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/main.pp">
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/main.cpp">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c">

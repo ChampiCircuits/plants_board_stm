@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj"
   "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj.d"
+  "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj"
+  "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj.d"
   "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj"
   "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj.d"
   "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj"

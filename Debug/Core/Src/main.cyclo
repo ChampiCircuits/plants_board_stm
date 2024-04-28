@@ -1,28 +1,36 @@
+../Core/Inc/Stepper.hpp:19:3:Stepper::Stepper(long unsigned int (*)(), GPIO_TypeDef*, uint16_t, GPIO_TypeDef*, uint16_t)	1
+../Core/Inc/Stepper.hpp:32:8:void Stepper::set_goal(int)	3
+../Core/Inc/Stepper.hpp:45:8:void Stepper::set_pos(int)	1
+../Core/Inc/Stepper.hpp:49:8:void Stepper::spin_once()	7
+../Core/Inc/Stepper.hpp:77:8:bool Stepper::is_stopped()	1
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/new:174:33:void* operator new(std::size_t, void*)	1
-../Core/Src/main.cpp:84:5:int _write(int, char*, int)	2
-../Core/Src/main.cpp:94:6:void list_servos_ids(uint8_t, uint8_t, SCServo)	3
-../Core/Src/main.cpp:105:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	2
-../Core/Src/main.cpp:112:15:long unsigned int get_time_us()	1
-../Core/Src/main.cpp:124:6:void manual_control()	8
+../Core/Src/main.cpp:85:5:int _write(int, char*, int)	2
+../Core/Src/main.cpp:97:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	2
+../Core/Src/main.cpp:104:15:long unsigned int get_time_us()	1
+../Core/Src/main.cpp:110:6:void list_servos_ids(uint8_t, uint8_t, SCServo)	3
+../Core/Src/main.cpp:122:6:void manual_control()	8
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_vector.h:133:14:std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl()	1
-../Core/Src/main.cpp:210:6:void go_to_waypoints()	7
-../Core/Src/main.cpp:298:6:void lift_up_no_lib()	2
-../Core/Src/main.cpp:309:6:void lift_down_no_lib()	2
-../Core/Src/main.cpp:324:3:Stepper::Stepper(GPIO_TypeDef*, uint16_t, GPIO_TypeDef*, uint16_t)	1
-../Core/Src/main.cpp:335:8:void Stepper::set_goal(int)	3
-../Core/Src/main.cpp:344:8:void Stepper::spin_once()	7
-../Core/Src/main.cpp:372:8:bool Stepper::is_stopped()	1
-../Core/Src/main.cpp:411:5:int main()	3
-../Core/Src/main.cpp:485:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:532:13:void MX_ADC2_Init()	3
-../Core/Src/main.cpp:591:13:void MX_FDCAN1_Init()	2
-../Core/Src/main.cpp:634:13:void MX_I2C1_Init()	4
-../Core/Src/main.cpp:682:13:void MX_TIM2_Init()	4
-../Core/Src/main.cpp:727:13:void MX_USART1_UART_Init()	5
-../Core/Src/main.cpp:775:13:void MX_USART2_UART_Init()	5
-../Core/Src/main.cpp:821:13:void MX_DMA_Init()	1
-../Core/Src/main.cpp:840:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:888:6:void Error_Handler()	1
+../Core/Src/main.cpp:208:6:void go_to_waypoints()	7
+../Core/Src/main.cpp:279:6:void reservoir_go_to_init_pos()	2
+../Core/Src/main.cpp:294:6:void lift_go_to_init_pos()	2
+../Core/Src/main.cpp:306:6:void servo_horiz_go_to_init_pos()	1
+../Core/Src/main.cpp:314:6:void actuators_go_to_init_poses()	1
+../Core/Src/main.cpp:321:6:void lift_go_down()	2
+../Core/Src/main.cpp:330:6:void lift_go_up()	2
+../Core/Src/main.cpp:339:6:void lift_go_middle()	2
+../Core/Src/main.cpp:348:6:void grabber_extend()	1
+../Core/Src/main.cpp:354:6:void grabber_retract(bool)	2
+../Core/Src/main.cpp:368:5:int main()	1
+../Core/Src/main.cpp:459:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:506:13:void MX_ADC2_Init()	3
+../Core/Src/main.cpp:565:13:void MX_FDCAN1_Init()	2
+../Core/Src/main.cpp:608:13:void MX_I2C1_Init()	4
+../Core/Src/main.cpp:656:13:void MX_TIM2_Init()	4
+../Core/Src/main.cpp:701:13:void MX_USART1_UART_Init()	5
+../Core/Src/main.cpp:749:13:void MX_USART2_UART_Init()	5
+../Core/Src/main.cpp:795:13:void MX_DMA_Init()	1
+../Core/Src/main.cpp:814:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:868:6:void Error_Handler()	1
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/allocator.h:156:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = int]	1
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/allocator.h:174:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = int]	1
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_vector.h:673:7:std::vector<_Tp, _Alloc>::vector(std::initializer_list<_Tp>, const allocator_type&) [with _Tp = int; _Alloc = std::allocator<int>]	1
@@ -124,3 +132,5 @@
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_iterator.h:1158:7:const _Iterator& __gnu_cxx::__normal_iterator<_Iterator, _Container>::base() const [with _Iterator = const int*; _Container = std::vector<int>]	1
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_algobase.h:486:5:_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = const int*; _OI = int*]	1
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_algobase.h:420:2:static _Tp* std::__copy_move<_IsMove, true, std::random_access_iterator_tag>::__copy_m(const _Tp*, const _Tp*, _Tp*) [with _Tp = int; bool _IsMove = false]	2
+../Core/Src/main.cpp:877:1:void __static_initialization_and_destruction_0(int, int)	3
+../Core/Src/main.cpp:877:1:cpp)	1

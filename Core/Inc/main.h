@@ -77,6 +77,8 @@ void Error_Handler(void);
 #define T_SWCLK_GPIO_Port GPIOA
 #define T_SWO_Pin GPIO_PIN_3
 #define T_SWO_GPIO_Port GPIOB
+#define FIN_COURSE_RES_Pin GPIO_PIN_5
+#define FIN_COURSE_RES_GPIO_Port GPIOB
 #define STEP_LIFT_Pin GPIO_PIN_6
 #define STEP_LIFT_GPIO_Port GPIOB
 #define LD2_Pin GPIO_PIN_8

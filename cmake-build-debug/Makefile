@@ -153,6 +153,30 @@ Core/Src/SCServo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.s
 .PHONY : Core/Src/SCServo.cpp.s
 
+Core/Src/main.obj: Core/Src/main.cpp.obj
+.PHONY : Core/Src/main.obj
+
+# target to build an object file
+Core/Src/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj
+.PHONY : Core/Src/main.cpp.obj
+
+Core/Src/main.i: Core/Src/main.cpp.i
+.PHONY : Core/Src/main.i
+
+# target to preprocess a source file
+Core/Src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.i
+.PHONY : Core/Src/main.cpp.i
+
+Core/Src/main.s: Core/Src/main.cpp.s
+.PHONY : Core/Src/main.s
+
+# target to generate assembly for a file
+Core/Src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.s
+.PHONY : Core/Src/main.cpp.s
+
 Core/Src/stm32g4xx_hal_msp.obj: Core/Src/stm32g4xx_hal_msp.c.obj
 .PHONY : Core/Src/stm32g4xx_hal_msp.obj
 
@@ -845,6 +869,9 @@ help:
 	@echo "... Core/Src/SCServo.obj"
 	@echo "... Core/Src/SCServo.i"
 	@echo "... Core/Src/SCServo.s"
+	@echo "... Core/Src/main.obj"
+	@echo "... Core/Src/main.i"
+	@echo "... Core/Src/main.s"
 	@echo "... Core/Src/stm32g4xx_hal_msp.obj"
 	@echo "... Core/Src/stm32g4xx_hal_msp.i"
 	@echo "... Core/Src/stm32g4xx_hal_msp.s"

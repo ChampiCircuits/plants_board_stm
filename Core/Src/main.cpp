@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "SCServo.h"
+#include "Stepper.hpp"
 // #include "STM32Step/src/STM32Step.hpp"
 #include <stdlib.h>
 #include <string.h>
@@ -91,15 +92,6 @@ int _write(int file, char *ptr, int len)
 
 }
 
-void list_servos_ids(uint8_t id_start,  uint8_t id_stop, SCServo servos) {
-	for(uint8_t id=id_start; id<id_stop; id++) {
-		if(servos.ReadPos(id)!=-1) {
-			printf("Found ID %d\n", id);
-		}
-	}
-}
-
-
 unsigned long seconds_elapsed = 0;
 // TIM2 interrupt callback (reaches ARR every second
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -112,9 +104,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 unsigned long get_time_us() {
   unsigned long time_us = htim2.Instance->CNT;
 
-  int s = sizeof(time_us);
-
   return seconds_elapsed * 1000000 + time_us;
+}
+
+void list_servos_ids(uint8_t id_start,  uint8_t id_stop, SCServo servos) {
+	for(uint8_t id=id_start; id<id_stop; id++) {
+		if(servos.ReadPos(id)!=-1) {
+			printf("Found ID %d\n", id);
+		}
+	}
 }
 
 int ids_servos[3] = {8, 17, 18};
@@ -231,40 +229,6 @@ void go_to_waypoints() {
             std::vector<int>{649, 202, 206, 500}, // PRE HOME
     };
 
-    // TTB
-//    std::vector<std::vector<int>> waypoints = {
-//            std::vector<int>{500, 195, 232, 2000},
-////            std::vector<int>{184, 202, 27, 2000},
-//            std::vector<int>{635, 202, 298, 2000},
-//            std::vector<int>{754, 453, 581, 1000},
-//            std::vector<int>{441, 719, 695, 1000}, // POSE
-//            std::vector<int>{441, 719, 780, 200}, // DEPOSE
-//            std::vector<int>{649, 719, 762, 1000}, // DRESSE
-//            std::vector<int>{649, 202, 206, 1000}, // PRE HOME
-//    };
-
-    // TB
-//    std::vector<std::vector<int>> waypoints = {
-//            std::vector<int>{515, 190, 232, 2000},
-////            std::vector<int>{184, 202, 27, 2000},
-//            std::vector<int>{635, 202, 298, 2000},
-//            std::vector<int>{754, 453, 581, 1000},
-//            std::vector<int>{441, 719, 695, 1000}, // POSE
-//            std::vector<int>{441, 719, 762, 200}, // DEPOSE
-//            std::vector<int>{649, 719, 762, 1000}, // DRESSE
-//            std::vector<int>{649, 202, 206, 1000}, // PRE HOME
-//    };
-
-
-    // BIEN:
-//    std::vector<int>{521, 204, 232, 2000},
-////            std::vector<int>{184, 202, 27, 2000},
-//            std::vector<int>{635, 202, 298, 2000},
-//            std::vector<int>{754, 453, 581, 2000},
-//            std::vector<int>{441, 719, 695, 2000}, // POSE
-//            std::vector<int>{441, 719, 762, 2000}, // DEPOSE
-//            std::vector<int>{649, 719, 762, 2000}, // DRESSE
-//            std::vector<int>{649, 202, 206, 2000}, // PRE HOME
 
     // Limit torque to 200
     for (int i = 0; i < 3; i++) {
@@ -295,112 +259,105 @@ void go_to_waypoints() {
     }
 }
 
-void lift_up_no_lib()
+
+#define SERVO_HORIZ_ID 8
+
+#define SERVO_HORIZ_POS_RETRACT 280
+#define SERVO_HORIZ_POS_EXTEND 1023
+
+#define LIFT_POS_UP 500
+#define LIFT_POS_MIDDLE 5000
+#define LIFT_POS_DOWN 14000
+
+
+Stepper stepper_lift = Stepper(get_time_us, STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, DIR_LIFT_GPIO_Port, DIR_LIFT_Pin);
+Stepper stepper_res = Stepper(get_time_us, STEP_RES_GPIO_Port, STEP_RES_Pin, DIR_RES_GPIO_Port, DIR_RES_Pin);
+
+SCServo servos = SCServo(&huart1);
+
+
+void reservoir_go_to_init_pos()
 {
-  HAL_GPIO_WritePin(DIR_LIFT_GPIO_Port, DIR_LIFT_Pin, GPIO_PIN_SET);
-  for (int i = 0; i < 500; i++) {
-    HAL_GPIO_WritePin(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, GPIO_PIN_SET);
-    HAL_Delay(1);
-    HAL_GPIO_WritePin(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, GPIO_PIN_RESET);
-    HAL_Delay(1);
+  // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
+  stepper_res.set_goal(100000);
+
+  while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_SET)
+  {
+    stepper_res.spin_once();
+  }
+
+  stepper_res.set_pos(0);
+  stepper_res.set_goal(0);
+
+}
+
+void lift_go_to_init_pos()
+{
+  // Here we don't have a sensor. So we just turn the motor for a certain distance. (5 spins at 3200 steps per spin)
+
+  stepper_lift.set_goal(-5*3200);
+  while(!stepper_lift.is_stopped())
+  {
+    stepper_lift.spin_once();
+  }
+  stepper_lift.set_pos(0);
+}
+
+void servo_horiz_go_to_init_pos()
+{
+  servos.EnableTorque(SERVO_HORIZ_ID, 1);
+  servos.WriteLimitTroque(SERVO_HORIZ_ID, 1023);
+  servos.WritePos(SERVO_HORIZ_ID ,SERVO_HORIZ_POS_RETRACT, 200);
+  HAL_Delay(200);
+}
+
+void actuators_go_to_init_poses()
+{
+  servo_horiz_go_to_init_pos();
+  // reservoir_go_to_init_pos();
+  lift_go_to_init_pos();
+}
+
+void lift_go_down()
+{
+  stepper_lift.set_goal(LIFT_POS_DOWN);
+  while(!stepper_lift.is_stopped())
+  {
+    stepper_lift.spin_once();
   }
 }
 
-void lift_down_no_lib()
+void lift_go_up()
 {
-  HAL_GPIO_WritePin(DIR_LIFT_GPIO_Port, DIR_LIFT_Pin, GPIO_PIN_RESET);
-  for (int i = 0; i < 500; i++) {
-    HAL_GPIO_WritePin(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, GPIO_PIN_SET);
-    HAL_Delay(1);
-    HAL_GPIO_WritePin(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, GPIO_PIN_RESET);
-    HAL_Delay(1);
+  stepper_lift.set_goal(LIFT_POS_UP);
+  while(!stepper_lift.is_stopped())
+  {
+    stepper_lift.spin_once();
   }
 }
 
-
-
-class Stepper {
-public:
-  Stepper(GPIO_TypeDef *gpio_port_step, uint16_t gpio_pin_step, GPIO_TypeDef *gpio_port_dir, uint16_t gpio_pin_dir) {
-    this->gpio_port_step = gpio_port_step;
-    this->gpio_pin_step = gpio_pin_step;
-    this->gpio_port_dir = gpio_port_dir;
-    this->gpio_pin_dir = gpio_pin_dir;
-
-    HAL_GPIO_WritePin(gpio_port_step, gpio_pin_step, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(gpio_port_dir, gpio_pin_dir, GPIO_PIN_RESET);
-
+void lift_go_middle()
+{
+  stepper_lift.set_goal(LIFT_POS_MIDDLE);
+  while(!stepper_lift.is_stopped())
+  {
+    stepper_lift.spin_once();
   }
+}
 
-  void set_goal(int goal) {
-    this->goal = goal;
-    state.state = State::HIGH;
-    state.direction = goal > state.pos ? 1 : -1;
-    time_start_step = get_time_us();
-    time_start_high = time_start_step;
-    HAL_GPIO_WritePin(gpio_port_dir, gpio_pin_dir, state.direction == 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
-  }
+void grabber_extend()
+{
+  servos.WritePos(SERVO_HORIZ_ID ,SERVO_HORIZ_POS_EXTEND, 500);
+  HAL_Delay(500);
+}
 
-  void spin_once() {
-
-    if (state.state == State::STOPPED) {
-      return;
-    }
-
-    if (state.state == State::HIGH) {
-      if (get_time_us() - time_start_high > time_high) {
-        // Set low
-        HAL_GPIO_WritePin(gpio_port_step, gpio_pin_step, GPIO_PIN_RESET);
-        state.state = State::LOW;
-      }
-    } else if (state.state == State::LOW) {
-      if (get_time_us() - time_start_step > time_step) {
-        // Set high
-        HAL_GPIO_WritePin(gpio_port_step, gpio_pin_step, GPIO_PIN_SET);
-        state.state = State::HIGH;
-        time_start_high = get_time_us();
-        time_start_step = get_time_us();
-        state.pos += state.direction;
-      }
-    }
-
-    if (state.pos == goal) {
-      state.state = State::STOPPED;
-    }
-  }
-
-  bool is_stopped() {
-    return state.state == State::STOPPED;
-  }
-
-  private:
-    GPIO_TypeDef *gpio_port_step;
-    uint16_t gpio_pin_step;
-    GPIO_TypeDef *gpio_port_dir;
-    uint16_t gpio_pin_dir;
-
-    struct State {
-      int pos;
-      int direction; // 1 or -1
-      enum {STOPPED, HIGH, LOW} state;
-    } state = {0, 1, State::STOPPED};
-
-    int goal = 0; // steps
-
-    unsigned long speed = 10000; // step/s
-    unsigned long time_step = 10000000 / speed; // us
-    unsigned long time_high = 10; // us
+void grabber_retract(bool block=true)
+{
+  servos.WritePos(SERVO_HORIZ_ID ,SERVO_HORIZ_POS_RETRACT, 500);
+  if(block) HAL_Delay(500);
+}
 
 
-    unsigned long time_start_step = 0;
-    unsigned long time_start_high = 0;
-
-
-
-
-
-
- };
 
 /* USER CODE END 0 */
 
@@ -445,14 +402,31 @@ int main(void)
     // Start the timer
     HAL_TIM_Base_Start_IT(&htim2);
 
-    Stepper stepper_lift = Stepper(STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, DIR_LIFT_GPIO_Port, DIR_LIFT_Pin);
+    actuators_go_to_init_poses();
 
-    int pos_up = 100000;
-    int pos_down = 0;
-    int current_goal = pos_up;
+    lift_go_down();
+    HAL_Delay(3000);
 
-    stepper_lift.set_goal(pos_up);
+    lift_go_up();
+    // HAL_Delay(3000);
 
+    grabber_extend();
+    // HAL_Delay(3000);
+
+    lift_go_middle();
+    // HAL_Delay(3000);
+
+    grabber_retract(false);
+    // HAL_Delay(3000);
+
+    lift_go_down();
+
+
+
+  // servos.WritePos(8 ,1023, 2000);
+  // HAL_Delay(2000);
+  //   servos.WritePos(8 ,280, 1000);
+  //   HAL_Delay(2000);
 
  
     // go_to_waypoints();
@@ -464,13 +438,13 @@ int main(void)
     while (1)
     {
 
-     if (stepper_lift.is_stopped()) {
-       HAL_Delay(1000);
-        current_goal = current_goal == pos_up ? pos_down : pos_up;
-        stepper_lift.set_goal(current_goal);
-     }
-
-    stepper_lift.spin_once();
+    //  if (stepper_lift.is_stopped()) {
+    //    HAL_Delay(1000);
+    //     current_goal = current_goal == pos_up ? pos_down : pos_up;
+    //     stepper_lift.set_goal(current_goal);
+    //  }
+    //
+    // stepper_lift.spin_once();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -872,6 +846,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(BUTTON_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : FIN_COURSE_RES_Pin */
+  GPIO_InitStruct.Pin = FIN_COURSE_RES_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(FIN_COURSE_RES_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
