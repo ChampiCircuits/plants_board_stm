@@ -96,6 +96,12 @@ public:
 	}
 
 
+	void clear_interrupt()
+	{
+		VL53L4CD_ClearInterrupt(address);
+	}
+
+
 	static void scan()
 	{
 		/*I2C Bus Scanning*/
@@ -113,6 +119,7 @@ public:
 		}
 		printf("end of scan\n\n");
 	}
+
 
 
 private:

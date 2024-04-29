@@ -386,7 +386,8 @@ void hopper_open(int side)
 bool hopper_wait_and_close_spin_once(int side)
 {
   // Check if distance < 50mm for left plant
-  if(sensors[side].get_dist_mm() < 50)
+  int dist = sensors[side].get_dist_mm();
+  if(dist < 50)
   {
     // Close the hopper
     hopper_close(side);
@@ -399,6 +400,11 @@ bool hopper_wait_and_close_spin_once(int side)
 void request_store_plants()
 {
   system_state.storing = true;
+
+  // Clear distance sensors buffers (?)
+  sensors[LEFT].clear_interrupt();
+  sensors[RIGHT].clear_interrupt();
+  HAL_Delay(100);
 }
 
 
@@ -431,6 +437,7 @@ void store_plants_spin_once()
     lift_go_down();
     hopper_open(LEFT);
     hopper_open(RIGHT);
+    HAL_Delay(500);
     system_state.storing = false;
     system_state.hopper_left_closed = false;
     system_state.hopper_right_closed = false;
@@ -511,6 +518,9 @@ int main(void)
 
     while (1)
     {
+
+      // Print distances
+      printf("Left: %d mm, Right: %d mm\n", sensors[LEFT].get_dist_mm(), sensors[RIGHT].get_dist_mm());
 
       store_plants_spin_once();
       if(!system_state.storing)
