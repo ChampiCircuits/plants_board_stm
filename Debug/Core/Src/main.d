@@ -31,7 +31,8 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
- ../Core/Inc/SCServo.h ../Core/Inc/Stepper.hpp ../Core/Inc/VL53L4CD_api.h \
+ ../Core/Inc/SCServo.h ../Core/Inc/Stepper.hpp \
+ ../Core/Inc/LaserSensor.hpp ../Core/Inc/VL53L4CD_api.h \
  ../Core/Inc/platform.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
@@ -68,5 +69,6 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
 ../Core/Inc/SCServo.h:
 ../Core/Inc/Stepper.hpp:
+../Core/Inc/LaserSensor.hpp:
 ../Core/Inc/VL53L4CD_api.h:
 ../Core/Inc/platform.h:

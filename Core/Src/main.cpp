@@ -23,11 +23,10 @@
 /* USER CODE BEGIN Includes */
 #include "SCServo.h"
 #include "Stepper.hpp"
-// #include "STM32Step/src/STM32Step.hpp"
+#include "LaserSensor.hpp"
 #include <stdlib.h>
 #include <string.h>
 #include "stdio.h"
-#include "VL53L4CD_api.h"
 #include <vector>
 /* USER CODE END Includes */
 
@@ -57,8 +56,6 @@ UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-int value_adc = 0;
-int i_mot=0;
 
 /* USER CODE END PV */
 
@@ -71,6 +68,20 @@ static void MX_FDCAN1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
+
+void grabber_extend();
+void grabber_retract(bool block=true);
+void lift_go_down();
+void lift_go_up();
+void lift_go_middle();
+void hopper_close(int side);
+void hopper_open(int side);
+bool hopper_wait_and_close_spin_once(int side);
+void reservoir_initialize_and_test();
+void lift_initialize_and_test();
+void grabber_initialize_and_test();
+void hoppers_initialize_and_test();
+int setup_lasers();
 
 /* USER CODE END PFP */
 
@@ -103,184 +114,137 @@ unsigned long get_time_us() {
   return seconds_elapsed * 1000000 + time_us;
 }
 
-void list_servos_ids(uint8_t id_start,  uint8_t id_stop, SCServo servos) {
-	for(uint8_t id=id_start; id<id_stop; id++) {
-		if(servos.ReadPos(id)!=-1) {
-			printf("Found ID %d\n", id);
-		}
-	}
-}
-
-
+// ===================================== DEFINES DISTANCE SENSORS =====================================
 
 #define SENSOR_LEFT_ADDRESS 0x01
 #define SENSOR_RIGHT_ADDRESS 0x05
 #define SENSOR_LEFT_OFFSET -10
 #define SENSOR_RIGHT_OFFSET -8
 
-struct LASER_SENSOR
-{
-  // gpio_pin, address, results
-  uint16_t pin;
-  GPIO_TypeDef *port;
-  Dev_t address;
-  VL53L4CD_ResultsData_t results = {};
+
+
+// ============================================= DEFINES GRABBER =============================================
+
+#define SERVO_GRABBER_ID 8
+
+#define SERVO_GRABBER_POS_RETRACT 280
+#define SERVO_GRABBER_POS_EXTEND 1023
+
+
+
+
+// ============================================= DEFINES LIFT =============================================
+
+#define LIFT_POS_UP 500
+#define LIFT_POS_MIDDLE 5000
+#define LIFT_POS_DOWN 14000
+
+
+
+
+// ================================================ DEFINES HOPPERS ====================================================
+
+#define LEFT 0
+#define RIGHT 1
+
+std::vector<int> hoppers_ids = {7, 14};
+std::vector<int> hoppers_pos_open = {1023, 0};
+std::vector<int> hoppers_pos_close = {500, 500};
+
+
+
+
+// ================================ DECLARE / INITIALIZE ACTUATORS / SENSORS OBJECTS ===================================
+
+// Distance sensors
+auto sensors = std::vector<LaserSensor>({
+  LaserSensor(XSHUT_LEFT_GPIO_Port, XSHUT_LEFT_Pin,  SENSOR_LEFT_ADDRESS, SENSOR_LEFT_OFFSET),
+  LaserSensor(XSHUT_RIGHT_GPIO_Port, XSHUT_RIGHT_Pin,  SENSOR_RIGHT_ADDRESS, SENSOR_RIGHT_OFFSET)
+});
+
+// Steppers
+Stepper stepper_lift = Stepper(get_time_us, STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, DIR_LIFT_GPIO_Port, DIR_LIFT_Pin);
+Stepper stepper_res = Stepper(get_time_us, STEP_RES_GPIO_Port, STEP_RES_Pin, DIR_RES_GPIO_Port, DIR_RES_Pin);
+
+// Servos
+SCServo servos = SCServo(&huart1);
+
+
+
+
+// =============================================== SYSTEM STATE RELATED VARIABLES ======================================
+
+std::vector<int> servo_ids_to_check = {
+  SERVO_GRABBER_ID,
+  hoppers_ids[LEFT],
+  hoppers_ids[RIGHT]
 };
 
 
-LASER_SENSOR sensor_left{};
-LASER_SENSOR sensor_right{};
-
-
-int setup_laser(LASER_SENSOR sensor)
+struct SystemState
 {
-  uint16_t sensor_id;
-  uint8_t status;
-  printf("SENSOR_PIN: %d\n", sensor.pin);
+  bool hopper_left_closed = false;
+  bool hopper_right_closed = false;
+  bool storing = false;
+  std::vector<bool> servos_ok = {false, false, false};
 
-  HAL_Delay(5);
-  // set the pin to high to enable the sensor
-  HAL_GPIO_WritePin(sensor.port, sensor.pin, GPIO_PIN_SET);
-  HAL_Delay(5);
+} system_state;
 
-  // set I2C address (other unset addresses XSHUT have to be pull to low before)
-  status = VL53L4CD_SetI2CAddress(0x52, sensor.address); // 0x52 is the default address
-  if (status)
-  {
-    printf("VL53L4CD_SetI2CAddress failed with status %u\n", status);
-    return status;
-  }
 
-  /* (Optional) Check if there is a VL53L4CD sensor connected */
-  printf("Checking for laser sensor at address %x\n", sensor.address);
-  status = VL53L4CD_GetSensorId(sensor.address, &sensor_id);
 
-  if (status || (sensor_id != 0xEBAA))
-  {
-    printf("VL53L4CD not detected at requested address\n");
-    return status;
-  }
-  printf("VL53L4CD detected at address %x\n", sensor.address);
 
-  /* (Mandatory) Init VL53L4CD sensor */
-  printf("Initializing laser sensor\n");
-  status = VL53L4CD_SensorInit(sensor.address);
-  if (status)
-  {
-    printf("VL53L4CD ULD Loading failed\n");
-    return status;
-  }
+// ================================================ DIAGNOSTIC FUNCTIONS ===============================================
 
-  // set the offsets
-  if (sensor.address == SENSOR_LEFT_ADDRESS)
-  {
-    status = VL53L4CD_SetOffset(sensor.address, SENSOR_LEFT_OFFSET);
-  }
-  else if (sensor.address == SENSOR_RIGHT_ADDRESS)
-  {
-    status = VL53L4CD_SetOffset(sensor.address, SENSOR_RIGHT_OFFSET);
-  }
-  if (status)
-  {
-    printf("VL53L4CD_SetOffset failed with status %u\n", status);
-    return status;
-  }
-
-  status = VL53L4CD_StartRanging(sensor.address);
-  if (status)
-  {
-    printf("VL53L4CD_StartRanging failed with status %u\n", status);
-    return status;
-  }
-  printf("VL53L4CD ULD ready at address %x ready\n", sensor.address);
-
-  return 0;
-}
-
-void scan()
+int ping_servos()
 {
-  HAL_Delay(5);
-
-  /*I2C Bus Scanning*/
-  uint16_t sensor_id;
-  uint8_t status;
-
-  for (int i = 1; i < 128; i++)
+  int res = 0;
+  for(int i = 0; i < servo_ids_to_check.size(); i++)
   {
-    status = VL53L4CD_GetSensorId(i, &sensor_id);
-    if (status || (sensor_id != 0xEBAA))
+    int id = servo_ids_to_check[i];
+    int pos = servos.ReadPos(id);
+
+    if(pos == -1)
     {
-      // printf("VL53L4CD not detected at address %x\n", i);
+      printf("Error reading servo %d\n", id);
+      res = -1;
     }
     else
     {
-      printf("VL53L4CD detected at address %x\n", i);
+      printf("Servo %d was ping successfully\n", id);
     }
-    HAL_Delay(5);
   }
-  printf("end of scan\n\n");
-}
-
-int update_distance(LASER_SENSOR &sensor)
-{
-  // We don't want to read data at too high frequency, so we store previous time and check against HAL_GetTick(). (5ms min)
-  static uint32_t last_read_time = 0;
-  if (HAL_GetTick() - last_read_time < 5)
-  {
-    return 0;
-  }
-
-  /* Use polling function to know when a new measurement is ready.
-   * Another way can be to wait for HW interrupt raised on PIN 7
-   * (GPIO 1) when a new measurement is ready */
-
-  uint8_t isReady;
-
-  uint8_t status = VL53L4CD_CheckForDataReady(sensor.address, &isReady);
-
-  if (isReady)
-  {
-    /* (Mandatory) Clear HW interrupt to restart measurements */
-    VL53L4CD_ClearInterrupt(sensor.address);
-
-    /* Read measured distance. RangeStatus = 0 means valid data */
-    VL53L4CD_GetResult(sensor.address, &sensor.results);
-  }
-
-  return status;
+  return res;
 }
 
 
+
+// ================================ SETUP / INITIALIZE POSES (SENSORS, ACTUATORS) ======================================
+
+/**
+ * @brief Setup the distance sensors
+ *
+ * @return int 0 if all sensors are setup correctly, otherwise the error code
+ */
 int setup_lasers()
 {
-
-  sensor_left.port = XSHUT_LEFT_GPIO_Port;
-  sensor_left.pin = XSHUT_LEFT_Pin;
-  sensor_left.address = SENSOR_LEFT_ADDRESS;
-  sensor_right.port = XSHUT_RIGHT_GPIO_Port;
-  sensor_right.pin = XSHUT_RIGHT_Pin;
-  sensor_right.address = SENSOR_RIGHT_ADDRESS;
-
   /* Toggle Xshut pin to reset the sensors so that their addresses can be set individually*/
   HAL_GPIO_WritePin(XSHUT_LEFT_GPIO_Port, XSHUT_LEFT_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(XSHUT_RIGHT_GPIO_Port, XSHUT_RIGHT_Pin, GPIO_PIN_RESET);
 
   /* Setup the first laser sensor */
-  printf("SETUP LASER LEFT\n");
-  int status = setup_laser(sensor_left);
-  if (status)
+  int status = sensors[LEFT].setup();
+
+  if(status)
   {
-    printf("setup_laser at address %x failed with status %u\n", sensor_left.address, status);
-    return -1;
+    return status;
   }
 
   /* Setup the second laser sensor */
-  printf("\n\nSETUP LASER RIGHT\n");
-  status = setup_laser(sensor_right);
-  if (status)
+  status = sensors[RIGHT].setup();
+
+  if(status)
   {
-    printf("setup_laser at address %x failed with status %u\n", sensor_right.address, status);
-    return -1;
+    return status;
   }
 
   // AFTER ALL SETUPS WE PULL TO HIGH THE SHUTPINS to enable the sensors
@@ -290,104 +254,8 @@ int setup_lasers()
   return 0;
 }
 
-void test_lasers()
-{
-  uint8_t loop, status;
 
-  /*********************************/
-  /*         Ranging loop          */
-  /*********************************/
-  loop = 0;
-  while (loop < 200)
-  {
-    status = update_distance(sensor_left);
-    if (status)
-    {
-      printf("get_distance at address %x failed with status %u\n", sensor_left.address, status);
-      return;
-    }
-    status = update_distance(sensor_right);
-    if (status)
-    {
-      printf("get_distance at address %x failed with status %u\n", sensor_right.address, status);
-      return;
-    }
-    printf("Left: %d mm, Right: %d mm\n", sensor_left.results.distance_mm, sensor_right.results.distance_mm);
-    loop++;
-  }
-
-  status = VL53L4CD_StopRanging(sensor_left.address);
-  status = VL53L4CD_StopRanging(sensor_right.address);
-
-  printf("End of ULD demo\n");
-}
-
-
-
-
-
-#define SERVO_HORIZ_ID 8
-
-#define SERVO_HORIZ_POS_RETRACT 280
-#define SERVO_HORIZ_POS_EXTEND 1023
-
-#define LIFT_POS_UP 500
-#define LIFT_POS_MIDDLE 5000
-#define LIFT_POS_DOWN 14000
-
-#define HOPPER_LEFT_OPEN 1023
-#define HOPPER_LEFT_CLOSE 500
-#define HOPPER_RIGHT_OPEN 0
-#define HOPPER_RIGHT_CLOSE 500
-
-
-Stepper stepper_lift = Stepper(get_time_us, STEP_LIFT_GPIO_Port, STEP_LIFT_Pin, DIR_LIFT_GPIO_Port, DIR_LIFT_Pin);
-Stepper stepper_res = Stepper(get_time_us, STEP_RES_GPIO_Port, STEP_RES_Pin, DIR_RES_GPIO_Port, DIR_RES_Pin);
-
-SCServo servos = SCServo(&huart1);
-
-void lift_go_down()
-{
-  stepper_lift.set_goal(LIFT_POS_DOWN);
-  while(!stepper_lift.is_stopped())
-  {
-    stepper_lift.spin_once();
-  }
-}
-
-void lift_go_up()
-{
-  stepper_lift.set_goal(LIFT_POS_UP);
-  while(!stepper_lift.is_stopped())
-  {
-    stepper_lift.spin_once();
-  }
-}
-
-void lift_go_middle()
-{
-  stepper_lift.set_goal(LIFT_POS_MIDDLE);
-  while(!stepper_lift.is_stopped())
-  {
-    stepper_lift.spin_once();
-  }
-}
-
-void grabber_extend()
-{
-  servos.WritePos(SERVO_HORIZ_ID ,SERVO_HORIZ_POS_EXTEND, 500);
-  HAL_Delay(500);
-}
-
-
-void grabber_retract(bool block=true)
-{
-  servos.WritePos(SERVO_HORIZ_ID ,SERVO_HORIZ_POS_RETRACT, 500);
-  if(block) HAL_Delay(500);
-}
-
-
-void reservoir_go_to_init_pos()
+void reservoir_initialize_and_test()
 {
   // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
   stepper_res.set_goal(100000);
@@ -402,7 +270,7 @@ void reservoir_go_to_init_pos()
 
 }
 
-void lift_go_to_init_pos()
+void lift_initialize_and_test()
 {
   // Here we don't have a sensor. So we just turn the motor for a certain distance. (5 spins at 3200 steps per spin)
 
@@ -419,78 +287,155 @@ void lift_go_to_init_pos()
   lift_go_down();
 }
 
-void servo_horiz_go_to_init_pos()
+
+void grabber_initialize_and_test()
 {
-  // servos.EnableTorque(SERVO_HORIZ_ID, 1);
-  servos.WriteLimitTroque(SERVO_HORIZ_ID, 1023);
-  servos.WritePos(SERVO_HORIZ_ID ,SERVO_HORIZ_POS_RETRACT, 200);
+  // servos.EnableTorque(SERVO_GRABBER_ID, 1);
+  servos.WriteLimitTroque(SERVO_GRABBER_ID, 1023);
+  servos.WritePos(SERVO_GRABBER_ID ,SERVO_GRABBER_POS_RETRACT, 200);
   HAL_Delay(200);
 }
 
-void actuators_go_to_init_poses()
+
+/**
+ * Close then open the hoppers
+ *
+ */
+void hoppers_initialize_and_test()
 {
-  servo_horiz_go_to_init_pos();
-  // reservoir_go_to_init_pos();
-  lift_go_to_init_pos();
+  hopper_close(LEFT);
+  hopper_close(RIGHT);
+
+  HAL_Delay(500); // Because hoppers functions are not blocking
+
+  hopper_open(LEFT);
+  hopper_open(RIGHT);
+}
+
+
+
+// ============================================ ACTIONS FUNCTIONS ===========================================
+
+
+// ----------------------------------------- LIFT -----------------------------------------
+
+void lift_go_down()
+{
+  stepper_lift.set_goal(LIFT_POS_DOWN);
+  while(!stepper_lift.is_stopped())
+  {
+    stepper_lift.spin_once();
+  }
+}
+
+
+void lift_go_up()
+{
+  stepper_lift.set_goal(LIFT_POS_UP);
+  while(!stepper_lift.is_stopped())
+  {
+    stepper_lift.spin_once();
+  }
+}
+
+
+void lift_go_middle()
+{
+  stepper_lift.set_goal(LIFT_POS_MIDDLE);
+  while(!stepper_lift.is_stopped())
+  {
+    stepper_lift.spin_once();
+  }
+}
+
+// ----------------------------------------- GRABBER -----------------------------------------
+
+void grabber_extend()
+{
+  servos.WritePos(SERVO_GRABBER_ID ,SERVO_GRABBER_POS_EXTEND, 500);
+  HAL_Delay(500);
+}
+
+
+void grabber_retract(bool block)
+{
+  servos.WritePos(SERVO_GRABBER_ID ,SERVO_GRABBER_POS_RETRACT, 500);
+  if(block) HAL_Delay(500);
+}
+
+
+// ----------------------------------------- HOPPERS -----------------------------------------
+
+void hopper_close(int side)
+{
+  servos.WritePos(hoppers_ids[side], hoppers_pos_close[side], 500);
+}
+
+
+void hopper_open(int side)
+{
+  servos.WritePos(hoppers_ids[side], hoppers_pos_open[side], 500);
 }
 
 
 
 
-void setup_hoppers()
-{
-  // Hoppers are servos 7 and 14
-
-  // Close then open
-  servos.WritePos(7, HOPPER_LEFT_CLOSE, 500);
-  servos.WritePos(14, HOPPER_RIGHT_CLOSE, 500);
-  HAL_Delay(1000);
-  servos.WritePos(7, HOPPER_LEFT_OPEN, 500);
-  servos.WritePos(14, HOPPER_RIGHT_OPEN, 500);
-  HAL_Delay(1000);
+// =============================================== HIGH LEVEL ACTIONS =================================================
 
 
-}
-
-bool hopper_left_wait_and_close_spin_once()
+bool hopper_wait_and_close_spin_once(int side)
 {
   // Check if distance < 50mm for left plant
-  if(sensor_left.results.distance_mm < 50)
+  if(sensors[side].get_dist_mm() < 50)
   {
     // Close the hopper
-    servos.WritePos(7, HOPPER_LEFT_CLOSE, 200);
+    hopper_close(side);
     return true;
   }
   return false;
 }
 
-bool hopper_right_wait_and_close_spin_once()
+
+void request_store_plants()
 {
-  // Check if distance < 50mm for left plant
-  if(sensor_right.results.distance_mm < 50)
-  {
-    // Close the hopper
-    servos.WritePos(14, HOPPER_RIGHT_CLOSE, 200);
-    return true;
-  }
-  return false;
+  system_state.storing = true;
 }
 
 
+// /!\ DELAY IN THIS FUNCTION
+void store_plants_spin_once()
+{
 
+  if(!system_state.storing)
+  {
+    return;
+  }
 
-// bool wait_and_lock_plant_spin_once()
-// {
-//   // Check if distance < 50mm for left plant
-//   if(sensor_left.results.distance_mm < 50)
-//   {
-//     // Lock the plant
-//     grabber_extend();
-//     return true;
-//   }
-// }
+  if(!system_state.hopper_left_closed)
+  {
+    system_state.hopper_left_closed = hopper_wait_and_close_spin_once(LEFT);
+  }
 
+  if(!system_state.hopper_right_closed)
+  {
+    system_state.hopper_right_closed = hopper_wait_and_close_spin_once(RIGHT);
+  }
 
+  if(system_state.hopper_left_closed && system_state.hopper_right_closed)
+  {
+    HAL_Delay(500); // Because hoppers functions are not blocking // TODO ADD NON BLOCKING DELAY
+    lift_go_up();
+    grabber_extend();
+    lift_go_middle();
+    grabber_retract(false);
+    lift_go_down();
+    hopper_open(LEFT);
+    hopper_open(RIGHT);
+    system_state.storing = false;
+    system_state.hopper_left_closed = false;
+    system_state.hopper_right_closed = false;
+  }
+}
 
 
 /* USER CODE END 0 */
@@ -534,10 +479,26 @@ int main(void)
     // Start the timer
     HAL_TIM_Base_Start_IT(&htim2);
 
-  actuators_go_to_init_poses();
+    // Initialize the sensors
+  if(setup_lasers() != 0)
+  {
+    printf("Error setting up the sensors\n");
+    Error_Handler();
+  }
 
-  setup_lasers();
-  setup_hoppers();
+  if(ping_servos() != 0)
+  {
+    printf("Error pinging servos\n");
+    Error_Handler();
+  }
+
+    // Initialize / move actuators
+    hoppers_initialize_and_test();
+    grabber_initialize_and_test();
+    lift_initialize_and_test();
+
+
+    request_store_plants();
 
 
 
@@ -546,44 +507,23 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  bool left_closed = false;
-  bool right_closed = false;
-  bool stored = false;
+
 
     while (1)
     {
-      update_distance(sensor_left);
-      update_distance(sensor_right);
+
+      store_plants_spin_once();
+      if(!system_state.storing)
+      {
+        request_store_plants();
+      }
 
       // Print the distances
       // printf("Left: %d mm, Right: %d mm\n", sensor_left.results.distance_mm, sensor_right.results.distance_mm);
 
-      if(!left_closed)
-      {
-        left_closed = hopper_left_wait_and_close_spin_once();
 
-      }
-      if(!right_closed)
-      {
-        right_closed = hopper_right_wait_and_close_spin_once();
-      }
-      if(left_closed && right_closed && !stored)
-      {
-        HAL_Delay(500); // Bc hoppers functions are not blocking
-        stored = true;
-        lift_go_up();
-        grabber_extend();
-        lift_go_middle();
-        grabber_retract(false);
-      }
 
-      //  if (stepper_lift.is_stopped()) {
-    //    HAL_Delay(1000);
-    //     current_goal = current_goal == pos_up ? pos_down : pos_up;
-    //     stepper_lift.set_goal(current_goal);
-    //  }
-    //
-    // stepper_lift.spin_once();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

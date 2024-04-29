@@ -1,4 +1,5 @@
 #include <SCServo.h>
+#include <cstdio>
 
 SCServo::SCServo (UART_HandleTypeDef *huart) : huart_(huart)
 {
@@ -11,11 +12,10 @@ void SCServo::Printf(u8 reg)
     HAL_UART_Receive(huart_, &data, 1, 10); // Cause we receive sent bytes (single wire)
 }
 
-void SCServo::fflushRevBuf(void)
+void SCServo::fflushRevBuf()
 {
 	uint8_t data;
 	while(HAL_UART_Receive(huart_, &data, 1, 0)==HAL_OK);
-    return;
 }
 
 int SCServo::EnableTorque(u8 ID, u8 Enable, u8 ReturnLevel)
@@ -436,3 +436,14 @@ void SCServo::RotateCounterClockwise(){
     HAL_Delay(200);
     WritePos(16, 750, 500);
 }
+
+
+void SCServo::scan_ids(uint8_t id_start,  uint8_t id_stop) {
+    for(uint8_t id=id_start; id<id_stop; id++) {
+        if(ReadPos(id)!=-1) {
+            printf("Found ID %d\n", id);
+        }
+    }
+}
+
+

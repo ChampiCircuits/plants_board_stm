@@ -9,7 +9,7 @@
 
 class SCServo {
 public:
-    SCServo(UART_HandleTypeDef *huart);
+    explicit SCServo(UART_HandleTypeDef *huart);
     int EnableTorque(u8 ID, u8 Enable, u8 ReturnLevel=1);
     int WritePos(u8 ID, int position, int velocity, u8 ReturnLevel=1);
     int RegWritePos(u8 ID, int position, int velocity, u8 ReturnLevel=1);
@@ -28,11 +28,12 @@ public:
     int WriteSpe(u8 ID, int velocity, u8 ReturnLevel=1);
     int LockEprom(u8 ID, u8 Enable, u8 ReturnLevel=1);
     int WriteIMax(u8 ID, int IMax, u8 ReturnLevel=1);
-    void RotateClockwise(void);
-    void RotateCounterClockwise(void);
+    void RotateClockwise();
+    void RotateCounterClockwise();
+    void scan_ids(uint8_t id_start,  uint8_t id_stop);
 private:
-    int		ReadBuf(u16 len, u8 *buf=NULL);
-    void	fflushRevBuf(void);
+    int		ReadBuf(u16 len, u8 *buf=nullptr);
+    void	fflushRevBuf();
     void	Printf(u8 reg);
     UART_HandleTypeDef *huart_;
 

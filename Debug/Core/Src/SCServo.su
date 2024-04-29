@@ -1,6 +1,6 @@
-../Core/Src/SCServo.cpp:3:1:SCServo::SCServo(UART_HandleTypeDef*)	16	static
-../Core/Src/SCServo.cpp:7:6:void SCServo::Printf(uint8_t)	24	static
-../Core/Src/SCServo.cpp:14:6:void SCServo::fflushRevBuf()	24	static
+../Core/Src/SCServo.cpp:4:1:SCServo::SCServo(UART_HandleTypeDef*)	16	static
+../Core/Src/SCServo.cpp:8:6:void SCServo::Printf(uint8_t)	24	static
+../Core/Src/SCServo.cpp:15:6:void SCServo::fflushRevBuf()	24	static
 ../Core/Src/SCServo.cpp:21:5:int SCServo::EnableTorque(uint8_t, uint8_t, uint8_t)	24	static
 ../Core/Src/SCServo.cpp:39:5:int SCServo::WritePos(uint8_t, int, int, uint8_t)	32	static
 ../Core/Src/SCServo.cpp:64:5:int SCServo::RegWritePos(uint8_t, int, int, uint8_t)	32	static
@@ -22,3 +22,4 @@
 ../Core/Src/SCServo.cpp:406:5:int SCServo::ReadTemper(uint8_t)	32	static
 ../Core/Src/SCServo.cpp:428:6:void SCServo::RotateClockwise()	24	static
 ../Core/Src/SCServo.cpp:434:6:void SCServo::RotateCounterClockwise()	24	static
+../Core/Src/SCServo.cpp:441:6:void SCServo::scan_ids(uint8_t, uint8_t)	24	static
