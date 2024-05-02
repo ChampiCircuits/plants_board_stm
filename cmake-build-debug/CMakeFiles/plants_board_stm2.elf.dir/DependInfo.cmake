@@ -56,7 +56,10 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/SCServo.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj.d"
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/VL53L4CD_api.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_api.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_api.cpp.obj.d"
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/VL53L4CD_calibration.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_calibration.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_calibration.cpp.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/main.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.obj.d"
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/platform.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/platform.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/platform.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

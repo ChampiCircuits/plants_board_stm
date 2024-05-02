@@ -141,7 +141,6 @@ unsigned long get_time_us() {
 
 
 
-
 // ================================================ DEFINES HOPPERS ====================================================
 
 #define LEFT 0
@@ -149,7 +148,7 @@ unsigned long get_time_us() {
 
 std::vector<int> hoppers_ids = {7, 14};
 std::vector<int> hoppers_pos_open = {1023, 0};
-std::vector<int> hoppers_pos_close = {500, 500};
+std::vector<int> hoppers_pos_close = {600, 430};
 
 
 
@@ -258,8 +257,22 @@ int setup_lasers()
 void reservoir_initialize_and_test()
 {
   // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
-  stepper_res.set_goal(100000);
+  stepper_res.set_goal(-100000);
 
+  // Turn untill the button is released
+  while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_RESET)
+  {
+    stepper_res.spin_once();
+  }
+
+  // Debouncing: spin for 200ms
+  unsigned long start = HAL_GetTick();
+  while(HAL_GetTick() - start < 200)
+  {
+    stepper_res.spin_once();
+  }
+
+  // Turn untill the button is pressed (reservoir in position)
   while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_SET)
   {
     stepper_res.spin_once();
@@ -306,7 +319,7 @@ void hoppers_initialize_and_test()
   hopper_close(LEFT);
   hopper_close(RIGHT);
 
-  HAL_Delay(500); // Because hoppers functions are not blocking
+  HAL_Delay(1000); // Because hoppers functions are not blocking
 
   hopper_open(LEFT);
   hopper_open(RIGHT);
@@ -352,8 +365,8 @@ void lift_go_middle()
 
 void grabber_extend()
 {
-  servos.WritePos(SERVO_GRABBER_ID ,SERVO_GRABBER_POS_EXTEND, 500);
-  HAL_Delay(500);
+  servos.WritePos(SERVO_GRABBER_ID ,SERVO_GRABBER_POS_EXTEND, 1000);
+  HAL_Delay(1000);
 }
 
 
@@ -368,13 +381,56 @@ void grabber_retract(bool block)
 
 void hopper_close(int side)
 {
-  servos.WritePos(hoppers_ids[side], hoppers_pos_close[side], 500);
+  servos.WritePos(hoppers_ids[side], hoppers_pos_close[side], 1000);
 }
 
 
 void hopper_open(int side)
 {
   servos.WritePos(hoppers_ids[side], hoppers_pos_open[side], 500);
+}
+
+
+
+// ---------------------------------------- RESERVOIR ----------------------------------------
+
+void reservoir_rotate()
+{
+  // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
+  stepper_res.set_pos(0);
+  stepper_res.set_goal(-100000);
+
+  // Turn untill the button is released
+  while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_RESET)
+  {
+    stepper_res.spin_once();
+  }
+
+  // Debouncing: spin for 200ms
+  unsigned long start = HAL_GetTick();
+  while(HAL_GetTick() - start < 200)
+  {
+    stepper_res.spin_once();
+  }
+
+  // Turn untill the button is pressed (reservoir in position)
+  while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_SET)
+  {
+    stepper_res.spin_once();
+  }
+
+  stepper_res.set_pos(0);
+  stepper_res.set_goal(0);
+
+}
+
+
+void reservoir_rotate(int n_slots)
+{
+  for(int i = 0; i < n_slots; i++)
+  {
+    reservoir_rotate();
+  }
 }
 
 
@@ -429,9 +485,10 @@ void store_plants_spin_once()
 
   if(system_state.hopper_left_closed && system_state.hopper_right_closed)
   {
-    HAL_Delay(500); // Because hoppers functions are not blocking // TODO ADD NON BLOCKING DELAY
+    HAL_Delay(1500); // Because hoppers functions are not blocking // TODO ADD NON BLOCKING DELAY
     lift_go_up();
     grabber_extend();
+    HAL_Delay(500);
     lift_go_middle();
     grabber_retract(false);
     lift_go_down();
@@ -441,6 +498,7 @@ void store_plants_spin_once()
     system_state.storing = false;
     system_state.hopper_left_closed = false;
     system_state.hopper_right_closed = false;
+    reservoir_rotate(3);
   }
 }
 
@@ -486,6 +544,9 @@ int main(void)
     // Start the timer
     HAL_TIM_Base_Start_IT(&htim2);
 
+
+  stepper_lift.set_speed(5000);
+
     // Initialize the sensors
   if(setup_lasers() != 0)
   {
@@ -500,8 +561,12 @@ int main(void)
   }
 
     // Initialize / move actuators
+
+    reservoir_initialize_and_test();
+
     hoppers_initialize_and_test();
-    grabber_initialize_and_test();
+    HAL_Delay(200);
+    grabber_retract();
     lift_initialize_and_test();
 
 

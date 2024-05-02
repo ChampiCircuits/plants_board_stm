@@ -29,6 +29,11 @@ public:
 
   }
 
+  void set_speed(unsigned long speed) {
+    this->speed = speed;
+    time_step = 10000000 / speed;
+  }
+
   void set_goal(int goal) {
     this->goal = goal;
     state.state = State::HIGH;
@@ -52,6 +57,8 @@ public:
       return;
     }
 
+    compute_time_step();
+
     if (state.state == State::HIGH) {
       if (get_time_us() - time_start_high > time_high) {
         // Set low
@@ -71,11 +78,41 @@ public:
 
     if (state.pos == goal) {
       state.state = State::STOPPED;
+      current_speed = 0;
     }
   }
 
   bool is_stopped() {
     return state.state == State::STOPPED;
+  }
+
+  void compute_time_step() {
+
+    // We compute the new speed every 5ms (return if we are not there yet)
+    static unsigned long last_time = 0;
+    if (get_time_us() - last_time < 5000 && last_time != 0) {
+      return;
+    }
+    last_time = get_time_us();
+
+
+    if (current_speed == speed) {
+      return;
+    }
+
+    if (current_speed < speed) {
+      current_speed += (long) (((double) max_acceleration) * 0.005); // 5ms (0.005s
+      if (current_speed > speed) {
+        current_speed = speed;
+      }
+    } else {
+      current_speed -= max_acceleration;
+      if (current_speed < speed) {
+        current_speed = speed;
+      }
+    }
+
+    time_step = 10000000 / current_speed;
   }
 
   private:
@@ -93,12 +130,15 @@ public:
     int goal = 0; // steps
 
     unsigned long speed = 10000; // step/s
-    unsigned long time_step = 10000000 / speed; // us
+    unsigned long time_step;
     unsigned long time_high = 10; // us
 
 
     unsigned long time_start_step = 0;
     unsigned long time_start_high = 0;
+
+    long current_speed = 0;
+  long max_acceleration = 500; // step/s^2
 
   unsigned long (*get_time_us)();
 

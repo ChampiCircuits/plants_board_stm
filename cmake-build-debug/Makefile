@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/275/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /home/andre/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/275/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /home/andre/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/c
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/snap/clion/275/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/andre/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/snap/clion/275/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/andre/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -153,6 +153,54 @@ Core/Src/SCServo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.s
 .PHONY : Core/Src/SCServo.cpp.s
 
+Core/Src/VL53L4CD_api.obj: Core/Src/VL53L4CD_api.cpp.obj
+.PHONY : Core/Src/VL53L4CD_api.obj
+
+# target to build an object file
+Core/Src/VL53L4CD_api.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_api.cpp.obj
+.PHONY : Core/Src/VL53L4CD_api.cpp.obj
+
+Core/Src/VL53L4CD_api.i: Core/Src/VL53L4CD_api.cpp.i
+.PHONY : Core/Src/VL53L4CD_api.i
+
+# target to preprocess a source file
+Core/Src/VL53L4CD_api.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_api.cpp.i
+.PHONY : Core/Src/VL53L4CD_api.cpp.i
+
+Core/Src/VL53L4CD_api.s: Core/Src/VL53L4CD_api.cpp.s
+.PHONY : Core/Src/VL53L4CD_api.s
+
+# target to generate assembly for a file
+Core/Src/VL53L4CD_api.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_api.cpp.s
+.PHONY : Core/Src/VL53L4CD_api.cpp.s
+
+Core/Src/VL53L4CD_calibration.obj: Core/Src/VL53L4CD_calibration.cpp.obj
+.PHONY : Core/Src/VL53L4CD_calibration.obj
+
+# target to build an object file
+Core/Src/VL53L4CD_calibration.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_calibration.cpp.obj
+.PHONY : Core/Src/VL53L4CD_calibration.cpp.obj
+
+Core/Src/VL53L4CD_calibration.i: Core/Src/VL53L4CD_calibration.cpp.i
+.PHONY : Core/Src/VL53L4CD_calibration.i
+
+# target to preprocess a source file
+Core/Src/VL53L4CD_calibration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_calibration.cpp.i
+.PHONY : Core/Src/VL53L4CD_calibration.cpp.i
+
+Core/Src/VL53L4CD_calibration.s: Core/Src/VL53L4CD_calibration.cpp.s
+.PHONY : Core/Src/VL53L4CD_calibration.s
+
+# target to generate assembly for a file
+Core/Src/VL53L4CD_calibration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_calibration.cpp.s
+.PHONY : Core/Src/VL53L4CD_calibration.cpp.s
+
 Core/Src/main.obj: Core/Src/main.cpp.obj
 .PHONY : Core/Src/main.obj
 
@@ -176,6 +224,30 @@ Core/Src/main.s: Core/Src/main.cpp.s
 Core/Src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.s
 .PHONY : Core/Src/main.cpp.s
+
+Core/Src/platform.obj: Core/Src/platform.cpp.obj
+.PHONY : Core/Src/platform.obj
+
+# target to build an object file
+Core/Src/platform.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/platform.cpp.obj
+.PHONY : Core/Src/platform.cpp.obj
+
+Core/Src/platform.i: Core/Src/platform.cpp.i
+.PHONY : Core/Src/platform.i
+
+# target to preprocess a source file
+Core/Src/platform.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/platform.cpp.i
+.PHONY : Core/Src/platform.cpp.i
+
+Core/Src/platform.s: Core/Src/platform.cpp.s
+.PHONY : Core/Src/platform.s
+
+# target to generate assembly for a file
+Core/Src/platform.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/platform.cpp.s
+.PHONY : Core/Src/platform.cpp.s
 
 Core/Src/stm32g4xx_hal_msp.obj: Core/Src/stm32g4xx_hal_msp.c.obj
 .PHONY : Core/Src/stm32g4xx_hal_msp.obj
@@ -797,9 +869,18 @@ help:
 	@echo "... Core/Src/SCServo.obj"
 	@echo "... Core/Src/SCServo.i"
 	@echo "... Core/Src/SCServo.s"
+	@echo "... Core/Src/VL53L4CD_api.obj"
+	@echo "... Core/Src/VL53L4CD_api.i"
+	@echo "... Core/Src/VL53L4CD_api.s"
+	@echo "... Core/Src/VL53L4CD_calibration.obj"
+	@echo "... Core/Src/VL53L4CD_calibration.i"
+	@echo "... Core/Src/VL53L4CD_calibration.s"
 	@echo "... Core/Src/main.obj"
 	@echo "... Core/Src/main.i"
 	@echo "... Core/Src/main.s"
+	@echo "... Core/Src/platform.obj"
+	@echo "... Core/Src/platform.i"
+	@echo "... Core/Src/platform.s"
 	@echo "... Core/Src/stm32g4xx_hal_msp.obj"
 	@echo "... Core/Src/stm32g4xx_hal_msp.i"
 	@echo "... Core/Src/stm32g4xx_hal_msp.s"
