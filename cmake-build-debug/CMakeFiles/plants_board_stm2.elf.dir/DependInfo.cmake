@@ -30,6 +30,10 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/msgs_can.pb.c" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/msgs_can.pb.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/msgs_can.pb.c.obj.d"
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/pb_common.c" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_common.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_common.c.obj.d"
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/pb_decode.c" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_decode.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_decode.c.obj.d"
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/pb_encode.c" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_encode.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_encode.c.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_hal_msp.c" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_hal_msp.c.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/stm32g4xx_it.c" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/stm32g4xx_it.c.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/syscalls.c" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/syscalls.c.obj.d"
@@ -55,6 +59,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj.d"
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/ChampiCan.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiCan.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiCan.cpp.obj.d"
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/ChampiState.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiState.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiState.cpp.obj.d"
+  "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/MessageRecomposer.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/MessageRecomposer.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/MessageRecomposer.cpp.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/SCServo.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/SCServo.cpp.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/VL53L4CD_api.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_api.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_api.cpp.obj.d"
   "/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/VL53L4CD_calibration.cpp" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_calibration.cpp.obj" "gcc" "CMakeFiles/plants_board_stm2.elf.dir/Core/Src/VL53L4CD_calibration.cpp.obj.d"

@@ -99,7 +99,16 @@
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/ChampiCan.h">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/ChampiState.h">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/LaserSensor.hpp">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/MessageRecomposer.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/SCServo.h">
@@ -114,7 +123,25 @@
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/VL53L4CD_calibration.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/can_ids.hpp">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/main.h">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/msgs_can.pb.h">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/pb.h">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/pb_common.h">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/pb_decode.h">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/pb_encode.h">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/platform.h">
@@ -124,6 +151,15 @@
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Inc/stm32g4xx_it.h">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/ChampiCan.cpp">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/ChampiState.cpp">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/MessageRecomposer.cpp">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/SCServo.cpp">
@@ -136,6 +172,18 @@
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/main.cpp">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/msgs_can.pb.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/pb_common.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/pb_decode.c">
+			<Option target="plants_board_stm2.elf"/>
+		</Unit>
+		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/pb_encode.c">
 			<Option target="plants_board_stm2.elf"/>
 		</Unit>
 		<Unit filename="/home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/Core/Src/platform.cpp">

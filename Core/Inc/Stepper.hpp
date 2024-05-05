@@ -34,13 +34,20 @@ public:
     time_step = 10000000 / speed;
   }
 
-  void set_goal(int goal) {
+  void set_goal(int goal, bool keep_previous_speed = false) {
+
     this->goal = goal;
     state.state = State::HIGH;
     state.direction = goal > state.pos ? 1 : -1;
     time_start_step = get_time_us();
     time_start_high = time_start_step;
     HAL_GPIO_WritePin(gpio_port_dir, gpio_pin_dir, state.direction == 1 ? GPIO_PIN_RESET : GPIO_PIN_SET);
+
+    if (keep_previous_speed) {
+      current_speed = speed_when_stopped;
+    } else {
+      current_speed = 0;
+    }
   }
 
   int get_pos() {
@@ -78,6 +85,7 @@ public:
 
     if (state.pos == goal) {
       state.state = State::STOPPED;
+      speed_when_stopped = current_speed;
       current_speed = 0;
     }
   }
@@ -138,6 +146,7 @@ public:
     unsigned long time_start_high = 0;
 
     long current_speed = 0;
+    long speed_when_stopped = 0;
   long max_acceleration = 500; // step/s^2
 
   unsigned long (*get_time_us)();

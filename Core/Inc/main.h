@@ -69,6 +69,8 @@ void Error_Handler(void);
 #define DIR_LIFT_GPIO_Port GPIOA
 #define DIR_RES_Pin GPIO_PIN_0
 #define DIR_RES_GPIO_Port GPIOB
+#define F_COURSE_LIFT_Pin GPIO_PIN_8
+#define F_COURSE_LIFT_GPIO_Port GPIOA
 #define FIN_COURSE_RES_Pin GPIO_PIN_10
 #define FIN_COURSE_RES_GPIO_Port GPIOA
 #define T_SWDIO_Pin GPIO_PIN_13

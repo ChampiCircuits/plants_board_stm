@@ -129,6 +129,78 @@ plants_board_stm2.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/build
 .PHONY : plants_board_stm2.elf/fast
 
+Core/Src/ChampiCan.obj: Core/Src/ChampiCan.cpp.obj
+.PHONY : Core/Src/ChampiCan.obj
+
+# target to build an object file
+Core/Src/ChampiCan.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiCan.cpp.obj
+.PHONY : Core/Src/ChampiCan.cpp.obj
+
+Core/Src/ChampiCan.i: Core/Src/ChampiCan.cpp.i
+.PHONY : Core/Src/ChampiCan.i
+
+# target to preprocess a source file
+Core/Src/ChampiCan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiCan.cpp.i
+.PHONY : Core/Src/ChampiCan.cpp.i
+
+Core/Src/ChampiCan.s: Core/Src/ChampiCan.cpp.s
+.PHONY : Core/Src/ChampiCan.s
+
+# target to generate assembly for a file
+Core/Src/ChampiCan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiCan.cpp.s
+.PHONY : Core/Src/ChampiCan.cpp.s
+
+Core/Src/ChampiState.obj: Core/Src/ChampiState.cpp.obj
+.PHONY : Core/Src/ChampiState.obj
+
+# target to build an object file
+Core/Src/ChampiState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiState.cpp.obj
+.PHONY : Core/Src/ChampiState.cpp.obj
+
+Core/Src/ChampiState.i: Core/Src/ChampiState.cpp.i
+.PHONY : Core/Src/ChampiState.i
+
+# target to preprocess a source file
+Core/Src/ChampiState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiState.cpp.i
+.PHONY : Core/Src/ChampiState.cpp.i
+
+Core/Src/ChampiState.s: Core/Src/ChampiState.cpp.s
+.PHONY : Core/Src/ChampiState.s
+
+# target to generate assembly for a file
+Core/Src/ChampiState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/ChampiState.cpp.s
+.PHONY : Core/Src/ChampiState.cpp.s
+
+Core/Src/MessageRecomposer.obj: Core/Src/MessageRecomposer.cpp.obj
+.PHONY : Core/Src/MessageRecomposer.obj
+
+# target to build an object file
+Core/Src/MessageRecomposer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/MessageRecomposer.cpp.obj
+.PHONY : Core/Src/MessageRecomposer.cpp.obj
+
+Core/Src/MessageRecomposer.i: Core/Src/MessageRecomposer.cpp.i
+.PHONY : Core/Src/MessageRecomposer.i
+
+# target to preprocess a source file
+Core/Src/MessageRecomposer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/MessageRecomposer.cpp.i
+.PHONY : Core/Src/MessageRecomposer.cpp.i
+
+Core/Src/MessageRecomposer.s: Core/Src/MessageRecomposer.cpp.s
+.PHONY : Core/Src/MessageRecomposer.s
+
+# target to generate assembly for a file
+Core/Src/MessageRecomposer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/MessageRecomposer.cpp.s
+.PHONY : Core/Src/MessageRecomposer.cpp.s
+
 Core/Src/SCServo.obj: Core/Src/SCServo.cpp.obj
 .PHONY : Core/Src/SCServo.obj
 
@@ -224,6 +296,102 @@ Core/Src/main.s: Core/Src/main.cpp.s
 Core/Src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/main.cpp.s
 .PHONY : Core/Src/main.cpp.s
+
+Core/Src/msgs_can.pb.obj: Core/Src/msgs_can.pb.c.obj
+.PHONY : Core/Src/msgs_can.pb.obj
+
+# target to build an object file
+Core/Src/msgs_can.pb.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/msgs_can.pb.c.obj
+.PHONY : Core/Src/msgs_can.pb.c.obj
+
+Core/Src/msgs_can.pb.i: Core/Src/msgs_can.pb.c.i
+.PHONY : Core/Src/msgs_can.pb.i
+
+# target to preprocess a source file
+Core/Src/msgs_can.pb.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/msgs_can.pb.c.i
+.PHONY : Core/Src/msgs_can.pb.c.i
+
+Core/Src/msgs_can.pb.s: Core/Src/msgs_can.pb.c.s
+.PHONY : Core/Src/msgs_can.pb.s
+
+# target to generate assembly for a file
+Core/Src/msgs_can.pb.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/msgs_can.pb.c.s
+.PHONY : Core/Src/msgs_can.pb.c.s
+
+Core/Src/pb_common.obj: Core/Src/pb_common.c.obj
+.PHONY : Core/Src/pb_common.obj
+
+# target to build an object file
+Core/Src/pb_common.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_common.c.obj
+.PHONY : Core/Src/pb_common.c.obj
+
+Core/Src/pb_common.i: Core/Src/pb_common.c.i
+.PHONY : Core/Src/pb_common.i
+
+# target to preprocess a source file
+Core/Src/pb_common.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_common.c.i
+.PHONY : Core/Src/pb_common.c.i
+
+Core/Src/pb_common.s: Core/Src/pb_common.c.s
+.PHONY : Core/Src/pb_common.s
+
+# target to generate assembly for a file
+Core/Src/pb_common.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_common.c.s
+.PHONY : Core/Src/pb_common.c.s
+
+Core/Src/pb_decode.obj: Core/Src/pb_decode.c.obj
+.PHONY : Core/Src/pb_decode.obj
+
+# target to build an object file
+Core/Src/pb_decode.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_decode.c.obj
+.PHONY : Core/Src/pb_decode.c.obj
+
+Core/Src/pb_decode.i: Core/Src/pb_decode.c.i
+.PHONY : Core/Src/pb_decode.i
+
+# target to preprocess a source file
+Core/Src/pb_decode.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_decode.c.i
+.PHONY : Core/Src/pb_decode.c.i
+
+Core/Src/pb_decode.s: Core/Src/pb_decode.c.s
+.PHONY : Core/Src/pb_decode.s
+
+# target to generate assembly for a file
+Core/Src/pb_decode.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_decode.c.s
+.PHONY : Core/Src/pb_decode.c.s
+
+Core/Src/pb_encode.obj: Core/Src/pb_encode.c.obj
+.PHONY : Core/Src/pb_encode.obj
+
+# target to build an object file
+Core/Src/pb_encode.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_encode.c.obj
+.PHONY : Core/Src/pb_encode.c.obj
+
+Core/Src/pb_encode.i: Core/Src/pb_encode.c.i
+.PHONY : Core/Src/pb_encode.i
+
+# target to preprocess a source file
+Core/Src/pb_encode.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_encode.c.i
+.PHONY : Core/Src/pb_encode.c.i
+
+Core/Src/pb_encode.s: Core/Src/pb_encode.c.s
+.PHONY : Core/Src/pb_encode.s
+
+# target to generate assembly for a file
+Core/Src/pb_encode.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/plants_board_stm2.elf.dir/build.make CMakeFiles/plants_board_stm2.elf.dir/Core/Src/pb_encode.c.s
+.PHONY : Core/Src/pb_encode.c.s
 
 Core/Src/platform.obj: Core/Src/platform.cpp.obj
 .PHONY : Core/Src/platform.obj
@@ -866,6 +1034,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... plants_board_stm2.elf"
+	@echo "... Core/Src/ChampiCan.obj"
+	@echo "... Core/Src/ChampiCan.i"
+	@echo "... Core/Src/ChampiCan.s"
+	@echo "... Core/Src/ChampiState.obj"
+	@echo "... Core/Src/ChampiState.i"
+	@echo "... Core/Src/ChampiState.s"
+	@echo "... Core/Src/MessageRecomposer.obj"
+	@echo "... Core/Src/MessageRecomposer.i"
+	@echo "... Core/Src/MessageRecomposer.s"
 	@echo "... Core/Src/SCServo.obj"
 	@echo "... Core/Src/SCServo.i"
 	@echo "... Core/Src/SCServo.s"
@@ -878,6 +1055,18 @@ help:
 	@echo "... Core/Src/main.obj"
 	@echo "... Core/Src/main.i"
 	@echo "... Core/Src/main.s"
+	@echo "... Core/Src/msgs_can.pb.obj"
+	@echo "... Core/Src/msgs_can.pb.i"
+	@echo "... Core/Src/msgs_can.pb.s"
+	@echo "... Core/Src/pb_common.obj"
+	@echo "... Core/Src/pb_common.i"
+	@echo "... Core/Src/pb_common.s"
+	@echo "... Core/Src/pb_decode.obj"
+	@echo "... Core/Src/pb_decode.i"
+	@echo "... Core/Src/pb_decode.s"
+	@echo "... Core/Src/pb_encode.obj"
+	@echo "... Core/Src/pb_encode.i"
+	@echo "... Core/Src/pb_encode.s"
 	@echo "... Core/Src/platform.obj"
 	@echo "... Core/Src/platform.i"
 	@echo "... Core/Src/platform.s"

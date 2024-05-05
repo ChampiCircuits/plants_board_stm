@@ -93,7 +93,20 @@ void grabber_initialize_and_test();
 void hoppers_initialize_and_test();
 int setup_lasers();
 void on_receive_action(const std::string& proto_msg);
+void reservoir_rotate(bool keep_speed);
+void reservoir_rotate(int n_slots);
 
+void close_fildefer();
+void hide_fildefer();
+void fildefer_initialize();
+
+void push_plant();
+void retract_servo_plant();
+void open_circle_plant();
+void close_circle_plant();
+void pusher_and_circle_initialize();
+void push_one_plant_out();
+void reservoir_align_with_output();
 
 /* USER CODE END PFP */
 
@@ -294,11 +307,18 @@ void on_receive_action(const std::string& proto_msg)
 
 // ============================================= DEFINES LIFT =============================================
 
-#define LIFT_POS_UP -500
-#define LIFT_POS_MIDDLE -5000
-#define LIFT_POS_DOWN -14000
+#define LIFT_POS_UP 4*3200
+#define LIFT_POS_MIDDLE 3*3200
+
+#define LIFT_OFFSET_FROM_BUTTON -200
 
 
+
+
+// =========================================== DEFINES RESERVOIR ===========================================
+
+#define RES_OFFSET_FROM_BUTTON 100
+#define RES_OFFSET_FOR_OUTPUT 800
 
 // ================================================ DEFINES HOPPERS ====================================================
 
@@ -310,6 +330,20 @@ std::vector<int> hoppers_pos_open = {1023, 0};
 std::vector<int> hoppers_pos_close = {600, 430};
 
 
+// =============================================== DEFINES FILDEFER ===============================================
+
+#define FILDEFER_ID 18
+#define FILDEFER_POS_CLOSED 310
+#define FILDEFER_POS_HIDDEN 75
+
+// =============================================== DEFINES PLANT OUTPUT ===============================================
+
+#define SERVO_PUSH_PLANT_ID 9
+#define SERVO_CIRCLE_PLANT_ID 16
+#define SERVO_CIRCLE_POS_CLOSE 540
+#define SERVO_CIRCLE_POS_OPEN 1000
+#define SERVO_PUSH_POSE_PUSHED 220
+#define SERVO_PUSH_POSE_RETRACTED 440
 
 
 // ================================ DECLARE / INITIALIZE ACTUATORS / SENSORS OBJECTS ===================================
@@ -335,7 +369,10 @@ SCServo servos = SCServo(&huart1);
 std::vector<int> servo_ids_to_check = {
   SERVO_GRABBER_ID,
   hoppers_ids[LEFT],
-  hoppers_ids[RIGHT]
+  hoppers_ids[RIGHT],
+  FILDEFER_ID,
+  SERVO_CIRCLE_PLANT_ID,
+  SERVO_PUSH_PLANT_ID
 };
 
 
@@ -413,57 +450,39 @@ int setup_lasers()
 
 void reservoir_initialize_and_test()
 {
-  // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
-  stepper_res.set_goal(100000);
-
-  // Turn untill the button is released
-  while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_RESET)
-  {
-    stepper_res.spin_once();
-  }
-
-  // Debouncing: spin for 200ms
-  unsigned long start = HAL_GetTick();
-  while(HAL_GetTick() - start < 200)
-  {
-    stepper_res.spin_once();
-  }
-
-  // Turn untill the button is pressed (reservoir in position)
-  while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_SET)
-  {
-    stepper_res.spin_once();
-  }
-
-  stepper_res.set_pos(0);
-  stepper_res.set_goal(0);
+  reservoir_rotate(2);
 
 }
 
 void lift_initialize_and_test()
 {
-  // Here we don't have a sensor. So we just turn the motor for a certain distance. (5 spins at 3200 steps per spin)
+  // Initialization steps:
+  // 1. If button pressed, move up a little
+  // 2. Move down until button is pressed
 
-  stepper_lift.set_goal(5*3200);
-  while(!stepper_lift.is_stopped())
-  {
-    stepper_lift.spin_once();
-  }
   stepper_lift.set_pos(0);
 
-  grabber_extend();
-  grabber_retract();
+  // 1
+  if(HAL_GPIO_ReadPin(F_COURSE_LIFT_GPIO_Port, F_COURSE_LIFT_Pin) == GPIO_PIN_RESET)
+  {
+    stepper_lift.set_goal(3200);
+    while(!stepper_lift.is_stopped())
+    {
+      stepper_lift.spin_once();
+    }
+  }
 
+  // 2
   lift_go_down();
 }
 
 
 void grabber_initialize_and_test()
 {
-  // servos.EnableTorque(SERVO_GRABBER_ID, 1);
-  servos.WriteLimitTroque(SERVO_GRABBER_ID, 1023);
-  servos.WritePos(SERVO_GRABBER_ID ,SERVO_GRABBER_POS_RETRACT, 200);
-  HAL_Delay(200);
+  grabber_extend();
+  HAL_Delay(1000);
+  grabber_retract();
+  HAL_Delay(1000);
 }
 
 
@@ -491,11 +510,22 @@ void hoppers_initialize_and_test()
 
 void lift_go_down()
 {
-  stepper_lift.set_goal(LIFT_POS_DOWN);
+  stepper_lift.set_goal(-100000);
+  // Turn untill the button is pressed (reservoir in position)
+  while(HAL_GPIO_ReadPin(F_COURSE_LIFT_GPIO_Port, F_COURSE_LIFT_Pin) == GPIO_PIN_SET)
+  {
+    stepper_lift.spin_once();
+  }
+
+  // Turn (offset)
+  stepper_lift.set_pos(0);
+  stepper_lift.set_goal(LIFT_OFFSET_FROM_BUTTON, true);
   while(!stepper_lift.is_stopped())
   {
     stepper_lift.spin_once();
   }
+
+  stepper_lift.set_pos(0);
 }
 
 
@@ -551,11 +581,11 @@ void hopper_open(int side)
 
 // ---------------------------------------- RESERVOIR ----------------------------------------
 
-void reservoir_rotate()
+void reservoir_rotate(bool keep_speed=false)
 {
   // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
   stepper_res.set_pos(0);
-  stepper_res.set_goal(100000);
+  stepper_res.set_goal(100000, keep_speed);
 
   // Turn untill the button is released
   while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_RESET)
@@ -576,9 +606,26 @@ void reservoir_rotate()
     stepper_res.spin_once();
   }
 
+  // Turn (offset)
   stepper_res.set_pos(0);
-  stepper_res.set_goal(0);
+  stepper_res.set_goal(RES_OFFSET_FROM_BUTTON, true);
+  while(!stepper_res.is_stopped())
+  {
+    stepper_res.spin_once();
+  }
 
+}
+
+void reservoir_align_with_output()
+{
+  reservoir_initialize_and_test();
+  // Turn (offset)
+  stepper_res.set_pos(0);
+  stepper_res.set_goal(RES_OFFSET_FOR_OUTPUT);
+  while(!stepper_res.is_stopped())
+  {
+    stepper_res.spin_once();
+  }
 }
 
 
@@ -586,10 +633,80 @@ void reservoir_rotate(int n_slots)
 {
   for(int i = 0; i < n_slots; i++)
   {
-    reservoir_rotate();
+    reservoir_rotate(i>0);
   }
 }
 
+void close_fildefer()
+{
+  servos.WritePos(FILDEFER_ID, FILDEFER_POS_CLOSED, 1000);
+}
+
+void hide_fildefer()
+{
+  servos.WritePos(FILDEFER_ID, FILDEFER_POS_HIDDEN, 1000);
+}
+
+void fildefer_initialize()
+{
+  // servos.WritePos(FILDEFER_ID, FILDEFER_POS_HIDDEN, 1000);
+  hide_fildefer();
+  HAL_Delay(2000);
+  close_fildefer();
+  HAL_Delay(2000);
+  hide_fildefer();
+  HAL_Delay(2000);
+}
+
+void push_plant()
+{
+  servos.WritePos(SERVO_PUSH_PLANT_ID, SERVO_PUSH_POSE_PUSHED, 1000);
+}
+void retract_servo_plant()
+{
+  servos.WritePos(SERVO_PUSH_PLANT_ID, SERVO_PUSH_POSE_RETRACTED, 200);
+}
+
+void open_circle_plant()
+{
+  servos.WritePos(SERVO_CIRCLE_PLANT_ID, SERVO_CIRCLE_POS_OPEN, 200);
+}
+void close_circle_plant()
+{
+  servos.WritePos(SERVO_CIRCLE_PLANT_ID, SERVO_CIRCLE_POS_CLOSE, 200);
+}
+
+void pusher_and_circle_initialize()
+{
+  // init circle
+  servos.WritePos(SERVO_CIRCLE_PLANT_ID, SERVO_CIRCLE_POS_CLOSE+50, 200);
+  HAL_Delay(200);
+  close_circle_plant();
+
+  //init pusher
+  retract_servo_plant();
+  HAL_Delay(500);
+  servos.WritePos(SERVO_PUSH_PLANT_ID, SERVO_PUSH_POSE_RETRACTED-50, 200);
+  HAL_Delay(200);
+  retract_servo_plant();
+  HAL_Delay(500);
+}
+
+void push_one_plant_out()
+{
+  // rotate the reservoir by the right offset
+  printf("align reservoir \n");
+  reservoir_align_with_output();
+  printf("open circle \n");
+  open_circle_plant();
+  printf("push plant \n");
+  push_plant();
+  HAL_Delay(1300);
+  printf("retract servo plant \n");
+  retract_servo_plant();
+  printf("retract circle\n");
+  close_circle_plant();
+}
 
 
 
@@ -649,6 +766,9 @@ void store_plants_spin_once()
     lift_go_middle();
     grabber_retract(false);
     lift_go_down();
+    hide_fildefer();
+    HAL_Delay(2000);
+    close_fildefer();
     hopper_open(LEFT);
     hopper_open(RIGHT);
     HAL_Delay(500);
@@ -703,7 +823,6 @@ void setup()
     Error_Handler();
   }
 
-
   champi_can = ChampiCan(&hfdcan1);
 
 
@@ -725,6 +844,10 @@ void setup()
   printf("Begin actuators initialization...\n");
 
   // Initialize / move actuators
+  pusher_and_circle_initialize();
+  push_one_plant_out();
+  HAL_Delay(10000000);
+  fildefer_initialize();
   reservoir_initialize_and_test();
 
   hoppers_initialize_and_test();
@@ -1140,11 +1263,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : FIN_COURSE_RES_Pin */
-  GPIO_InitStruct.Pin = FIN_COURSE_RES_Pin;
+  /*Configure GPIO pins : F_COURSE_LIFT_Pin FIN_COURSE_RES_Pin */
+  GPIO_InitStruct.Pin = F_COURSE_LIFT_Pin|FIN_COURSE_RES_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(FIN_COURSE_RES_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
