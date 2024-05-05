@@ -1,4 +1,4 @@
-Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
+Core/Src/ChampiCan.o: ../Core/Src/ChampiCan.cpp ../Core/Inc/ChampiCan.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -30,15 +30,8 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
- ../Core/Inc/SCServo.h ../Core/Inc/Stepper.hpp \
- ../Core/Inc/LaserSensor.hpp ../Core/Inc/VL53L4CD_api.h \
- ../Core/Inc/platform.h ../Core/Inc/MessageRecomposer.h \
- ../Core/Inc/ChampiCan.h ../Core/Inc/ChampiState.h \
- ../Core/Inc/pb_encode.h ../Core/Inc/pb.h ../Core/Inc/msgs_can.pb.h \
- ../Core/Inc/pb.h ../Core/Inc/ChampiCan.h ../Core/Inc/can_ids.hpp \
- ../Core/Inc/pb_decode.h ../Core/Inc/msgs_can.pb.h
-../Core/Inc/main.h:
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
+../Core/Inc/ChampiCan.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h:
@@ -71,19 +64,3 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
-../Core/Inc/SCServo.h:
-../Core/Inc/Stepper.hpp:
-../Core/Inc/LaserSensor.hpp:
-../Core/Inc/VL53L4CD_api.h:
-../Core/Inc/platform.h:
-../Core/Inc/MessageRecomposer.h:
-../Core/Inc/ChampiCan.h:
-../Core/Inc/ChampiState.h:
-../Core/Inc/pb_encode.h:
-../Core/Inc/pb.h:
-../Core/Inc/msgs_can.pb.h:
-../Core/Inc/pb.h:
-../Core/Inc/ChampiCan.h:
-../Core/Inc/can_ids.hpp:
-../Core/Inc/pb_decode.h:
-../Core/Inc/msgs_can.pb.h:

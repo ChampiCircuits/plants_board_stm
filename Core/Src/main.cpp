@@ -24,6 +24,16 @@
 #include "SCServo.h"
 #include "Stepper.hpp"
 #include "LaserSensor.hpp"
+
+#include "MessageRecomposer.h"
+#include "ChampiCan.h"
+#include "ChampiState.h"
+
+#include <pb_encode.h>
+#include <pb_decode.h>
+#include "msgs_can.pb.h"
+
+
 #include <stdlib.h>
 #include <string.h>
 #include "stdio.h"
@@ -82,6 +92,8 @@ void lift_initialize_and_test();
 void grabber_initialize_and_test();
 void hoppers_initialize_and_test();
 int setup_lasers();
+void on_receive_action(const std::string& proto_msg);
+
 
 /* USER CODE END PFP */
 
@@ -114,6 +126,153 @@ unsigned long get_time_us() {
   return seconds_elapsed * 1000000 + time_us;
 }
 
+
+// ================================================= GENRAL VARIABLES =================================================
+
+ChampiCan champi_can;
+MessageRecomposer msg_recomposer_action;
+
+ChampiState champi_state;
+
+msgs_can_ActStatus status_msg = msgs_can_ActStatus_init_zero;
+
+
+// ================================================== SYSTEM STATE ====================================================
+
+
+/**
+ * @brief Error handler we call when CAN might still work.
+ * It blinks the built-in LED at 1Hz AND sends status on CAN bus.
+ */
+void Error_Handler_CAN_ok() {
+
+  // Blink the built-in LED at 1Hz
+  uint32_t last_time = HAL_GetTick();
+  while (true) {
+    champi_state.spin_once();
+    HAL_Delay(10); // 10ms required to match the main loop frequency (for control)
+
+    if (HAL_GetTick() - last_time > 500) {
+      last_time = HAL_GetTick();
+      HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+    }
+  }
+}
+
+/**
+ * @brief Fonction qui attend que le l'envoi de données sur le CAN fonctionne. Ca envoie un message de test
+ * à répétition jusqu'à ce que ça fonctionne.
+ * Also blinks the built-in LED at 5 Hz.
+ */
+void tx_ok_or_reset() {
+  uint8_t buff[20] = {0}; // We need a big message to fill the FIFO
+
+  // Send a message to test if the can bus works (at least 1 node up)
+  uint32_t ret = champi_can.send_msg(CAN_ID_ACT_TEST, (uint8_t *) buff, 20);
+
+  if(ret==0){
+    return;
+  }
+
+  // If we get an error, retry doesn't work sometimes. So we reset the stm to try again. Also blink the led 10Hz
+
+  // blink the built-in LED for 1s
+  for (int i = 0; i < 10; i++) {
+    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+    HAL_Delay(100);
+  }
+
+  // Then reset the stm
+  NVIC_SystemReset();
+
+}
+
+// ==================================================== CAN COMMUNICATION ==============================================
+
+
+/**
+  * @brief  Rx FIFO 0 callback.
+  * @param  hfdcan: pointer to an FDCAN_HandleTypeDef structure that contains
+  *         the configuration information for the specified FDCAN.
+  * @param  RxFifo0ITs: indicates which Rx FIFO 0 interrupts are signalled.
+  *         This parameter can be any combination of @arg FDCAN_Rx_Fifo0_Interrupts.
+  * @retval None
+  */
+void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs) {
+
+    // Attention !! Quand on met un breakpoint dans cette fonction, on ne reçoit plus que 2 messages au lieu du
+    // bon nombre.
+
+    if ((RxFifo0ITs & FDCAN_IT_RX_FIFO0_NEW_MESSAGE) != RESET) {
+        /* Retrieve Rx messages from RX FIFO0 */
+        FDCAN_RxHeaderTypeDef RxHeader;
+        uint8_t RxData[8];
+
+        if (HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &RxHeader, RxData) != HAL_OK) {
+            status_msg.status.status = msgs_can_Status_StatusType_ERROR;
+            status_msg.status.error = msgs_can_Status_ErrorType_CAN_RX;
+            champi_state.report_status(status_msg);
+            Error_Handler_CAN_ok();
+        }
+        /* Handle Interesting messages
+         * Pour le moment, on n'utilise pas de mutex ou de choses comme ça, donc il faut faire attention
+         * à ne pas modifier trop de variables partagées, et de priviligier la modifcation de variables
+         * de 32 bits ou moins (pour que leur modification soit une opération atomique)
+         * */
+
+        if (RxHeader.Identifier == CAN_ID_ACT_ACTION) {
+            msg_recomposer_action.add_frame(RxData, RxHeader.DataLength);
+
+            if (msg_recomposer_action.check_if_new_full_msg()) {
+                std::string proto_msg = msg_recomposer_action.get_full_msg();
+                on_receive_action(proto_msg);
+
+            }
+        }
+    }
+}
+
+
+// ------------------------------------------ ON RECEIVE FUNCTIONS -----------------------------------------------
+
+void on_receive_action(const std::string& proto_msg)
+{
+  // Allocate space for the decoded message.
+  msgs_can_ActCmd ret_action = msgs_can_ActCmd_init_zero;
+  // Create a stream that reads from the buffer.
+  pb_istream_t stream_ret = pb_istream_from_buffer((const unsigned char*)proto_msg.c_str(), proto_msg.size());
+  // Now we are ready to decode the message.
+  if (!pb_decode(&stream_ret, msgs_can_ActCmd_fields, &ret_action)) {
+    // Decoding failed
+    status_msg.status.status = msgs_can_Status_StatusType_ERROR;
+    status_msg.status.error = msgs_can_Status_ErrorType_PROTO_DECODE;
+    champi_state.report_status(status_msg);
+    Error_Handler_CAN_ok();
+  }
+
+  // Use message
+
+  switch (ret_action.action)
+  {
+    case msgs_can_ActActions_START_GRAB_PLANTS:
+      // TODO
+      break;
+    case msgs_can_ActActions_STOP_GRAB_PLANTS:
+      // TODO
+      break;
+    case msgs_can_ActActions_RELEASE_PLANT:
+      break;
+    default:
+      break;
+  }
+}
+
+
+
+
+
+
+
 // ===================================== DEFINES DISTANCE SENSORS =====================================
 
 #define SENSOR_LEFT_ADDRESS 0x01
@@ -135,9 +294,9 @@ unsigned long get_time_us() {
 
 // ============================================= DEFINES LIFT =============================================
 
-#define LIFT_POS_UP 500
-#define LIFT_POS_MIDDLE 5000
-#define LIFT_POS_DOWN 14000
+#define LIFT_POS_UP -500
+#define LIFT_POS_MIDDLE -5000
+#define LIFT_POS_DOWN -14000
 
 
 
@@ -188,8 +347,6 @@ struct SystemState
   std::vector<bool> servos_ok = {false, false, false};
 
 } system_state;
-
-
 
 
 // ================================================ DIAGNOSTIC FUNCTIONS ===============================================
@@ -257,7 +414,7 @@ int setup_lasers()
 void reservoir_initialize_and_test()
 {
   // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
-  stepper_res.set_goal(-100000);
+  stepper_res.set_goal(100000);
 
   // Turn untill the button is released
   while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_RESET)
@@ -287,7 +444,7 @@ void lift_initialize_and_test()
 {
   // Here we don't have a sensor. So we just turn the motor for a certain distance. (5 spins at 3200 steps per spin)
 
-  stepper_lift.set_goal(-5*3200);
+  stepper_lift.set_goal(5*3200);
   while(!stepper_lift.is_stopped())
   {
     stepper_lift.spin_once();
@@ -398,7 +555,7 @@ void reservoir_rotate()
 {
   // Set big goal. When button is pressed, reset current pos to 0 and stop the motor
   stepper_res.set_pos(0);
-  stepper_res.set_goal(-100000);
+  stepper_res.set_goal(100000);
 
   // Turn untill the button is released
   while(HAL_GPIO_ReadPin(FIN_COURSE_RES_GPIO_Port, FIN_COURSE_RES_Pin) == GPIO_PIN_RESET)
@@ -503,6 +660,109 @@ void store_plants_spin_once()
 }
 
 
+
+
+void setup()
+{
+
+  printf("Setup Begins...\n");
+
+  // Initialize the status message / set has_... fields to true
+  status_msg = msgs_can_ActStatus_init_zero;
+  status_msg.has_status = true;
+  status_msg.status.has_status = true;
+  status_msg.status.has_error = true;
+  status_msg.has_plant_count = true;
+  status_msg.has_action = true;
+
+  status_msg.status.status = msgs_can_Status_StatusType_INIT;
+  status_msg.status.error = msgs_can_Status_ErrorType_NONE;
+  status_msg.action = msgs_can_ActActions_INITIALIZING;
+  status_msg.plant_count = 0;
+
+
+
+  // Init Steppers (and start the timer for the time_us function)
+  HAL_TIM_Base_Start_IT(&htim2);
+  stepper_lift.set_speed(5000);
+
+  printf("Setup lasers...\n");
+
+  // Initialize the sensors
+  if(setup_lasers() != 0)
+  {
+    printf("Error setting up the sensors\n");
+    Error_Handler();
+  }
+
+  printf("Setup servos...\n");
+
+  if(ping_servos() != 0)
+  {
+    printf("Error pinging servos\n");
+    Error_Handler();
+  }
+
+
+  champi_can = ChampiCan(&hfdcan1);
+
+
+  if (champi_can.start() != 0) {
+    // TODO: On n'a jamais rencontré cette erreur.
+    Error_Handler();
+  }
+
+  printf("Setup CAN Done\n");
+
+  // This is required: when the Raspberry Pi starts up, transmit CAN frames returns error.
+  //tx_ok_or_reset(); TODO
+
+  // champi_state = ChampiState(&champi_can, 500);
+  //
+  // status_msg.status.status = msgs_can_Status_StatusType_OK;
+  // champi_state.report_status(status_msg);
+
+  printf("Begin actuators initialization...\n");
+
+  // Initialize / move actuators
+  reservoir_initialize_and_test();
+
+  hoppers_initialize_and_test();
+  HAL_Delay(200);
+  grabber_retract();
+  lift_initialize_and_test();
+
+  printf("Initialization Done\n");
+
+
+  //request_store_plants();
+
+
+
+  // Switch led ON to indicate that we're running
+  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
+
+  // status_msg.action = msgs_can_ActActions_FREE;
+  // champi_state.report_status(status_msg);
+
+}
+
+
+
+void loop()
+{
+  // Print distances
+  printf("Left: %d mm, Right: %d mm\n", sensors[LEFT].get_dist_mm(), sensors[RIGHT].get_dist_mm());
+
+  store_plants_spin_once();
+  if(!system_state.storing)
+  {
+    request_store_plants();
+  }
+
+}
+
+
 /* USER CODE END 0 */
 
 /**
@@ -541,36 +801,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
-    // Start the timer
-    HAL_TIM_Base_Start_IT(&htim2);
-
-
-  stepper_lift.set_speed(5000);
-
-    // Initialize the sensors
-  if(setup_lasers() != 0)
-  {
-    printf("Error setting up the sensors\n");
-    Error_Handler();
-  }
-
-  if(ping_servos() != 0)
-  {
-    printf("Error pinging servos\n");
-    Error_Handler();
-  }
-
-    // Initialize / move actuators
-
-    reservoir_initialize_and_test();
-
-    hoppers_initialize_and_test();
-    HAL_Delay(200);
-    grabber_retract();
-    lift_initialize_and_test();
-
-
-    request_store_plants();
+  setup();
 
 
 
@@ -584,20 +815,7 @@ int main(void)
     while (1)
     {
 
-      // Print distances
-      printf("Left: %d mm, Right: %d mm\n", sensors[LEFT].get_dist_mm(), sensors[RIGHT].get_dist_mm());
-
-      store_plants_spin_once();
-      if(!system_state.storing)
-      {
-        request_store_plants();
-      }
-
-      // Print the distances
-      // printf("Left: %d mm, Right: %d mm\n", sensor_left.results.distance_mm, sensor_right.results.distance_mm);
-
-
-
+      loop();
 
     /* USER CODE END WHILE */
 

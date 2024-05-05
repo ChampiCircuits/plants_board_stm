@@ -1,0 +1,8 @@
+../Core/Src/MessageRecomposer.cpp:13:1:MessageRecomposer::MessageRecomposer()	2
+../Core/Src/MessageRecomposer.cpp:18:6:void MessageRecomposer::add_frame(uint8_t*, uint8_t)	7
+../Core/Src/MessageRecomposer.cpp:59:6:bool MessageRecomposer::check_if_new_full_msg()	1
+../Core/Src/MessageRecomposer.cpp:63:13:std::string MessageRecomposer::get_full_msg()	1
+../Core/Src/MessageRecomposer.cpp:68:1:MessageRecomposer::~MessageRecomposer()	3
+../Core/Src/MessageRecomposer.cpp:68:1:virtual MessageRecomposer::~MessageRecomposer()	1
+../Core/Src/MessageRecomposer.cpp:72:6:void MessageRecomposer::decode_descriptor(uint8_t*, int&, int&, int&)	1
+../Core/Src/MessageRecomposer.cpp:84:6:bool MessageRecomposer::all_frames_received()	3
