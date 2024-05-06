@@ -107,6 +107,7 @@ void close_circle_plant();
 void pusher_and_circle_initialize();
 void push_one_plant_out();
 void reservoir_align_with_output();
+void reservoir_realign_back();
 
 /* USER CODE END PFP */
 
@@ -333,15 +334,16 @@ std::vector<int> hoppers_pos_close = {600, 430};
 // =============================================== DEFINES FILDEFER ===============================================
 
 #define FILDEFER_ID 18
-#define FILDEFER_POS_CLOSED 310
-#define FILDEFER_POS_HIDDEN 75
+#define FILDEFER_POS_CLOSED 400
+#define FILDEFER_POS_HIDDEN 100
 
 // =============================================== DEFINES PLANT OUTPUT ===============================================
 
 #define SERVO_PUSH_PLANT_ID 9
 #define SERVO_CIRCLE_PLANT_ID 16
 #define SERVO_CIRCLE_POS_CLOSE 540
-#define SERVO_CIRCLE_POS_OPEN 1000
+#define SERVO_CIRCLE_POS_OPEN 950
+#define SERVO_CIRCLE_POS_OPEN_MORE 1023
 #define SERVO_PUSH_POSE_PUSHED 220
 #define SERVO_PUSH_POSE_RETRACTED 440
 
@@ -385,6 +387,28 @@ struct SystemState
 
 } system_state;
 
+struct ReservoirState
+{
+  // array containing the state of each slot (in the clockwise order)
+  std::vector<bool> slots = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
+  // head. At initialization, it is pointing to the first slot (which is the left slot of the grabber)
+  int head = 0;
+  int nb_stored = 0;
+} reservoir_state;
+
+void print_reservoir()
+{
+  // print reservoir state
+  printf("\n");
+  for (int i = 0; i < reservoir_state.slots.size(); i++)
+  {
+    printf("%s", reservoir_state.slots[i] ? "1" : "0");
+
+  }
+  printf("nb stored: %d\n", reservoir_state.nb_stored);
+  printf("head: %d\n", reservoir_state.head);
+  printf("\n");
+}
 
 // ================================================ DIAGNOSTIC FUNCTIONS ===============================================
 
@@ -451,7 +475,6 @@ int setup_lasers()
 void reservoir_initialize_and_test()
 {
   reservoir_rotate(2);
-
 }
 
 void lift_initialize_and_test()
@@ -618,10 +641,20 @@ void reservoir_rotate(bool keep_speed=false)
 
 void reservoir_align_with_output()
 {
-  reservoir_initialize_and_test();
   // Turn (offset)
   stepper_res.set_pos(0);
   stepper_res.set_goal(RES_OFFSET_FOR_OUTPUT);
+  while(!stepper_res.is_stopped())
+  {
+    stepper_res.spin_once();
+  }
+}
+
+void reservoir_realign_back()
+{
+  // Turn (offset)
+  stepper_res.set_pos(0);
+  stepper_res.set_goal(-RES_OFFSET_FOR_OUTPUT);
   while(!stepper_res.is_stopped())
   {
     stepper_res.spin_once();
@@ -651,16 +684,16 @@ void fildefer_initialize()
 {
   // servos.WritePos(FILDEFER_ID, FILDEFER_POS_HIDDEN, 1000);
   hide_fildefer();
-  HAL_Delay(2000);
+  HAL_Delay(1000);
   close_fildefer();
-  HAL_Delay(2000);
+  HAL_Delay(1000);
   hide_fildefer();
-  HAL_Delay(2000);
+  HAL_Delay(1000);
 }
 
 void push_plant()
 {
-  servos.WritePos(SERVO_PUSH_PLANT_ID, SERVO_PUSH_POSE_PUSHED, 1000);
+  servos.WritePos(SERVO_PUSH_PLANT_ID, SERVO_PUSH_POSE_PUSHED, 500);
 }
 void retract_servo_plant()
 {
@@ -670,6 +703,10 @@ void retract_servo_plant()
 void open_circle_plant()
 {
   servos.WritePos(SERVO_CIRCLE_PLANT_ID, SERVO_CIRCLE_POS_OPEN, 200);
+}
+void open_circle_plant_more()
+{
+  servos.WritePos(SERVO_CIRCLE_PLANT_ID, SERVO_CIRCLE_POS_OPEN_MORE, 200);
 }
 void close_circle_plant()
 {
@@ -692,11 +729,47 @@ void pusher_and_circle_initialize()
   HAL_Delay(500);
 }
 
+int search_next_plant_to_push()
+{
+  // the output is aligned with the head + 5
+  // we search in reverse order till we find a plant
+  for (int i = 0; i < reservoir_state.slots.size(); i++)
+  {
+    int index = (reservoir_state.head + 5 - i) % reservoir_state.slots.size();
+    if (index < 0)
+    {
+      index += reservoir_state.slots.size();
+    }
+
+    if (reservoir_state.slots[index])
+    {
+      return i;
+    }
+  }
+  return -1;
+}
+
 void push_one_plant_out()
 {
+  // search for a plant to push
+  int nb_slot_till_next_plant = search_next_plant_to_push();
+  printf("\n\n");
+  printf("next plant to push: %d\n", nb_slot_till_next_plant);
+  if (nb_slot_till_next_plant == -1)
+  {
+    return;
+  }
+  HAL_Delay(2000);
+  // rotate the reservoir to the right position
+  printf("rotate the reservoir to the right position\n");
+  reservoir_rotate(nb_slot_till_next_plant );
+  HAL_Delay(2000);
+
+
   // rotate the reservoir by the right offset
   printf("align reservoir \n");
   reservoir_align_with_output();
+  HAL_Delay(2000);
   printf("open circle \n");
   open_circle_plant();
   printf("push plant \n");
@@ -705,7 +778,25 @@ void push_one_plant_out()
   printf("retract servo plant \n");
   retract_servo_plant();
   printf("retract circle\n");
+  open_circle_plant_more();
+  HAL_Delay(200);
   close_circle_plant();
+  reservoir_realign_back();
+
+  // update reservoir state at the head + 5
+  printf("on veut enlever à %d \n",(reservoir_state.head+5-nb_slot_till_next_plant)%reservoir_state.slots.size());
+  reservoir_state.slots[(reservoir_state.head+5-nb_slot_till_next_plant) % reservoir_state.slots.size()] = false;
+  reservoir_state.nb_stored--;
+  reservoir_state.head = reservoir_state.head - nb_slot_till_next_plant;
+  if (reservoir_state.head < 0)
+  {
+    reservoir_state.head += reservoir_state.slots.size();
+  }
+  else
+  {
+    reservoir_state.head = reservoir_state.head % reservoir_state.slots.size();
+  }
+  print_reservoir();
 }
 
 
@@ -771,11 +862,33 @@ void store_plants_spin_once()
     close_fildefer();
     hopper_open(LEFT);
     hopper_open(RIGHT);
-    HAL_Delay(500);
+    HAL_Delay(2000);
+    hide_fildefer();
     system_state.storing = false;
     system_state.hopper_left_closed = false;
     system_state.hopper_right_closed = false;
-    reservoir_rotate(3);
+
+    int nb_to_turn = 3;
+    reservoir_rotate(nb_to_turn);
+    print_reservoir();
+
+    // fill the reservoir state. 2 have to be set to true, and one skipped
+    reservoir_state.slots[reservoir_state.head] = true;
+    reservoir_state.slots[(reservoir_state.head + 1) % reservoir_state.slots.size()] = true;
+    reservoir_state.nb_stored += 2;
+
+    reservoir_state.head = reservoir_state.head - nb_to_turn;
+    printf("head:%d \n", reservoir_state.head);
+    if (reservoir_state.head < 0)
+    {
+      printf("head += %d \n", reservoir_state.slots.size());
+      reservoir_state.head += reservoir_state.slots.size();
+    }
+    else
+    {
+      reservoir_state.head = reservoir_state.head % reservoir_state.slots.size();
+    }
+    print_reservoir();
   }
 }
 
@@ -845,8 +958,6 @@ void setup()
 
   // Initialize / move actuators
   pusher_and_circle_initialize();
-  push_one_plant_out();
-  HAL_Delay(10000000);
   fildefer_initialize();
   reservoir_initialize_and_test();
 
@@ -868,6 +979,7 @@ void setup()
   // status_msg.action = msgs_can_ActActions_FREE;
   // champi_state.report_status(status_msg);
 
+  print_reservoir();
 }
 
 
@@ -875,12 +987,20 @@ void setup()
 void loop()
 {
   // Print distances
-  printf("Left: %d mm, Right: %d mm\n", sensors[LEFT].get_dist_mm(), sensors[RIGHT].get_dist_mm());
+  // printf("Left: %d mm, Right: %d mm\n", sensors[LEFT].get_dist_mm(), sensors[RIGHT].get_dist_mm());
 
   store_plants_spin_once();
   if(!system_state.storing)
   {
     request_store_plants();
+  }
+
+  if (reservoir_state.nb_stored == 4)
+  {
+    push_one_plant_out();
+    push_one_plant_out();
+    push_one_plant_out();
+    push_one_plant_out();
   }
 
 }
