@@ -23,6 +23,6 @@ CMake Deprecation Warning:
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Minimal optimization, debug info included
--- Configuring done (0.3s)
+-- Configuring done (0.6s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/andre/STM32CubeIDE/workspace_1.15.1/plants_board_stm2/cmake-build-debug

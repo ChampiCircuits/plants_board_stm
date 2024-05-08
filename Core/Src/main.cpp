@@ -109,6 +109,8 @@ void push_one_plant_out();
 void reservoir_align_with_output();
 void reservoir_realign_back();
 
+void request_store_plants();
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -243,6 +245,11 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 
             }
         }
+
+      if (RxHeader.Identifier == CAN_ID_ACT_RESET) {
+        NVIC_SystemReset();
+      }
+
     }
 }
 
@@ -269,7 +276,7 @@ void on_receive_action(const std::string& proto_msg)
   switch (ret_action.action)
   {
     case msgs_can_ActActions_START_GRAB_PLANTS:
-      // TODO
+      request_store_plants();
       break;
     case msgs_can_ActActions_STOP_GRAB_PLANTS:
       // TODO
@@ -335,7 +342,7 @@ std::vector<int> hoppers_pos_close = {600, 430};
 
 #define FILDEFER_ID 18
 #define FILDEFER_POS_CLOSED 400
-#define FILDEFER_POS_HIDDEN 100
+#define FILDEFER_POS_HIDDEN 200
 
 // =============================================== DEFINES PLANT OUTPUT ===============================================
 
@@ -488,12 +495,15 @@ void lift_initialize_and_test()
   // 1
   if(HAL_GPIO_ReadPin(F_COURSE_LIFT_GPIO_Port, F_COURSE_LIFT_Pin) == GPIO_PIN_RESET)
   {
+	printf("Lift Goes Up...\n");
     stepper_lift.set_goal(3200);
     while(!stepper_lift.is_stopped())
     {
       stepper_lift.spin_once();
     }
   }
+
+  printf("Lift Goes Down...\n");
 
   // 2
   lift_go_down();
@@ -539,6 +549,7 @@ void lift_go_down()
   {
     stepper_lift.spin_once();
   }
+
 
   // Turn (offset)
   stepper_lift.set_pos(0);
@@ -822,10 +833,12 @@ void request_store_plants()
 {
   system_state.storing = true;
 
+  status_msg.action = msgs_can_ActActions_START_GRAB_PLANTS;
+  champi_state.report_status(status_msg);
+
   // Clear distance sensors buffers (?)
   sensors[LEFT].clear_interrupt();
   sensors[RIGHT].clear_interrupt();
-  HAL_Delay(100);
 }
 
 
@@ -944,26 +957,33 @@ void setup()
     Error_Handler();
   }
 
-  printf("Setup CAN Done\n");
-
   // This is required: when the Raspberry Pi starts up, transmit CAN frames returns error.
-  //tx_ok_or_reset(); TODO
 
-  // champi_state = ChampiState(&champi_can, 500);
-  //
-  // status_msg.status.status = msgs_can_Status_StatusType_OK;
-  // champi_state.report_status(status_msg);
+  tx_ok_or_reset();
+
+  printf("Setup CAN Done.\n");
+
+  champi_state = ChampiState(&champi_can, 500);
+
+  status_msg.status.status = msgs_can_Status_StatusType_OK;
+  champi_state.report_status(status_msg);
+
 
   printf("Begin actuators initialization...\n");
 
   // Initialize / move actuators
+  printf("Test pusher and circle...\n");
   pusher_and_circle_initialize();
+  printf("Test fildefer...\n");
   fildefer_initialize();
+  printf("Test reservoir...\n");
   reservoir_initialize_and_test();
-
+  printf("Test hoppers...\n");
   hoppers_initialize_and_test();
   HAL_Delay(200);
+  printf("Test grabber...\n");
   grabber_retract();
+  printf("Test lift...\n");
   lift_initialize_and_test();
 
   printf("Initialization Done\n");
@@ -976,8 +996,8 @@ void setup()
   // Switch led ON to indicate that we're running
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
 
-  // status_msg.action = msgs_can_ActActions_FREE;
-  // champi_state.report_status(status_msg);
+  status_msg.action = msgs_can_ActActions_FREE;
+  champi_state.report_status(status_msg);
 
   print_reservoir();
 }
@@ -990,10 +1010,6 @@ void loop()
   // printf("Left: %d mm, Right: %d mm\n", sensors[LEFT].get_dist_mm(), sensors[RIGHT].get_dist_mm());
 
   store_plants_spin_once();
-  if(!system_state.storing)
-  {
-    request_store_plants();
-  }
 
   if (reservoir_state.nb_stored == 4)
   {
@@ -1002,6 +1018,8 @@ void loop()
     push_one_plant_out();
     push_one_plant_out();
   }
+
+  champi_state.spin_once(); // Send status on CAN bus
 
 }
 
@@ -1132,17 +1150,17 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Init.ClockDivider = FDCAN_CLOCK_DIV1;
   hfdcan1.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
   hfdcan1.Init.Mode = FDCAN_MODE_NORMAL;
-  hfdcan1.Init.AutoRetransmission = DISABLE;
+  hfdcan1.Init.AutoRetransmission = ENABLE;
   hfdcan1.Init.TransmitPause = DISABLE;
   hfdcan1.Init.ProtocolException = DISABLE;
-  hfdcan1.Init.NominalPrescaler = 16;
+  hfdcan1.Init.NominalPrescaler = 10;
   hfdcan1.Init.NominalSyncJumpWidth = 1;
-  hfdcan1.Init.NominalTimeSeg1 = 2;
+  hfdcan1.Init.NominalTimeSeg1 = 14;
   hfdcan1.Init.NominalTimeSeg2 = 2;
-  hfdcan1.Init.DataPrescaler = 1;
+  hfdcan1.Init.DataPrescaler = 10;
   hfdcan1.Init.DataSyncJumpWidth = 1;
-  hfdcan1.Init.DataTimeSeg1 = 1;
-  hfdcan1.Init.DataTimeSeg2 = 1;
+  hfdcan1.Init.DataTimeSeg1 = 14;
+  hfdcan1.Init.DataTimeSeg2 = 2;
   hfdcan1.Init.StdFiltersNbr = 0;
   hfdcan1.Init.ExtFiltersNbr = 0;
   hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;

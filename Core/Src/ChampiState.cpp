@@ -12,7 +12,10 @@ ChampiState::ChampiState() = default;
 ChampiState::ChampiState(ChampiCan *champi_can_interface, uint32_t tx_period_ms) {
     status_msg_ = msgs_can_ActStatus_init_zero;
     status_msg_.has_status = true;
+    status_msg_.status.has_status = true;
+    status_msg_.has_plant_count = true;
     status_msg_.status.has_error = true;
+    status_msg_.plant_count = 0;
     champi_can_interface_ = champi_can_interface;
     tx_period_ms_ = tx_period_ms;
     last_tx_time_ms_ = 0;
@@ -50,11 +53,11 @@ void ChampiState::send_status() {
     pb_ostream_t stream = pb_ostream_from_buffer(tx_buffer_, sizeof(tx_buffer_));
 
     // Encode message
-    pb_encode(&stream, msgs_can_Status_fields, &status_msg_);
+    pb_encode(&stream, msgs_can_ActStatus_fields, &status_msg_);
     size_t message_length = stream.bytes_written;
 
     // Send message
-    champi_can_interface_->send_msg(CAN_ID_IMU_STATUS, tx_buffer_, message_length); // TODO make the ID configurable
+    champi_can_interface_->send_msg(CAN_ID_ACT_STATUS, tx_buffer_, message_length); // TODO make the ID configurable
 }
 
 void ChampiState::spin_once() {

@@ -44,7 +44,7 @@ public:
     HAL_GPIO_WritePin(gpio_port_dir, gpio_pin_dir, state.direction == 1 ? GPIO_PIN_RESET : GPIO_PIN_SET);
 
     if (keep_previous_speed) {
-      current_speed = speed_when_stopped;
+      current_speed = speed;
     } else {
       current_speed = 0;
     }
