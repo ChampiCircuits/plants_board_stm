@@ -12,10 +12,13 @@ ChampiState::ChampiState() = default;
 ChampiState::ChampiState(ChampiCan *champi_can_interface, uint32_t tx_period_ms) {
     status_msg_ = msgs_can_ActStatus_init_zero;
     status_msg_.has_status = true;
-    status_msg_.status.has_status = true;
+    status_msg_.has_action = true;
     status_msg_.has_plant_count = true;
+    status_msg_.status.has_status = true;
     status_msg_.status.has_error = true;
-    status_msg_.plant_count = 0;
+
+    status_msg_.plant_count = -1;
+    status_msg_.action = msgs_can_ActActions_TURN_SOLAR_PANEL;
     champi_can_interface_ = champi_can_interface;
     tx_period_ms_ = tx_period_ms;
     last_tx_time_ms_ = 0;
@@ -32,7 +35,10 @@ void ChampiState::report_status(msgs_can_ActStatus status) {
         || status_msg_.plant_count != status.plant_count
         || status_msg_.action != status.action) {
 
-        status_msg_ = status;
+        status_msg_.status.error = status.status.error;
+        status_msg_.status.status = status.status.status;
+        status_msg_.plant_count = status.plant_count;
+        status_msg_.action = status.action;
 
         send_status();
 

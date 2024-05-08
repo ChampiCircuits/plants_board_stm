@@ -1,7 +1,7 @@
 ../Core/Src/ChampiState.cpp:10:1:ChampiState::ChampiState()	16	static
 ../Core/Src/ChampiState.cpp:12:1:ChampiState::ChampiState(ChampiCan*, uint32_t)	24	static
-../Core/Src/ChampiState.cpp:24:1:ChampiState::~ChampiState()	16	static
-../Core/Src/ChampiState.cpp:24:1:virtual ChampiState::~ChampiState()	16	static
-../Core/Src/ChampiState.cpp:27:6:void ChampiState::report_status(msgs_can_ActStatus)	24	static
-../Core/Src/ChampiState.cpp:50:6:void ChampiState::send_status()	40	static
-../Core/Src/ChampiState.cpp:63:6:void ChampiState::spin_once()	24	static
+../Core/Src/ChampiState.cpp:27:1:ChampiState::~ChampiState()	16	static
+../Core/Src/ChampiState.cpp:27:1:virtual ChampiState::~ChampiState()	16	static
+../Core/Src/ChampiState.cpp:30:6:void ChampiState::report_status(msgs_can_ActStatus)	16	static
+../Core/Src/ChampiState.cpp:56:6:void ChampiState::send_status()	40	static
+../Core/Src/ChampiState.cpp:69:6:void ChampiState::spin_once()	24	static

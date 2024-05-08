@@ -29,61 +29,62 @@
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_bvector.h:347:5:std::_Bit_iterator::iterator std::operator+(const _Bit_iterator::iterator&, iterator<random_access_iterator_tag, bool>::difference_type)	24	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_bvector.h:384:5:std::_Bit_const_iterator::_Bit_const_iterator(std::_Bit_type*, unsigned int)	24	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_bvector.h:388:5:std::_Bit_const_iterator::_Bit_const_iterator(const std::_Bit_iterator&)	16	static
-../Core/Src/main.cpp:120:5:int _write(int, char*, int)	32	static
-../Core/Src/main.cpp:132:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
-../Core/Src/main.cpp:139:15:long unsigned int get_time_us()	16	static
-../Core/Src/main.cpp:163:6:void Error_Handler_CAN_ok()	16	static
-../Core/Src/main.cpp:183:6:void tx_ok_or_reset()	40	static
-../Core/Src/main.cpp:217:6:void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef*, uint32_t)	128	static
-../Core/Src/main.cpp:259:6:void on_receive_action(const std::string&)	80	static
+../Core/Src/main.cpp:123:5:int _write(int, char*, int)	32	static
+../Core/Src/main.cpp:135:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
+../Core/Src/main.cpp:142:15:long unsigned int get_time_us()	16	static
+../Core/Src/main.cpp:166:6:void Error_Handler_CAN_ok()	16	static
+../Core/Src/main.cpp:186:6:void tx_ok_or_reset()	40	static
+../Core/Src/main.cpp:220:6:void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef*, uint32_t)	128	static
+../Core/Src/main.cpp:262:6:void on_receive_action(const std::string&)	80	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_vector.h:133:14:std::_Vector_base<LaserSensor, std::allocator<LaserSensor> >::_Vector_impl::~_Vector_impl()	16	static
-../Core/Src/main.cpp:388:8:constexpr SystemState::SystemState()	40	static
-../Core/Src/main.cpp:397:8:constexpr ReservoirState::ReservoirState()	56	static
-../Core/Src/main.cpp:406:6:void print_reservoir()	24	static
-../Core/Src/main.cpp:422:5:int ping_servos()	24	static
-../Core/Src/main.cpp:452:5:int setup_lasers()	16	static
-../Core/Src/main.cpp:482:6:void reservoir_initialize_and_test()	8	static
-../Core/Src/main.cpp:487:6:void lift_initialize_and_test()	8	static
-../Core/Src/main.cpp:513:6:void grabber_initialize_and_test()	8	static
-../Core/Src/main.cpp:526:6:void hoppers_initialize_and_test()	8	static
-../Core/Src/main.cpp:544:6:void lift_go_down()	8	static
-../Core/Src/main.cpp:566:6:void lift_go_up()	8	static
-../Core/Src/main.cpp:576:6:void lift_go_middle()	8	static
-../Core/Src/main.cpp:587:6:void grabber_extend()	16	static
-../Core/Src/main.cpp:594:6:void grabber_retract(bool)	24	static
-../Core/Src/main.cpp:603:6:void hopper_close(int)	32	static
-../Core/Src/main.cpp:609:6:void hopper_open(int)	32	static
-../Core/Src/main.cpp:618:6:void reservoir_rotate(bool)	24	static
-../Core/Src/main.cpp:653:6:void reservoir_align_with_output()	8	static
-../Core/Src/main.cpp:664:6:void reservoir_realign_back()	8	static
-../Core/Src/main.cpp:676:6:void reservoir_rotate(int)	24	static
-../Core/Src/main.cpp:684:6:void close_fildefer()	16	static
-../Core/Src/main.cpp:689:6:void hide_fildefer()	16	static
-../Core/Src/main.cpp:694:6:void fildefer_initialize()	8	static
-../Core/Src/main.cpp:705:6:void push_plant()	16	static
-../Core/Src/main.cpp:709:6:void retract_servo_plant()	16	static
-../Core/Src/main.cpp:714:6:void open_circle_plant()	16	static
-../Core/Src/main.cpp:718:6:void open_circle_plant_more()	16	static
-../Core/Src/main.cpp:722:6:void close_circle_plant()	16	static
-../Core/Src/main.cpp:727:6:void pusher_and_circle_initialize()	16	static
-../Core/Src/main.cpp:743:5:int search_next_plant_to_push()	32	static
-../Core/Src/main.cpp:763:6:void push_one_plant_out()	32	static
-../Core/Src/main.cpp:818:6:bool hopper_wait_and_close_spin_once(int)	24	static
-../Core/Src/main.cpp:832:6:void request_store_plants()	48	static
-../Core/Src/main.cpp:846:6:void store_plants_spin_once()	40	static
+../Core/Src/main.cpp:400:8:constexpr ReservoirState::ReservoirState()	56	static
+../Core/Src/main.cpp:409:6:void print_reservoir()	24	static
+../Core/Src/main.cpp:424:6:void request_store_plants()	8	static
+../Core/Src/main.cpp:436:6:void request_stop_storing()	8	static
+../Core/Src/main.cpp:448:6:void request_plant_out()	8	static
+../Core/Src/main.cpp:456:5:int ping_servos()	24	static
+../Core/Src/main.cpp:486:5:int setup_lasers()	16	static
+../Core/Src/main.cpp:516:6:void reservoir_initialize_and_test()	8	static
+../Core/Src/main.cpp:521:6:void lift_initialize_and_test()	8	static
+../Core/Src/main.cpp:547:6:void grabber_initialize_and_test()	8	static
+../Core/Src/main.cpp:560:6:void hoppers_initialize_and_test()	8	static
+../Core/Src/main.cpp:578:6:void lift_go_down()	8	static
+../Core/Src/main.cpp:600:6:void lift_go_up()	8	static
+../Core/Src/main.cpp:610:6:void lift_go_middle()	8	static
+../Core/Src/main.cpp:621:6:void grabber_extend()	16	static
+../Core/Src/main.cpp:628:6:void grabber_retract(bool)	24	static
+../Core/Src/main.cpp:637:6:void hopper_close(int)	32	static
+../Core/Src/main.cpp:643:6:void hopper_open(int)	32	static
+../Core/Src/main.cpp:652:6:void reservoir_rotate(bool)	24	static
+../Core/Src/main.cpp:687:6:void reservoir_align_with_output()	8	static
+../Core/Src/main.cpp:698:6:void reservoir_realign_back()	8	static
+../Core/Src/main.cpp:710:6:void reservoir_rotate(int)	24	static
+../Core/Src/main.cpp:718:6:void close_fildefer()	16	static
+../Core/Src/main.cpp:723:6:void hide_fildefer()	16	static
+../Core/Src/main.cpp:728:6:void fildefer_initialize()	8	static
+../Core/Src/main.cpp:739:6:void push_plant()	16	static
+../Core/Src/main.cpp:743:6:void retract_servo_plant()	16	static
+../Core/Src/main.cpp:748:6:void open_circle_plant()	16	static
+../Core/Src/main.cpp:752:6:void open_circle_plant_more()	16	static
+../Core/Src/main.cpp:756:6:void close_circle_plant()	16	static
+../Core/Src/main.cpp:761:6:void pusher_and_circle_initialize()	16	static
+../Core/Src/main.cpp:777:5:int search_next_plant_to_push()	32	static
+../Core/Src/main.cpp:797:6:void push_one_plant_out()	32	static
+../Core/Src/main.cpp:852:6:bool hopper_wait_and_close_spin_once(int)	24	static
+../Core/Src/main.cpp:868:6:void store_plants_spin_once()	40	static
 ../Core/Inc/ChampiCan.h:13:7:constexpr ChampiCan& ChampiCan::operator=(const ChampiCan&)	24	static
 ../Core/Inc/ChampiState.h:19:7:constexpr ChampiState& ChampiState::operator=(const ChampiState&)	24	static
-../Core/Src/main.cpp:911:6:void setup()	264	static
-../Core/Src/main.cpp:1007:6:void loop()	8	static
-../Core/Src/main.cpp:1033:5:int main()	8	static
-../Core/Src/main.cpp:1092:6:void SystemClock_Config()	88	static
-../Core/Src/main.cpp:1139:13:void MX_FDCAN1_Init()	8	static
-../Core/Src/main.cpp:1182:13:void MX_I2C1_Init()	8	static
-../Core/Src/main.cpp:1230:13:void MX_TIM2_Init()	40	static
-../Core/Src/main.cpp:1275:13:void MX_USART1_UART_Init()	8	static
-../Core/Src/main.cpp:1323:13:void MX_USART2_UART_Init()	8	static
-../Core/Src/main.cpp:1371:13:void MX_GPIO_Init()	40	static
-../Core/Src/main.cpp:1422:6:void Error_Handler()	4	static,ignoring_inline_asm
+../Core/Src/main.cpp:936:6:void setup()	264	static
+../Core/Src/main.cpp:1028:6:void loop()	48	static
+../Core/Src/main.cpp:1078:5:int main()	8	static
+../Core/Src/main.cpp:1137:6:void SystemClock_Config()	88	static
+../Core/Src/main.cpp:1184:13:void MX_FDCAN1_Init()	8	static
+../Core/Src/main.cpp:1227:13:void MX_I2C1_Init()	8	static
+../Core/Src/main.cpp:1275:13:void MX_TIM2_Init()	40	static
+../Core/Src/main.cpp:1320:13:void MX_USART1_UART_Init()	8	static
+../Core/Src/main.cpp:1368:13:void MX_USART2_UART_Init()	8	static
+../Core/Src/main.cpp:1416:13:void MX_GPIO_Init()	40	static
+../Core/Src/main.cpp:1467:6:void Error_Handler()	4	static,ignoring_inline_asm
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/allocator.h:156:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = int]	16	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/allocator.h:174:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = int]	16	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_vector.h:673:7:std::vector<_Tp, _Alloc>::vector(std::initializer_list<_Tp>, const allocator_type&) [with _Tp = int; _Alloc = std::allocator<int>]	40	static
@@ -100,8 +101,8 @@
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_bvector.h:839:7:std::vector<bool, _Alloc>::~vector() [with _Alloc = std::allocator<bool>]	16	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_bvector.h:1006:7:std::vector<bool, _Alloc>::size_type std::vector<bool, _Alloc>::size() const [with _Alloc = std::allocator<bool>]	32	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_bvector.h:1035:7:std::vector<bool, _Alloc>::reference std::vector<bool, _Alloc>::operator[](size_type) [with _Alloc = std::allocator<bool>]	32	static
-/home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_vector.h:987:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = int; _Alloc = std::allocator<int>]	16	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_vector.h:1121:7:std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](size_type) [with _Tp = LaserSensor; _Alloc = std::allocator<LaserSensor>]	16	static
+/home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_vector.h:987:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = int; _Alloc = std::allocator<int>]	16	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/new_allocator.h:80:7:std::__new_allocator<_Tp>::__new_allocator() [with _Tp = int]	16	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/new_allocator.h:90:7:std::__new_allocator<_Tp>::~__new_allocator() [with _Tp = int]	16	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_vector.h:133:14:std::_Vector_base<int, std::allocator<int> >::_Vector_impl::~_Vector_impl()	16	static
@@ -227,8 +228,7 @@
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/move.h:77:5:constexpr _Tp&& std::forward(typename remove_reference<_Tp>::type&) [with _Tp = const LaserSensor&]	16	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_algobase.h:486:5:_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = const int*; _OI = int*]	24	static
 /home/andre/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/arm-none-eabi/include/c++/12.3.1/bits/stl_algobase.h:420:2:static _Tp* std::__copy_move<_IsMove, true, std::random_access_iterator_tag>::__copy_m(const _Tp*, const _Tp*, _Tp*) [with _Tp = int; bool _IsMove = false]	32	static
-../Core/Src/main.cpp:397:8:ReservoirState::~ReservoirState()	16	static
-../Core/Src/main.cpp:388:8:SystemState::~SystemState()	16	static
-../Core/Src/main.cpp:1431:1:void __static_initialization_and_destruction_0(int, int)	200	static
-../Core/Src/main.cpp:1431:1:cpp)	8	static
-../Core/Src/main.cpp:1431:1:cpp)	8	static
+../Core/Src/main.cpp:400:8:ReservoirState::~ReservoirState()	16	static
+../Core/Src/main.cpp:1476:1:void __static_initialization_and_destruction_0(int, int)	200	static
+../Core/Src/main.cpp:1476:1:cpp)	8	static
+../Core/Src/main.cpp:1476:1:cpp)	8	static

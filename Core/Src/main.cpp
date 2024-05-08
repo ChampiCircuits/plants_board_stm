@@ -110,6 +110,9 @@ void reservoir_align_with_output();
 void reservoir_realign_back();
 
 void request_store_plants();
+void request_stop_storing();
+void request_plant_out();
+
 
 /* USER CODE END PFP */
 
@@ -279,9 +282,10 @@ void on_receive_action(const std::string& proto_msg)
       request_store_plants();
       break;
     case msgs_can_ActActions_STOP_GRAB_PLANTS:
-      // TODO
+      request_stop_storing();
       break;
     case msgs_can_ActActions_RELEASE_PLANT:
+      request_plant_out();
       break;
     default:
       break;
@@ -384,14 +388,13 @@ std::vector<int> servo_ids_to_check = {
   SERVO_PUSH_PLANT_ID
 };
 
+enum Action {INITIALIZING, FREE, STORING, PUTTING_OUT, FREE_CIRCLE_OUT};
 
 struct SystemState
 {
   bool hopper_left_closed = false;
   bool hopper_right_closed = false;
-  bool storing = false;
-  std::vector<bool> servos_ok = {false, false, false};
-
+  Action current_action = INITIALIZING;
 } system_state;
 
 struct ReservoirState
@@ -415,6 +418,37 @@ void print_reservoir()
   printf("nb stored: %d\n", reservoir_state.nb_stored);
   printf("head: %d\n", reservoir_state.head);
   printf("\n");
+}
+
+
+void request_store_plants()
+{
+
+  printf("Storing requested\n");
+  system_state.current_action = STORING;
+
+  // Clear distance sensors buffers (?)
+  sensors[LEFT].clear_interrupt();
+  sensors[RIGHT].clear_interrupt();
+}
+
+
+void request_stop_storing()
+{
+  printf("Stop storing requested\n");
+  if(system_state.current_action == FREE_CIRCLE_OUT)
+  {
+    printf("Interpreted as circle close\n");
+    close_circle_plant();
+  }
+
+  system_state.current_action = FREE;
+}
+
+void request_plant_out()
+{
+  printf("Plant out requested\n");
+  system_state.current_action = PUTTING_OUT;
 }
 
 // ================================================ DIAGNOSTIC FUNCTIONS ===============================================
@@ -768,6 +802,7 @@ void push_one_plant_out()
   printf("next plant to push: %d\n", nb_slot_till_next_plant);
   if (nb_slot_till_next_plant == -1)
   {
+    system_state.current_action = FREE;
     return;
   }
   HAL_Delay(2000);
@@ -791,7 +826,6 @@ void push_one_plant_out()
   printf("retract circle\n");
   open_circle_plant_more();
   HAL_Delay(200);
-  close_circle_plant();
   reservoir_realign_back();
 
   // update reservoir state at the head + 5
@@ -829,24 +863,12 @@ bool hopper_wait_and_close_spin_once(int side)
 }
 
 
-void request_store_plants()
-{
-  system_state.storing = true;
-
-  status_msg.action = msgs_can_ActActions_START_GRAB_PLANTS;
-  champi_state.report_status(status_msg);
-
-  // Clear distance sensors buffers (?)
-  sensors[LEFT].clear_interrupt();
-  sensors[RIGHT].clear_interrupt();
-}
-
 
 // /!\ DELAY IN THIS FUNCTION
 void store_plants_spin_once()
 {
 
-  if(!system_state.storing)
+  if(system_state.current_action != STORING)
   {
     return;
   }
@@ -877,9 +899,12 @@ void store_plants_spin_once()
     hopper_open(RIGHT);
     HAL_Delay(2000);
     hide_fildefer();
-    system_state.storing = false;
     system_state.hopper_left_closed = false;
     system_state.hopper_right_closed = false;
+
+    // Clear distance sensors buffers (?)
+    sensors[LEFT].clear_interrupt();
+    sensors[RIGHT].clear_interrupt();
 
     int nb_to_turn = 3;
     reservoir_rotate(nb_to_turn);
@@ -989,10 +1014,6 @@ void setup()
   printf("Initialization Done\n");
 
 
-  //request_store_plants();
-
-
-
   // Switch led ON to indicate that we're running
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
 
@@ -1009,17 +1030,41 @@ void loop()
   // Print distances
   // printf("Left: %d mm, Right: %d mm\n", sensors[LEFT].get_dist_mm(), sensors[RIGHT].get_dist_mm());
 
-  store_plants_spin_once();
 
-  if (reservoir_state.nb_stored == 4)
+
+  // Update champi_state
+
+  if(system_state.current_action==FREE)
   {
-    push_one_plant_out();
-    push_one_plant_out();
-    push_one_plant_out();
-    push_one_plant_out();
+    status_msg.action = msgs_can_ActActions_FREE;
+  }
+  else if(system_state.current_action==STORING)
+  {
+    status_msg.action = msgs_can_ActActions_START_GRAB_PLANTS;
+  }
+  else if(system_state.current_action==PUTTING_OUT)
+  {
+    status_msg.action = msgs_can_ActActions_RELEASE_PLANT;
   }
 
+  status_msg.plant_count = reservoir_state.nb_stored;
+
+  champi_state.report_status(status_msg);
+
   champi_state.spin_once(); // Send status on CAN bus
+
+
+
+
+  store_plants_spin_once();
+
+  if (system_state.current_action==PUTTING_OUT)
+  {
+
+    push_one_plant_out();
+    system_state.current_action = FREE_CIRCLE_OUT;
+  }
+
 
 }
 
