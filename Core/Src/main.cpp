@@ -345,7 +345,7 @@ std::vector<int> hoppers_pos_close = {600, 430};
 // =============================================== DEFINES FILDEFER ===============================================
 
 #define FILDEFER_ID 18
-#define FILDEFER_POS_CLOSED 400
+#define FILDEFER_POS_CLOSED 450
 #define FILDEFER_POS_HIDDEN 200
 
 // =============================================== DEFINES PLANT OUTPUT ===============================================
@@ -355,8 +355,8 @@ std::vector<int> hoppers_pos_close = {600, 430};
 #define SERVO_CIRCLE_POS_CLOSE 540
 #define SERVO_CIRCLE_POS_OPEN 950
 #define SERVO_CIRCLE_POS_OPEN_MORE 1023
-#define SERVO_PUSH_POSE_PUSHED 220
-#define SERVO_PUSH_POSE_RETRACTED 440
+#define SERVO_PUSH_POSE_PUSHED 200
+#define SERVO_PUSH_POSE_RETRACTED 420
 
 
 // ================================ DECLARE / INITIALIZE ACTUATORS / SENSORS OBJECTS ===================================
@@ -805,22 +805,22 @@ void push_one_plant_out()
     system_state.current_action = FREE;
     return;
   }
-  HAL_Delay(2000);
+  // HAL_Delay(2000);
   // rotate the reservoir to the right position
   printf("rotate the reservoir to the right position\n");
   reservoir_rotate(nb_slot_till_next_plant );
-  HAL_Delay(2000);
+  // HAL_Delay(2000);
 
 
   // rotate the reservoir by the right offset
   printf("align reservoir \n");
   reservoir_align_with_output();
-  HAL_Delay(2000);
+  // HAL_Delay(2000);
   printf("open circle \n");
   open_circle_plant();
   printf("push plant \n");
   push_plant();
-  HAL_Delay(1300);
+  HAL_Delay(500);
   printf("retract servo plant \n");
   retract_servo_plant();
   printf("retract circle\n");
@@ -829,8 +829,14 @@ void push_one_plant_out()
   reservoir_realign_back();
 
   // update reservoir state at the head + 5
-  printf("on veut enlever à %d \n",(reservoir_state.head+5-nb_slot_till_next_plant)%reservoir_state.slots.size());
-  reservoir_state.slots[(reservoir_state.head+5-nb_slot_till_next_plant) % reservoir_state.slots.size()] = false;
+  int slot = reservoir_state.head+5-nb_slot_till_next_plant;
+  if (slot <0) {
+    slot += reservoir_state.slots.size();
+  } else {
+    slot = slot % reservoir_state.slots.size();
+  }
+  printf("on veut enlever à %d \n",slot);
+  reservoir_state.slots[(slot)] = false;
   reservoir_state.nb_stored--;
   reservoir_state.head = reservoir_state.head - nb_slot_till_next_plant;
   if (reservoir_state.head < 0)
@@ -853,7 +859,7 @@ bool hopper_wait_and_close_spin_once(int side)
 {
   // Check if distance < 50mm for left plant
   int dist = sensors[side].get_dist_mm();
-  if(dist < 50)
+  if(dist < 70)
   {
     // Close the hopper
     hopper_close(side);
@@ -886,18 +892,18 @@ void store_plants_spin_once()
   if(system_state.hopper_left_closed && system_state.hopper_right_closed)
   {
     HAL_Delay(1500); // Because hoppers functions are not blocking // TODO ADD NON BLOCKING DELAY
+    hide_fildefer();
     lift_go_up();
     grabber_extend();
     HAL_Delay(500);
     lift_go_middle();
+    close_fildefer();
     grabber_retract(false);
     lift_go_down();
-    hide_fildefer();
-    HAL_Delay(2000);
-    close_fildefer();
+    // HAL_Delay(2000);
     hopper_open(LEFT);
     hopper_open(RIGHT);
-    HAL_Delay(2000);
+    // HAL_Delay(1000);
     hide_fildefer();
     system_state.hopper_left_closed = false;
     system_state.hopper_right_closed = false;
