@@ -400,8 +400,8 @@ struct SystemState
 struct ReservoirState
 {
   // array containing the state of each slot (in the clockwise order)
-  std::vector<bool> slots = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
-  // head. At initialization, it is pointing to the first slot (which is the left slot of the grabber)
+  std::vector<bool> slots = {false, false, false, false, false, false, false, false, false, false, false, false, false, false};
+  // head. At initialization, it is pointing to the first slot (which is the left slot of the grabber (seen from front of the robot))
   int head = 0;
   int nb_stored = 0;
 } reservoir_state;
